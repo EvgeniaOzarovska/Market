@@ -1,0 +1,14 @@
+.button {
+  width: 150px;
+  height: 30px;
+  border: 1px solid grey;
+  background-color: transparent;
+  color: black;
+  margin: 5px 10px;
+
+  &:hover {
+    color: whitesmoke;
+    background-color: slategrey;
+    border-color: whitesmoke;
+  }
+}
