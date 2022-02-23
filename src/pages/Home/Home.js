@@ -33,7 +33,6 @@ export const Home = () => {
         <div className={styles.section}>
           <ItemCard alt='card' src={Card}/>
           <Button>Buy</Button>
-
         </div>
       </div>
       <Footer>
