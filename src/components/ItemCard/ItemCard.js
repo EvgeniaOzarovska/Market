@@ -5,6 +5,5 @@ export const ItemCard = (props) => {
     <img {...props}
       alt={props}
       className={merge(styles.card, props.className)} />
-    <p className={styles.card}>{props.children}</p>
   </div>
 }

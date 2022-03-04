@@ -10,6 +10,7 @@ import { Footer } from "../../components/Footer";
 import styles from './Home.module.scss'
 import { ItemCard } from "../../components/ItemCard";
 import { Button } from "../../components/Button";
+import { Search } from "../../components/Search";
 
 export const Home = () => {
   return (
@@ -17,6 +18,7 @@ export const Home = () => {
 
       <Header>
         <LogoText />
+        <Search/>
         <Icon alt='shopping cart' src={ShoppingCartIcon} />
       </Header>
 
@@ -28,13 +30,15 @@ export const Home = () => {
         <Category>Sanitary ware</Category>
         <Category>Watch</Category>
       </Sidebar>
+      </div>
+
         <div className={styles.product_block}>
         <div className={styles.productCard}>
           <ItemCard alt='card' src={Product}/>
           <Button>Buy</Button>
         </div>
         <div className={styles.productCard}>
-          <ItemCard alt='card' src={Product}/>
+          <ItemCard alt='card' src={Product} />
           <Button>Buy</Button>
         </div>
         <div className={styles.productCard}>
@@ -53,7 +57,30 @@ export const Home = () => {
           <ItemCard alt='card' src={Product}/>
           <Button>Buy</Button>
         </div>
-      </div>
+          <div className={styles.productCard}>
+            <ItemCard alt='card' src={Product}/>
+            <Button>Buy</Button>
+          </div>
+          <div className={styles.productCard}>
+            <ItemCard alt='card' src={Product}/>
+            <Button>Buy</Button>
+          </div>
+          <div className={styles.productCard}>
+            <ItemCard alt='card' src={Product}/>
+            <Button>Buy</Button>
+          </div>
+          <div className={styles.productCard}>
+            <ItemCard alt='card' src={Product}/>
+            <Button>Buy</Button>
+          </div>
+          <div className={styles.productCard}>
+            <ItemCard alt='card' src={Product}/>
+            <Button>Buy</Button>
+          </div>
+          <div className={styles.productCard}>
+            <ItemCard alt='card' src={Product}/>
+            <Button>Buy</Button>
+          </div>
       </div>
 
       <Footer>
