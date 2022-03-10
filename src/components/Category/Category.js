@@ -1,4 +1,4 @@
 import styles from './Category.module.scss'
 export const Category =(props) => {
-    return <a className={styles.link} href={props.children}> {props.children}</a>
+    return <a {...props} className={styles.link}> {props.children}</a>
 }

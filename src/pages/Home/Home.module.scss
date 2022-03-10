@@ -10,10 +10,17 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px 2px;
-    overflow-y: auto;
     margin: 150px 200px;
 
+
     .productCard{
+      margin: 0 auto;
+    }
+    .title_product{
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px 0;
 
     }
   }

@@ -1,3 +1,3 @@
 export { history } from './history';
 export { Router } from './Router';
-export { ROUTES } from './routes';
+export { Routes } from './Routes';

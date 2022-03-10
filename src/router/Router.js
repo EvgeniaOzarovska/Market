@@ -1,13 +1,12 @@
 import { Route, Switch } from 'react-router-dom';
-import { ROUTES } from './routes';
+import { Routes } from './Routes';
 import { Home } from '../pages/Home';
 import { PageNotFound } from '../pages/System/PageNotFound';
 
+
 export const Router = () => (
   <Switch>
-    <Route exact path={ROUTES.Auth.Home} component={Home} />
-
-    {/** System pages */}
+    <Route exact path={Routes.Auth.Home} component={Home} />
     <Route component={PageNotFound} />
   </Switch>
 );
