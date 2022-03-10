@@ -5,11 +5,20 @@
   height: 150px;
   padding: 5px 10px;
   background-color: lightsteelblue;
+  border-bottom: 1px solid grey;
 
-  &.footer{
-    position: fixed;
-    bottom: 0;
-    height: 80px;
-    padding: 5px;
+  .reg_section{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    .link{
+      margin: 15px;
+
+      &:hover{
+        border-bottom: 2px solid darkslateblue;
+      }
+    }
   }
+
 }

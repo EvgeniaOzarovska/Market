@@ -1,4 +1,27 @@
 export const HardCoddedData = {
+  categories:[
+    {
+      name: 'Smartphone',
+      key: 'smartphone'
+    },
+    {
+      name: 'Fitness Equipment',
+      key: 'fitness_equipment',
+    },
+    {
+      name: 'Furniture',
+      key: 'furniture',
+    },
+    {
+      name: 'Sanitary Ware',
+      key: 'sanitary_ware',
+    },
+    {
+      name: 'Watch',
+      key: 'watch',
+    }
+  ],
+
   smartphone:[
     {
       name: "Xiaomi Redmi Note 10",

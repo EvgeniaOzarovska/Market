@@ -1,6 +1,7 @@
 import  styles from './Footer.module.scss'
-export const Footer = (props) => {
+import { LogoText } from "../LogoText";
+export const Footer = () => {
     return <div className={styles.footer}>
-        {props.children}
+        <LogoText/>
     </div>
 }
