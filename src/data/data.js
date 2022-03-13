@@ -126,6 +126,42 @@ export const HardCoddedData = {
       name: "Huawei Band 6",
       pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg",
       price: 1650
-    }
+    },
+    {
+      name: "Redmi Watch 2 Lite Black",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg",
+      price: 2300
+    },
+    {
+      name: "Apple Watch Series 7",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg",
+      price: 15000
+    },
+    {
+      name: "Xiaomi Mi Watch Blue",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg",
+      price: 4000
+    },
+    {
+      name: "Huawei Band 6",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg",
+      price: 1650
+    },
+    {
+      name: "Redmi Watch 2 Lite Black",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg",
+      price: 2300
+    },
+    {
+      name: "Apple Watch Series 7",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg",
+      price: 15000
+    },
+    {
+      name: "Xiaomi Mi Watch Blue",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg",
+      price: 4000
+    },
+
   ]
 }

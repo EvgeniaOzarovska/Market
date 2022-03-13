@@ -1,26 +1,24 @@
+.section {
+  //position: fixed;
+  //top: 140px;
+  //left: 200px;
+  //right: 0;
+  //bottom: 150px;
+}
+.product_block {
+  position: fixed;
+  top: 140px;
+  left: 200px;
+  right: 0;
+  bottom: 50px;
+  justify-items: center;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px 2px;
+  overflow-y: auto;
 
-  .section{
-    width: 200px;
-    height: 100%;
-    background-color: grey;
+  .productCard {
+    padding: 20px
   }
-  .product_block{
-    width: 80%;
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px 2px;
-    margin: 150px 200px;
-
-
-    .productCard{
-      margin: 0 auto;
-    }
-    .title_product{
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-      padding: 15px 0;
-
-    }
-  }
+}

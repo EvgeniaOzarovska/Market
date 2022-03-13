@@ -4,8 +4,8 @@ import { Page } from '../../components/Page';
 import { Sidebar } from '../../components/Sidebar';
 import { Category } from '../../components/Category';
 import { ItemCard } from '../../components/ItemCard';
-import { Button } from '../../components/Button';
 import styles from './Home.module.scss';
+import { Search } from "../../components/Search";
 
 export const Home = () => {
   const [list, setList] = useState(HardCoddedData.smartphone);
@@ -14,10 +14,7 @@ export const Home = () => {
     return list.map((item, index) => {
       return (
         <div key={index} className={styles.productCard}>
-          <p className={styles.title_product}>{item.name}</p>
-          <ItemCard alt="card" src={item.pic} />
-          <p className={styles.title_product}>{item.price} </p>
-          <Button>Buy</Button>
+            <ItemCard pic={item.pic} name={item.name} price={item.price}/>
         </div>
       );
     });
@@ -39,6 +36,7 @@ export const Home = () => {
   return (
     <Page>
       <div className={styles.section}>
+        <Search/>
         <Sidebar>
           {renderCategory()}
         </Sidebar>

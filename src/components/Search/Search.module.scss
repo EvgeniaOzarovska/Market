@@ -1,10 +1,9 @@
 .input{
-  width: 320px;
-  height: 30px;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  position: fixed;
+  top: 100px;
+  left: 200px;
+  width: 100%;
   padding: 10px;
-  background-color: whitesmoke;
   border: 2px solid darkgrey;
-  border-radius: 5px;
+  background-color: aliceblue;
 }
