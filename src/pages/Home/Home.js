@@ -5,8 +5,8 @@ import { Category } from '../../components/Category';
 import { ItemCard } from '../../components/ItemCard';
 import styles from './Home.module.scss';
 import { Search } from '../../components/Search';
-import { Page } from "../../components/Page";
-import { Button } from "../../components/Button";
+import { Page } from '../../components/Page';
+import { Button } from '../../components/Button';
 
 
 export const Home = () => {
@@ -36,7 +36,7 @@ export const Home = () => {
     });
   };
   return (
-    <div className={styles.container} withSidebar={true}>
+    <main className={styles.container}>
         <Sidebar>
           {renderCategory()}
         </Sidebar>
@@ -47,6 +47,6 @@ export const Home = () => {
         </div>
         <div className={styles.product_block}>{renderData()}</div>
     </Page>
-    </div>
+    </main>
   );
 };
