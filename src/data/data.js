@@ -1,0 +1,167 @@
+export const HardCoddedData = {
+  categories:[
+    {
+      name: 'Smartphone',
+      key: 'smartphone'
+    },
+    {
+      name: 'Fitness Equipment',
+      key: 'fitness_equipment',
+    },
+    {
+      name: 'Furniture',
+      key: 'furniture',
+    },
+    {
+      name: 'Sanitary Ware',
+      key: 'sanitary_ware',
+    },
+    {
+      name: 'Watch',
+      key: 'watch',
+    }
+  ],
+
+  smartphone:[
+    {
+      name: "Xiaomi Redmi Note 10",
+      pic: "https://i01.appmifile.com/webfile/globalimg/gaoruijia/RN-10-Black-1600.png",
+      price: 10500
+    },
+    {
+      name: "Samsung Galaxy S21 Ultra",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/s/m/sm-g998_s21ultra_phantom_black_back_201110_.jpg",
+      price: 29999
+    },
+    {
+      name: "Apple iPhone 13 Pro Max",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/i/p/iphone-13-pro-max-blue-select__2.jpg",
+      price: 49499
+    },
+    {
+      name: "ZTE BLADE V30 Vita",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/7/8/789678456345345567.jpg",
+      price: 5499
+    },
+    {
+      name: "OPPO A53",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/o/p/oppo-bacon-blue-full_1__result.jpg",
+      price: 6250
+    }
+  ],
+  furniture: [
+    {
+      name: "King Bed",
+      pic: "https://cdn.shopify.com/s/files/1/1003/0788/products/RS1284_TR_WhitehallBedroom_m_mc_4828-4823-scr.jpg?v=1593463789",
+      price: 23000
+    },
+    {
+      name: "Bedroom Dresser",
+      pic: "https://cdn.shopify.com/s/files/1/1003/0788/products/4520672_6826d0b7-d1fe-48d8-965f-7dd81370d1f2.png?v=1630434412",
+      price: 17300
+    },
+    {
+      name: "Furniture Back Side Chair",
+      pic: "https://cdn.shopify.com/s/files/1/1003/0788/products/686-c1501s_large_c1459258-e861-4b7d-8060-8b4ecb10ef92.jpg?v=1630424238",
+      price: 11900
+    },
+    {
+      name: "Dining Table",
+      pic: "https://cdn.shopify.com/s/files/1/1003/0788/products/ProductBackground_065b420c-db6b-4b76-b90c-1fdfa07be92a.png?v=1618844264",
+      price: 21050
+
+    }
+  ],
+  fitness_equipment: [
+    {
+      name: "Treadmill Run",
+      pic: "https://www.shop-ffittech.com/images/produtos/img1_499.jpg",
+      price: 38200
+    },
+    {
+      name: "Vertical Bike",
+      pic: "https://www.shop-ffittech.com/images/produtos/img1_500.jpg",
+      price: 31450
+    },
+    {
+      name: "Elliptical",
+      pic: "https://www.shop-ffittech.com/images/produtos/img1_502.png",
+      price: 29550
+    },
+    {
+      name: "Stepmill",
+      pic: "https://www.shop-ffittech.com/images/produtos/img1_1127.png",
+      price: 22050
+    }
+  ],
+  sanitary_ware: [
+    {
+      name: "BATH GLOSSY",
+      pic: "https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg",
+      price: 58200
+    },
+    {
+      name: "BATH GLOSSY",
+      pic: "https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg",
+      price: 58200
+    }
+  ],
+  watch: [
+    {
+      name: "Redmi Watch 2 Lite Black",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg",
+      price: 2300
+    },
+    {
+      name: "Apple Watch Series 7",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg",
+      price: 15000
+    },
+    {
+      name: "Xiaomi Mi Watch Blue",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg",
+      price: 4000
+    },
+    {
+      name: "Huawei Band 6",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg",
+      price: 1650
+    },
+    {
+      name: "Redmi Watch 2 Lite Black",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg",
+      price: 2300
+    },
+    {
+      name: "Apple Watch Series 7",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg",
+      price: 15000
+    },
+    {
+      name: "Xiaomi Mi Watch Blue",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg",
+      price: 4000
+    },
+    {
+      name: "Huawei Band 6",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg",
+      price: 1650
+    },
+    {
+      name: "Redmi Watch 2 Lite Black",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg",
+      price: 2300
+    },
+    {
+      name: "Apple Watch Series 7",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg",
+      price: 15000
+    },
+    {
+      name: "Xiaomi Mi Watch Blue",
+      pic: "https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg",
+      price: 4000
+    },
+
+  ]
+}

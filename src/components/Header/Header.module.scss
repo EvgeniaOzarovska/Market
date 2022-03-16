@@ -1,0 +1,20 @@
+.header{
+  height: 90px;
+  padding: 5px;
+  background-color: lightsteelblue;
+  border-bottom: 1px solid grey;
+
+  .reg_section{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    .link{
+      margin: 15px;
+
+      &:hover{
+        border-bottom: 2px solid darkslateblue;
+      }
+    }
+  }
+}
