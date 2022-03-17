@@ -1,9 +1,9 @@
 import styles from './Header.module.scss';
-import ShoppingCartIcon from '../Icon/shopping_cart.svg'
+import ShoppingCartIcon from '../Icon/shopping_cart.svg';
 import { LogoText } from '../LogoText';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../router';
-import { Icon } from "../Icon";
+import { Icon } from '../Icon';
 export const Header = () => {
   return (
     <header className={styles.header}>

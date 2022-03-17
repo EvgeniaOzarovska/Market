@@ -1,4 +1,4 @@
-import  styles from './Footer.module.scss'
+import  styles from './Footer.module.scss';
 export const Footer = () => {
     return <footer className={styles.footer}>
         <p>OUR ADRESS: Kharkiv, Sumska Street, 45</p>
@@ -6,5 +6,5 @@ export const Footer = () => {
             such as unique identifiers, sent by a device to personalise content,
             tailor and report on advertising and analyse our traffic.
         </p>
-    </footer>
-}
+    </footer>;
+};
