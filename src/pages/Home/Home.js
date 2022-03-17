@@ -5,8 +5,8 @@ import { Category } from '../../components/Category';
 import { ItemCard } from '../../components/ItemCard';
 import styles from './Home.module.scss';
 import { Search } from '../../components/Search';
-import { Page } from '../../components/Page'
-import { Button } from '../../components/Button'
+import { Page } from '../../components/Page';
+import { Button } from '../../components/Button';
 
 export const Home = () => {
   const [list, setList] = useState(HardCoddedData.smartphone);
