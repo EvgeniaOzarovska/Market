@@ -6,7 +6,8 @@ export const ItemCard = props => {
     <div className={styles.card_block}>
       <h3 className={styles.name}>{props.name}</h3>
       <img alt={props.name} src={props.pic} className={styles.card} />
-      <p className={styles.price}>{props.price} </p>
+      <p className={styles.description}>{props.description}</p>
+      <p className={styles.price}>{props.price}</p>
       <Button type="button">Buy</Button>
     </div>
   );

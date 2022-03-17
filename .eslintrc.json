@@ -2,6 +2,10 @@
   "extends": ["react-app", "react-app/jest"],
   "rules": {
     "react-hooks/exhaustive-deps": "off",
-    "jsx-a11y/img-redundant-alt": "off"
+    "jsx-a11y/img-redundant-alt": "off",
+    "no-console": "error",
+    "quotes": ["error", "single"],
+    "eol-last": ["error", "always"],
+    "semi": [2, "always"]
   }
 }
