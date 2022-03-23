@@ -7,6 +7,7 @@ import styles from './Home.module.scss';
 import { Search } from '../../components/Search';
 import { Page } from '../../components/Page';
 import { Button } from '../../components/Button';
+import { messages } from '../../constants/messages';
 
 export const Home = () => {
   const [list, setList] = useState(HardCoddedData.smartphone);
@@ -29,12 +30,13 @@ export const Home = () => {
   };
 
   const renderCategory = () => {
-    return HardCoddedData.categories.map((item, index) => {
+    return HardCoddedData.categories.map(item => {
       return (
         <Category
           onClick={() => {
             setList(HardCoddedData[item.key]);
             setCategory(item.key);
+            setText('');
           }}
         >
           {item.name}
@@ -45,10 +47,10 @@ export const Home = () => {
 
   const search = () => {
     if (text === '') {
-      setList(HardCoddedData[category]);
+      return setList(HardCoddedData.smartphone);
     } else {
       const newList = HardCoddedData[category].filter(items =>
-        items.name.toLowerCase().includes(text.toLowerCase()),
+        items.name.toLowerCase().includes(text.trim().toLowerCase()),
       );
       setList(newList);
     }
@@ -66,6 +68,7 @@ export const Home = () => {
             }}
           />
           <Button
+            disabled={text === ''}
             onClick={event => {
               event.preventDefault();
               search();
@@ -74,7 +77,11 @@ export const Home = () => {
             Search
           </Button>
         </div>
-        <div className={styles.product_block}>{renderData()}</div>
+        {list.length > 0 ? (
+          <div className={styles.product_block}>{renderData()}</div>
+        ) : (
+          <div className={styles.message}>{messages.recordsNotFound}</div>
+        )}
       </Page>
     </main>
   );

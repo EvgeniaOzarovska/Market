@@ -3,7 +3,7 @@
   flex-direction: row;
   flex: 1;
 
-  .search_block{
+  .search_block {
     display: flex;
     flex-direction: row;
   }
@@ -16,7 +16,13 @@
     overflow-y: auto;
 
     .productCard {
-      padding: 20px
+      padding: 20px;
     }
+  }
+  .message{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 30px
   }
 }

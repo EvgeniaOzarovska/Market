@@ -5,11 +5,27 @@
   background-color: transparent;
   color: black;
 
-
-  &:hover {
+  &:not(:disabled):hover {
     color: whitesmoke;
     background-color: slategrey;
     border-color: whitesmoke;
     transition: 0.3s;
   }
+
+  &:disabled {
+    cursor: auto;
+    opacity: 0.5;
+  }
+
+  //&:hover {
+  //  color: whitesmoke;
+  //  background-color: slategrey;
+  //  border-color: whitesmoke;
+  //  transition: 0.3s;
+  //}
+  //
+  //&:disabled {
+  //  cursor: auto;
+  //  opacity: 0.5;
+  //}
 }
