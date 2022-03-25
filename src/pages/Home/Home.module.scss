@@ -3,11 +3,6 @@
   flex-direction: row;
   flex: 1;
 
-  .search_block {
-    display: flex;
-    flex-direction: row;
-  }
-
   .product_block {
     justify-items: center;
     display: grid;
@@ -19,10 +14,10 @@
       padding: 20px;
     }
   }
-  .message{
+  .message {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    padding-top: 30px
+    padding-top: 30px;
   }
 }

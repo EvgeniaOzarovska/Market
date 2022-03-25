@@ -6,13 +6,12 @@ import { ItemCard } from '../../components/ItemCard';
 import styles from './Home.module.scss';
 import { Search } from '../../components/Search';
 import { Page } from '../../components/Page';
-import { Button } from '../../components/Button';
-import { messages } from '../../constants/messages';
+import { ErrorMessages } from '../../constants/messages';
+import { Info } from '../../components/Info';
 
 export const Home = () => {
   const [list, setList] = useState(HardCoddedData.smartphone);
   const [category, setCategory] = useState('smartphone');
-  const [text, setText] = useState('');
 
   const renderData = () => {
     return list.map((item, index) => {
@@ -28,29 +27,29 @@ export const Home = () => {
       );
     });
   };
+  const setData = item => {
+    setList(HardCoddedData[item.key]);
+    setCategory(item.key);
+  };
 
   const renderCategory = () => {
     return HardCoddedData.categories.map(item => {
       return (
-        <Category
-          onClick={() => {
-            setList(HardCoddedData[item.key]);
-            setCategory(item.key);
-            setText('');
-          }}
-        >
+        <Category key={item.key} onClick={() => setData(item)}>
           {item.name}
         </Category>
       );
     });
   };
 
-  const search = () => {
+  const search = text => {
     if (text === '') {
-      return setList(HardCoddedData.smartphone);
+      return setList(HardCoddedData[category]);
     } else {
-      const newList = HardCoddedData[category].filter(items =>
-        items.name.toLowerCase().includes(text.trim().toLowerCase()),
+      const newList = HardCoddedData[category].filter(
+        items =>
+          items.name.toLowerCase().includes(text.trim().toLowerCase()) ||
+          items.description.toLowerCase().includes(text.trim().toLowerCase()),
       );
       setList(newList);
     }
@@ -60,27 +59,11 @@ export const Home = () => {
     <main className={styles.container}>
       <Sidebar>{renderCategory()}</Sidebar>
       <Page>
-        <div className={styles.search_block}>
-          <Search
-            onChange={event => {
-              event.preventDefault();
-              setText(event.target.value);
-            }}
-          />
-          <Button
-            disabled={text === ''}
-            onClick={event => {
-              event.preventDefault();
-              search();
-            }}
-          >
-            Search
-          </Button>
-        </div>
+        <Search onSearch={search} />
         {list.length > 0 ? (
-          <div className={styles.product_block}>{renderData()}</div>
+          <Info className={styles.product_block}>{renderData()}</Info>
         ) : (
-          <div className={styles.message}>{messages.recordsNotFound}</div>
+          <Info className={styles.message}>{ErrorMessages.recordsNotFound}</Info>
         )}
       </Page>
     </main>

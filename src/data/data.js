@@ -44,7 +44,7 @@ export const HardCoddedData = {
     {
       name: 'ZTE BLADE V30 Vita',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/7/8/789678456345345567.jpg',
-      description: 'An instrument that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
+      description: 'An instrument string that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 5499
     },
     {
