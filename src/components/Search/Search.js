@@ -8,7 +8,7 @@ export const Search = props => {
   const { limit = 25, onSearch } = props;
   const [value, setValue] = useState('');
   return (
-    <div className={styles.block}>
+    <div>
       <form
         className={styles.search_block}
         onSubmit={event => {
@@ -18,18 +18,20 @@ export const Search = props => {
       >
         <input
           value={value}
-          maxLength={limit}
           onChange={event => {
-            setValue(event.target.value.substring(0, limit));
-            if (event.target.value.length === 0) {
-              onSearch('');
-            }
+            setValue(event.target.value);
           }}
           className={styles.input}
         />
-        <Button type="submit">Search</Button>
+        <Button disabled={value.length > limit} type="submit">
+          Search
+        </Button>
       </form>
-      {value.length === limit && <Info>{ErrorMessages.errorSearch}</Info>}
+      <div className={styles.blockWithError}>
+        {(value.length > limit && <Info>{ErrorMessages.errorSearch}</Info>) || (
+          <Info className={styles.block}> </Info>
+        )}
+      </div>
     </div>
   );
 };
