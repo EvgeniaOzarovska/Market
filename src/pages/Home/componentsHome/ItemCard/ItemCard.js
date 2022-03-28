@@ -1,5 +1,5 @@
 import styles from './ItemCard.module.scss';
-import { Button } from '../Button';
+import { Button } from '../../../../components/Button';
 
 export const ItemCard = props => {
   return (

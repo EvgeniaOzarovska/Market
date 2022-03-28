@@ -1,8 +1,8 @@
 import styles from './Search.module.scss';
-import { Button } from '../Button';
+import { Button } from '../../../../components/Button';
 import { useState } from 'react';
-import { Info } from '../Info';
-import { ErrorMessages } from '../../constants/messages';
+import { Info } from '../../../../components/Info';
+import { ErrorMessages } from '../../../../constants/messages';
 
 export const Search = props => {
   const { limit = 25, onSearch } = props;
@@ -29,7 +29,7 @@ export const Search = props => {
       </form>
       <div className={styles.blockWithError}>
         {(value.length > limit && <Info>{ErrorMessages.errorSearch}</Info>) || (
-          <Info className={styles.block}> </Info>
+          <div className={styles.block}> </div>
         )}
       </div>
     </div>

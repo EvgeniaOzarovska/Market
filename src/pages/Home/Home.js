@@ -1,13 +1,14 @@
 import { HardCoddedData } from '../../data/data';
 import { useState } from 'react';
-import { Sidebar } from '../../components/Sidebar';
-import { Category } from '../../components/Category';
-import { ItemCard } from '../../components/ItemCard';
+import { Sidebar } from './componentsHome/Sidebar';
+import { Category } from './componentsHome/Category';
+import { ItemCard } from './componentsHome/ItemCard';
 import styles from './Home.module.scss';
-import { Search } from '../../components/Search';
+import { Search } from './componentsHome/Search';
 import { Page } from '../../components/Page';
 import { ErrorMessages } from '../../constants/messages';
 import { Info } from '../../components/Info';
+import { ProductBlock } from './componentsHome/ProductBlock';
 
 export const Home = () => {
   const [list, setList] = useState(HardCoddedData.smartphone);
@@ -61,7 +62,7 @@ export const Home = () => {
       <Page>
         <Search onSearch={search} />
         {list.length > 0 ? (
-          <Info className={styles.product_block}>{renderData()}</Info>
+          <ProductBlock className={styles.product_block}>{renderData()}</ProductBlock>
         ) : (
           <Info className={styles.message}>{ErrorMessages.recordsNotFound}</Info>
         )}
