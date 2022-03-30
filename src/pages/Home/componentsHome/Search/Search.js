@@ -22,7 +22,13 @@ export const Search = props => {
         }}
       >
         <input value={value} onChange={SearchFunction} className={styles.input} />
-        <Button disabled={value.length > limit} type="submit">
+        <Button
+          disabled={value.length > limit}
+          onClick={event => {
+            event.preventDefault();
+            onSearch(value);
+          }}
+        >
           Search
         </Button>
       </form>
