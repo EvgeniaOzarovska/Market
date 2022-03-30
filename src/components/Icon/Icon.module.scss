@@ -9,4 +9,11 @@
     cursor: pointer;
     transition: 0.3s;
   }
+
+  &.iconProblem {
+    height: 30px;
+    float: none;
+    text-align: center;
+    border: none;
+  }
 }

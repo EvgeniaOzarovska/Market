@@ -16,7 +16,7 @@ export const Header = () => {
           Sign Up
         </Link>
       </div>
-      <Icon alt="shopping cart" src={ShoppingCartIcon} />
+      <Icon colorSchema="icon" alt="shopping cart" src={ShoppingCartIcon} />
     </header>
   );
 };

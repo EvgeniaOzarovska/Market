@@ -1,1 +1,1 @@
-export {LogoText} from './LogoText';
+export { LogoText } from './LogoText';

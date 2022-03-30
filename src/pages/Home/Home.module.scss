@@ -4,6 +4,7 @@
   flex: 1;
 
   .product_block {
+    margin-top: 16px;
     justify-items: center;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -8,9 +8,9 @@ import { Footer } from './components/Footer';
 function App() {
   return (
     <ReactRouter history={history}>
-      <Header/>
+      <Header />
       <Router />
-      <Footer/>
+      <Footer />
     </ReactRouter>
   );
 }

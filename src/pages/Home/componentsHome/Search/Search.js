@@ -7,6 +7,11 @@ import { ErrorMessages } from '../../../../constants/messages';
 export const Search = props => {
   const { limit = 25, onSearch } = props;
   const [value, setValue] = useState('');
+
+  const SearchFunction = event => {
+    setValue(event.target.value);
+  };
+
   return (
     <div>
       <form
@@ -16,21 +21,13 @@ export const Search = props => {
           onSearch(value);
         }}
       >
-        <input
-          value={value}
-          onChange={event => {
-            setValue(event.target.value);
-          }}
-          className={styles.input}
-        />
+        <input value={value} onChange={SearchFunction} className={styles.input} />
         <Button disabled={value.length > limit} type="submit">
           Search
         </Button>
       </form>
       <div className={styles.blockWithError}>
-        {(value.length > limit && <Info>{ErrorMessages.errorSearch}</Info>) || (
-          <div className={styles.block}> </div>
-        )}
+        {value.length > limit && <Info>{ErrorMessages.errorSearch}</Info>}
       </div>
     </div>
   );
