@@ -9,7 +9,7 @@ export const Search = props => {
   const { limit = 25, onSearch, currentCategory } = props;
   const [value, setValue] = useState('');
 
-  const SearchFunction = event => {
+  const searchFunction = event => {
     setValue(event.target.value);
   };
 
@@ -32,7 +32,7 @@ export const Search = props => {
       <div className={styles.search_block}>
         <input
           value={value}
-          onChange={SearchFunction}
+          onChange={searchFunction}
           onKeyDown={event => event.key === 'Enter' && search()}
           className={styles.input}
         />
