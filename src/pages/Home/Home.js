@@ -17,25 +17,13 @@ export const Home = () => {
     setCategory(item.key);
   };
 
-  const search = text => {
-    const trimmedText = text.trim().toLowerCase();
-    if (text === '') {
-      return setList(HardCoddedData[category]);
-    } else {
-      const newList = HardCoddedData[category].filter(
-        item =>
-          item.name.toLowerCase().includes(trimmedText) ||
-          item.description.toLowerCase().includes(trimmedText),
-      );
-      setList(newList);
-    }
-  };
+  const searchResult = newList => setList(newList);
 
   return (
     <main className={styles.container}>
       <Sidebar setValue={setData} />
       <Page>
-        <Search onSearch={search} />
+        <Search onSearch={searchResult} currentCategory={category} />
         {list.length > 0 ? (
           <ProductBlock className={styles.product_block} productList={list} />
         ) : (

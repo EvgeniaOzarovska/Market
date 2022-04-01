@@ -3,35 +3,43 @@ import { Button } from '../../../../components/Button';
 import { useState } from 'react';
 import { Info } from '../../../../components/Info';
 import { ErrorMessages } from '../../../../constants/messages';
+import { HardCoddedData } from '../../../../data/data';
 
 export const Search = props => {
-  const { limit = 25, onSearch } = props;
+  const { limit = 25, onSearch, currentCategory } = props;
   const [value, setValue] = useState('');
 
   const SearchFunction = event => {
     setValue(event.target.value);
   };
 
+  const search = () => {
+    const trimmedText = value.trim().toLowerCase();
+    if (value === '') {
+      return onSearch(HardCoddedData[currentCategory]);
+    } else {
+      const newList = HardCoddedData[currentCategory].filter(
+        item =>
+          item.name.toLowerCase().includes(trimmedText) ||
+          item.description.toLowerCase().includes(trimmedText),
+      );
+      onSearch(newList);
+    }
+  };
+
   return (
     <div>
-      <form
-        className={styles.search_block}
-        onSubmit={event => {
-          event.preventDefault();
-          onSearch(value);
-        }}
-      >
-        <input value={value} onChange={SearchFunction} className={styles.input} />
-        <Button
-          disabled={value.length > limit}
-          onClick={event => {
-            event.preventDefault();
-            onSearch(value);
-          }}
-        >
+      <div className={styles.search_block}>
+        <input
+          value={value}
+          onChange={SearchFunction}
+          onKeyDown={event => event.key === 'Enter' && search()}
+          className={styles.input}
+        />
+        <Button disabled={value.length > limit} onClick={search}>
           Search
         </Button>
-      </form>
+      </div>
       <div className={styles.blockWithError}>
         {value.length > limit && <Info>{ErrorMessages.errorSearch}</Info>}
       </div>
