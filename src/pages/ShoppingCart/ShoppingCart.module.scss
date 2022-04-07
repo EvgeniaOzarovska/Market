@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 10px 200px;
+}
+.mainBlock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .btnBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px;
+  }
+}

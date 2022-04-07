@@ -3,6 +3,6 @@ export const Routes = {
     Home: '/',
     Login: '/login',
     Reg: '/register',
-    Card: '/card',
+    ShoppingCart: '/shopping cart',
   },
 };

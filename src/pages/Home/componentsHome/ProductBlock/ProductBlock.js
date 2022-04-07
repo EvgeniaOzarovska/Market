@@ -9,6 +9,7 @@ export const ProductBlock = props => {
         return (
           <div key={index} className={styles.productCard}>
             <ItemCard
+              id={item.id}
               pic={item.pic}
               name={item.name}
               description={item.description}

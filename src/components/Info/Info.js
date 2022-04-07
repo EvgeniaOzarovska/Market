@@ -1,5 +1,5 @@
 import { Icon } from '../Icon';
-import problem from '../Icon/report_problem.svg';
+import problem from '../Icon/img/report_problem.svg';
 
 export const Info = props => {
   return (

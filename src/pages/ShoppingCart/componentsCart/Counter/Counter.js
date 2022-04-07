@@ -1,0 +1,29 @@
+import styles from './Counter.module.scss';
+import plus from '../../../../components/Icon/img/add_black_24dp.svg';
+import remove from '../../../../components/Icon/img/remove_black_24dp.svg';
+import { Icon } from '../../../../components/Icon';
+import { ShoppingCartContext } from '../../../../providers/ShoppingCartProvider';
+
+export const Counter = props => {
+  return (
+    <ShoppingCartContext.Consumer>
+      {({ updateItem }) => (
+        <div className={styles.addProduct}>
+          <Icon
+            colorSchema="iconCart"
+            src={plus}
+            alt={plus}
+            onClick={() => updateItem(props.id, 'plus')}
+          />
+          <p>{props.count}</p>
+          <Icon
+            colorSchema="iconCart"
+            src={remove}
+            alt={remove}
+            onClick={() => updateItem(props.id, 'minus')}
+          />
+        </div>
+      )}
+    </ShoppingCartContext.Consumer>
+  );
+};

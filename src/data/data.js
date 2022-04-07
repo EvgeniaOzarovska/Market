@@ -24,6 +24,7 @@ export const HardCoddedData = {
 
   smartphone: [
     {
+      id: 1,
       name: 'Xiaomi Redmi Note 10',
       pic: 'https://i01.appmifile.com/webfile/globalimg/gaoruijia/RN-10-Black-1600.png',
       description:
@@ -31,6 +32,7 @@ export const HardCoddedData = {
       price: 10500,
     },
     {
+      id: 2,
       name: 'Samsung Galaxy S21 Ultra',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/s/m/sm-g998_s21ultra_phantom_black_back_201110_.jpg',
       description:
@@ -38,6 +40,7 @@ export const HardCoddedData = {
       price: 29999,
     },
     {
+      id: 3,
       name: 'Apple iPhone 13 Pro Max',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/i/p/iphone-13-pro-max-blue-select__2.jpg',
       description:
@@ -45,6 +48,7 @@ export const HardCoddedData = {
       price: 49499,
     },
     {
+      id: 4,
       name: 'ZTE BLADE V30 Vita',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/7/8/789678456345345567.jpg',
       description:
@@ -52,6 +56,7 @@ export const HardCoddedData = {
       price: 5499,
     },
     {
+      id: 5,
       name: 'OPPO A53',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/o/p/oppo-bacon-blue-full_1__result.jpg',
       description:
@@ -61,6 +66,7 @@ export const HardCoddedData = {
   ],
   furniture: [
     {
+      id: 6,
       name: 'King Bed',
       pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/RS1284_TR_WhitehallBedroom_m_mc_4828-4823-scr.jpg?v=1593463789',
       description:
@@ -68,6 +74,7 @@ export const HardCoddedData = {
       price: 23000,
     },
     {
+      id: 7,
       name: 'Bedroom Dresser',
       pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/4520672_6826d0b7-d1fe-48d8-965f-7dd81370d1f2.png?v=1630434412',
       description:
@@ -75,6 +82,7 @@ export const HardCoddedData = {
       price: 17300,
     },
     {
+      id: 8,
       name: 'Furniture Back Side Chair',
       pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/686-c1501s_large_c1459258-e861-4b7d-8060-8b4ecb10ef92.jpg?v=1630424238',
       description:
@@ -82,6 +90,7 @@ export const HardCoddedData = {
       price: 11900,
     },
     {
+      id: 9,
       name: 'Dining Table',
       pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/ProductBackground_065b420c-db6b-4b76-b90c-1fdfa07be92a.png?v=1618844264',
       description:
@@ -91,6 +100,7 @@ export const HardCoddedData = {
   ],
   fitness_equipment: [
     {
+      id: 10,
       name: 'Treadmill Run',
       pic: 'https://www.shop-ffittech.com/images/produtos/img1_499.jpg',
       description:
@@ -98,6 +108,7 @@ export const HardCoddedData = {
       price: 38200,
     },
     {
+      id: 11,
       name: 'Vertical Bike',
       pic: 'https://www.shop-ffittech.com/images/produtos/img1_500.jpg',
       description:
@@ -105,6 +116,7 @@ export const HardCoddedData = {
       price: 31450,
     },
     {
+      id: 12,
       name: 'Elliptical',
       pic: 'https://www.shop-ffittech.com/images/produtos/img1_502.png',
       description:
@@ -112,6 +124,7 @@ export const HardCoddedData = {
       price: 29550,
     },
     {
+      id: 13,
       name: 'Stepmill',
       pic: 'https://www.shop-ffittech.com/images/produtos/img1_1127.png',
       description:
@@ -121,12 +134,14 @@ export const HardCoddedData = {
   ],
   sanitary_ware: [
     {
+      id: 14,
       name: 'BATH GLOSSY',
       pic: 'https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg',
       description: 'bathroom products for convenience and hygiene',
       price: 58200,
     },
     {
+      id: 15,
       name: 'BATH GLOSSY',
       pic: 'https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg',
       description: 'bathroom products for convenience and hygiene',
@@ -135,6 +150,7 @@ export const HardCoddedData = {
   ],
   watch: [
     {
+      id: 16,
       name: 'Redmi Watch 2 Lite Black',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
       description:
@@ -142,6 +158,7 @@ export const HardCoddedData = {
       price: 2300,
     },
     {
+      id: 17,
       name: 'Apple Watch Series 7',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
       description:
@@ -149,6 +166,7 @@ export const HardCoddedData = {
       price: 15000,
     },
     {
+      id: 18,
       name: 'Xiaomi Mi Watch Blue',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
       description:
@@ -156,6 +174,7 @@ export const HardCoddedData = {
       price: 4000,
     },
     {
+      id: 19,
       name: 'Huawei Band 6',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg',
       description:
@@ -163,6 +182,7 @@ export const HardCoddedData = {
       price: 1650,
     },
     {
+      id: 20,
       name: 'Redmi Watch 2 Lite Black',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
       description:
@@ -170,6 +190,7 @@ export const HardCoddedData = {
       price: 2300,
     },
     {
+      id: 21,
       name: 'Apple Watch Series 7',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
       description:
@@ -177,6 +198,7 @@ export const HardCoddedData = {
       price: 15000,
     },
     {
+      id: 22,
       name: 'Xiaomi Mi Watch Blue',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
       description:
@@ -184,6 +206,7 @@ export const HardCoddedData = {
       price: 4000,
     },
     {
+      id: 23,
       name: 'Huawei Band 6',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg',
       description:
@@ -191,6 +214,7 @@ export const HardCoddedData = {
       price: 1650,
     },
     {
+      id: 24,
       name: 'Redmi Watch 2 Lite Black',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
       description:
@@ -198,6 +222,7 @@ export const HardCoddedData = {
       price: 2300,
     },
     {
+      id: 25,
       name: 'Apple Watch Series 7',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
       description:
@@ -205,6 +230,7 @@ export const HardCoddedData = {
       price: 15000,
     },
     {
+      id: 26,
       name: 'Xiaomi Mi Watch Blue',
       pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
       description:
