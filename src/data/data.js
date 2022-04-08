@@ -26,7 +26,7 @@ export const HardCoddedData = {
     {
       id: 1,
       name: 'Xiaomi Redmi Note 10',
-      pic: 'https://i01.appmifile.com/webfile/globalimg/gaoruijia/RN-10-Black-1600.png',
+      image: 'https://i01.appmifile.com/webfile/globalimg/gaoruijia/RN-10-Black-1600.png',
       description:
         'An instrument that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 10500,
@@ -34,7 +34,7 @@ export const HardCoddedData = {
     {
       id: 2,
       name: 'Samsung Galaxy S21 Ultra',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/s/m/sm-g998_s21ultra_phantom_black_back_201110_.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/s/m/sm-g998_s21ultra_phantom_black_back_201110_.jpg',
       description:
         'An instrument that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 29999,
@@ -42,7 +42,7 @@ export const HardCoddedData = {
     {
       id: 3,
       name: 'Apple iPhone 13 Pro Max',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/i/p/iphone-13-pro-max-blue-select__2.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/i/p/iphone-13-pro-max-blue-select__2.jpg',
       description:
         'An instrument that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 49499,
@@ -50,7 +50,7 @@ export const HardCoddedData = {
     {
       id: 4,
       name: 'ZTE BLADE V30 Vita',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/7/8/789678456345345567.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/7/8/789678456345345567.jpg',
       description:
         'An instrument string that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 5499,
@@ -58,7 +58,7 @@ export const HardCoddedData = {
     {
       id: 5,
       name: 'OPPO A53',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/o/p/oppo-bacon-blue-full_1__result.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/o/p/oppo-bacon-blue-full_1__result.jpg',
       description:
         'An instrument that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 6250,
@@ -68,7 +68,7 @@ export const HardCoddedData = {
     {
       id: 6,
       name: 'King Bed',
-      pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/RS1284_TR_WhitehallBedroom_m_mc_4828-4823-scr.jpg?v=1593463789',
+      image: 'https://cdn.shopify.com/s/files/1/1003/0788/products/RS1284_TR_WhitehallBedroom_m_mc_4828-4823-scr.jpg?v=1593463789',
       description:
         'The movable articles in a room or an establishment that make it fit for living or working.',
       price: 23000,
@@ -76,7 +76,7 @@ export const HardCoddedData = {
     {
       id: 7,
       name: 'Bedroom Dresser',
-      pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/4520672_6826d0b7-d1fe-48d8-965f-7dd81370d1f2.png?v=1630434412',
+      image: 'https://cdn.shopify.com/s/files/1/1003/0788/products/4520672_6826d0b7-d1fe-48d8-965f-7dd81370d1f2.png?v=1630434412',
       description:
         'The movable articles in a room or an establishment that make it fit for living or working.',
       price: 17300,
@@ -84,7 +84,7 @@ export const HardCoddedData = {
     {
       id: 8,
       name: 'Furniture Back Side Chair',
-      pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/686-c1501s_large_c1459258-e861-4b7d-8060-8b4ecb10ef92.jpg?v=1630424238',
+      image: 'https://cdn.shopify.com/s/files/1/1003/0788/products/686-c1501s_large_c1459258-e861-4b7d-8060-8b4ecb10ef92.jpg?v=1630424238',
       description:
         'The movable articles in a room or an establishment that make it fit for living or working.',
       price: 11900,
@@ -92,7 +92,7 @@ export const HardCoddedData = {
     {
       id: 9,
       name: 'Dining Table',
-      pic: 'https://cdn.shopify.com/s/files/1/1003/0788/products/ProductBackground_065b420c-db6b-4b76-b90c-1fdfa07be92a.png?v=1618844264',
+      image: 'https://cdn.shopify.com/s/files/1/1003/0788/products/ProductBackground_065b420c-db6b-4b76-b90c-1fdfa07be92a.png?v=1618844264',
       description:
         'The movable articles in a room or an establishment that make it fit for living or working.',
       price: 21050,
@@ -102,7 +102,7 @@ export const HardCoddedData = {
     {
       id: 10,
       name: 'Treadmill Run',
-      pic: 'https://www.shop-ffittech.com/images/produtos/img1_499.jpg',
+      image: 'https://www.shop-ffittech.com/images/produtos/img1_499.jpg',
       description:
         'Good health, especially good physical condition resulting from exercise and proper nutrition.',
       price: 38200,
@@ -110,7 +110,7 @@ export const HardCoddedData = {
     {
       id: 11,
       name: 'Vertical Bike',
-      pic: 'https://www.shop-ffittech.com/images/produtos/img1_500.jpg',
+      image: 'https://www.shop-ffittech.com/images/produtos/img1_500.jpg',
       description:
         'Good health, especially good physical condition resulting from exercise and proper nutrition.',
       price: 31450,
@@ -118,7 +118,7 @@ export const HardCoddedData = {
     {
       id: 12,
       name: 'Elliptical',
-      pic: 'https://www.shop-ffittech.com/images/produtos/img1_502.png',
+      image: 'https://www.shop-ffittech.com/images/produtos/img1_502.png',
       description:
         'Good health, especially good physical condition resulting from exercise and proper nutrition.',
       price: 29550,
@@ -126,7 +126,7 @@ export const HardCoddedData = {
     {
       id: 13,
       name: 'Stepmill',
-      pic: 'https://www.shop-ffittech.com/images/produtos/img1_1127.png',
+      image: 'https://www.shop-ffittech.com/images/produtos/img1_1127.png',
       description:
         'Good health, especially good physical condition resulting from exercise and proper nutrition.',
       price: 22050,
@@ -136,14 +136,14 @@ export const HardCoddedData = {
     {
       id: 14,
       name: 'BATH GLOSSY',
-      pic: 'https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg',
+      image: 'https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg',
       description: 'bathroom products for convenience and hygiene',
       price: 58200,
     },
     {
       id: 15,
       name: 'BATH GLOSSY',
-      pic: 'https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg',
+      image: 'https://images.prom.ua/2758157952_w640_h640_vanna-1757578sm-otdelno.jpg',
       description: 'bathroom products for convenience and hygiene',
       price: 58200,
     },
@@ -152,7 +152,7 @@ export const HardCoddedData = {
     {
       id: 16,
       name: 'Redmi Watch 2 Lite Black',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 2300,
@@ -160,7 +160,7 @@ export const HardCoddedData = {
     {
       id: 17,
       name: 'Apple Watch Series 7',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 15000,
@@ -168,7 +168,7 @@ export const HardCoddedData = {
     {
       id: 18,
       name: 'Xiaomi Mi Watch Blue',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 4000,
@@ -176,7 +176,7 @@ export const HardCoddedData = {
     {
       id: 19,
       name: 'Huawei Band 6',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 1650,
@@ -184,7 +184,7 @@ export const HardCoddedData = {
     {
       id: 20,
       name: 'Redmi Watch 2 Lite Black',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 2300,
@@ -192,7 +192,7 @@ export const HardCoddedData = {
     {
       id: 21,
       name: 'Apple Watch Series 7',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 15000,
@@ -200,7 +200,7 @@ export const HardCoddedData = {
     {
       id: 22,
       name: 'Xiaomi Mi Watch Blue',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 4000,
@@ -208,7 +208,7 @@ export const HardCoddedData = {
     {
       id: 23,
       name: 'Huawei Band 6',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/b/a/band_6_pink.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 1650,
@@ -216,7 +216,7 @@ export const HardCoddedData = {
     {
       id: 24,
       name: 'Redmi Watch 2 Lite Black',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/1/-/1-_4__result.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 2300,
@@ -224,7 +224,7 @@ export const HardCoddedData = {
     {
       id: 25,
       name: 'Apple Watch Series 7',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/a/p/apple_watch_series_7_gps_41mm_starlight_aluminum_starlight_sport_band_pdp_image_position-2__ww-ru.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 15000,
@@ -232,7 +232,7 @@ export const HardCoddedData = {
     {
       id: 26,
       name: 'Xiaomi Mi Watch Blue',
-      pic: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/f/i/file_1868.jpg',
       description:
         'A small portable timepiece, especially one worn on the wrist or carried in the pocket.',
       price: 4000,

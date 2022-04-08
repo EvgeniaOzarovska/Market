@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ShoppingCartContext = React.createContext('');
+export const ShoppingCartContext = React.createContext();
 
 export class ShoppingCartProvider extends React.Component {
   constructor(props) {
