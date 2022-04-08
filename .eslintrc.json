@@ -4,6 +4,7 @@
     "react-hooks/exhaustive-deps": "off",
     "jsx-a11y/img-redundant-alt": "off",
     "no-console": "error",
+    "object-curly-spacing": ["error", "always"],
     "quotes": ["error", "single"],
     "eol-last": ["error", "always"],
     "semi": [2, "always"]
