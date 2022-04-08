@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ShoppingCartContext = React.createContext(undefined);
+export const ShoppingCartContext = React.createContext('');
 
 export class ShoppingCartProvider extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export class ShoppingCartProvider extends React.Component {
     this.state = {
       data: [],
       addItem: this.addItem,
-      updateItem: this.updateItem,
+      changeQuantityItem: this.changeQuantityItem,
       deleteItem: this.deleteItem,
     };
   }
@@ -37,7 +37,7 @@ export class ShoppingCartProvider extends React.Component {
     }
   };
 
-  updateItem = (id, presets) => {
+  changeQuantityItem = (id, presets) => {
     const cartItemIndex = this.state.data.findIndex(cartItem => cartItem.id === id);
     const data = this.state.data;
     if (presets === 'plus') {

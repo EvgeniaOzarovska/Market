@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <Link to={Routes.Auth.Home}>
-      <LogoText />
+        <LogoText />
       </Link>
       <div className={styles.reg_section}>
         <Link to={Routes.Auth.Login} className={styles.link}>

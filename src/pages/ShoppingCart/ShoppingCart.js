@@ -4,6 +4,9 @@ import { Button } from '../../components/Button';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../router';
 import { ShoppingCartContext } from '../../providers/ShoppingCartProvider';
+import { Page } from '../../components/Page';
+import { Info } from '../../components/Info';
+import { ErrorMessages } from '../../constants/messages';
 
 export const ShoppingCart = () => {
   const calculateAmountPrice = data => {
@@ -16,19 +19,28 @@ export const ShoppingCart = () => {
     <ShoppingCartContext.Consumer>
       {store => (
         <main className={styles.container}>
-          <div className={styles.mainBlock}>
-            {store.data.length > 0 &&
-              store.data.map((cartItem) => {
+          <Page className={styles.mainBlock}>
+            {store.data.length > 0 ? (
+              store.data.map(cartItem => {
                 return <OrderCart card={cartItem} />;
-              })}
-            <div className={styles.btnBlock}>
-              Total amount: {calculateAmountPrice(store.data)} UAH
-              <Link to={Routes.Auth.Home}>
+              })
+            ) : (
+              <Info className={styles.message}>{ErrorMessages.emptyShoppingCart}</Info>
+            )}
+            {store.data.length > 0 ? (
+              <div className={styles.btnBlock}>
+                Total amount: {calculateAmountPrice(store.data)} UAH
+                <Link to={Routes.Auth.Home}>
+                  <Button typeSchema="cartButton">Сontinue shopping</Button>
+                </Link>
+                <Button typeSchema="cartButton">Сheckout</Button>
+              </div>
+            ) : (
+              <Link to={Routes.Auth.Home} className={styles.emptyStyle}>
                 <Button typeSchema="cartButton">Сontinue shopping</Button>
               </Link>
-              <Button typeSchema="cartButton">Сheckout</Button>
-            </div>
-          </div>
+            )}
+          </Page>
         </main>
       )}
     </ShoppingCartContext.Consumer>

@@ -5,22 +5,23 @@ import { Icon } from '../../../../components/Icon';
 import { ShoppingCartContext } from '../../../../providers/ShoppingCartProvider';
 
 export const Counter = props => {
+  const { id, count } = props;
   return (
     <ShoppingCartContext.Consumer>
-      {({ updateItem }) => (
+      {({ changeQuantityItem }) => (
         <div className={styles.addProduct}>
-          <Icon
-            colorSchema="iconCart"
-            src={plus}
-            alt={plus}
-            onClick={() => updateItem(props.id, 'plus')}
-          />
-          <p>{props.count}</p>
           <Icon
             colorSchema="iconCart"
             src={remove}
             alt={remove}
-            onClick={() => updateItem(props.id, 'minus')}
+            onClick={() => changeQuantityItem(id, 'remove')}
+          />
+          <p>{count}</p>
+          <Icon
+            colorSchema="iconCart"
+            src={plus}
+            alt={plus}
+            onClick={() => changeQuantityItem(id, 'plus')}
           />
         </div>
       )}

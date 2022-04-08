@@ -17,16 +17,15 @@
     border: none;
   }
 
-  &.iconCart{
+  &.iconCart {
     height: 20px;
     text-align: center;
     border: 1px solid gray;
     margin: 5px;
 
-    &:hover{
+    &:hover {
       border: 2px solid black;
       transition: 0.1s;
-
     }
   }
 }
