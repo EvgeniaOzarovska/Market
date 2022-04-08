@@ -1,5 +1,5 @@
 import styles from './ShoppingCart.module.scss';
-import { OrderCart } from './componentsCart/OrderCart/OrderCart';
+import { OrderCart } from './componentsCart/OrderCart';
 import { Button } from '../../components/Button';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../router';
