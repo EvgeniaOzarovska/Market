@@ -1,5 +1,5 @@
 import { HardCoddedData } from '../../data/data';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Sidebar } from './componentsHome/Sidebar';
 import styles from './Home.module.scss';
 import { Search } from './componentsHome/Search';

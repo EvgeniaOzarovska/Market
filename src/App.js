@@ -5,7 +5,7 @@ import './styles/reset.scss';
 import './styles/global.scss';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { ShoppingCartProvider } from './providers/ShoppingCartProvider';
+import { ShoppingCartProvider } from './providers/ShopingCartProvider';
 
 function App() {
   return (
