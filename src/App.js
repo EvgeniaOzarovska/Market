@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router as ReactRouter } from 'react-router-dom';
 import { history, Router } from './router';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/reset.scss';
 import './styles/global.scss';
 import { Header } from './components/Header';

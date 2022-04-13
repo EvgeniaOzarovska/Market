@@ -34,7 +34,8 @@ export const HardCoddedData = {
     {
       id: 2,
       name: 'Samsung Galaxy S21 Ultra',
-      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/s/m/sm-g998_s21ultra_phantom_black_back_201110_.jpg',
+      image:
+        'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/s/m/sm-g998_s21ultra_phantom_black_back_201110_.jpg',
       description:
         'An instrument that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 29999,

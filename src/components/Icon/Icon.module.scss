@@ -1,7 +1,8 @@
 .icon {
   height: 40px;
   float: right;
-  margin-right: 15px;
+  margin: 15px;
+
   border: 1px solid black;
 
   &:hover {
@@ -9,23 +10,23 @@
     cursor: pointer;
     transition: 0.3s;
   }
+}
 
-  &.iconProblem {
-    height: 30px;
-    float: none;
-    text-align: center;
-    border: none;
-  }
+.iconProblem {
+  height: 30px;
+  float: none;
+  text-align: center;
+  border: none;
+}
 
-  &.iconCart {
-    height: 20px;
-    text-align: center;
-    border: 1px solid gray;
-    margin: 5px;
+.iconCart {
+  height: 20px;
+  text-align: center;
+  border: 1px solid gray;
+  margin: 5px;
 
-    &:hover {
-      border: 2px solid black;
-      transition: 0.1s;
-    }
+  &:hover {
+    border: 2px solid black;
+    transition: 0.1s;
   }
 }

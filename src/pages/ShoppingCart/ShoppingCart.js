@@ -6,11 +6,11 @@ import { Routes } from '../../router';
 import { Page } from '../../components/Page';
 import { Info } from '../../components/Info';
 import { ErrorMessages } from '../../constants/messages';
-import React from 'react';
+import React, { useContext } from 'react';
 import { ShoppingCartContext } from '../../providers/ShopingCartProvider';
 
 export const ShoppingCart = () => {
-  const { data } = React.useContext(ShoppingCartContext);
+  const { data } = useContext(ShoppingCartContext);
   const calculateAmountPrice = data => {
     return data.reduce((prev, curr) => {
       return prev + curr.price * curr.count;

@@ -4,9 +4,10 @@ import plus from '../../../../components/Icon/img/add_black_24dp.svg';
 import remove from '../../../../components/Icon/img/remove_black_24dp.svg';
 import { ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import { Icon } from '../../../../components/Icon';
+import { useContext } from 'react';
 
 export const Counter = props => {
-  const { incrementQuantityItem, decrementQuantityItem } = React.useContext(ShoppingCartContext);
+  const { incrementQuantityItem, decrementQuantityItem } = useContext(ShoppingCartContext);
 
   const { id, count } = props;
   return (

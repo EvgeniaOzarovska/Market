@@ -6,7 +6,7 @@ import { Search } from './componentsHome/Search';
 import { Page } from '../../components/Page';
 import { ErrorMessages } from '../../constants/messages';
 import { Info } from '../../components/Info';
-import { ProductBlock } from './componentsHome/ProductBlock';
+import { ItemCard } from './componentsHome/ItemCard';
 
 export const Home = () => {
   const [list, setList] = useState(HardCoddedData.smartphone);
@@ -25,7 +25,11 @@ export const Home = () => {
       <Page>
         <Search onSearch={searchResult} currentCategory={category} />
         {list.length > 0 ? (
-          <ProductBlock className={styles.product_block} productList={list} />
+          <div className={styles.product_block}>
+            {list.map(item => (
+              <ItemCard key={item.id} data={item} />
+            ))}
+          </div>
         ) : (
           <Info className={styles.message}>{ErrorMessages.recordsNotFound}</Info>
         )}

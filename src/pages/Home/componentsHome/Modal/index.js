@@ -1,0 +1,1 @@
+export { AfterProductToCartModal } from './AfterProductToCartModal';
