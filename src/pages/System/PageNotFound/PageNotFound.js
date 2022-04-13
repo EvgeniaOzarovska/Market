@@ -3,6 +3,6 @@ import { history, Routes } from '../../../router';
 
 export const PageNotFound = () => (
   <div className={styles.background} onClick={() => history.push(Routes.Auth.Home)}>
-    PAGE NOT FOUND
+   <p className={styles.text}>PAGE NOT FOUND</p>
   </div>
 );

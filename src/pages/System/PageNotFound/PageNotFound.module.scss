@@ -1,5 +1,13 @@
 .background {
-  position: relative;
   height: 100%;
   width: 100%;
+
+  .text{
+    font-size: 42px;
+    text-align: center;
+    margin-top: 200px;
+    color: darkgray;
+    background: #FFFFFF;
+    text-shadow: 2px 2px 0 black;
+  }
 }
