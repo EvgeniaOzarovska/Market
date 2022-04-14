@@ -1,31 +1,24 @@
 import React from 'react';
 import { Button } from '../../../../components/Button';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { Routes } from '../../../../router';
 
-export const AfterProductToCartModal = ({ isOpen, onClose, onSubmit }) => {
+export const AfterProductToCartModal = ({ isOpen, onClose, redirect }) => {
   return (
     <Modal isOpen={isOpen} centered backdrop="static">
       <ModalHeader>Message</ModalHeader>
       <ModalBody>You have added an item to your shopping cart</ModalBody>
       <ModalFooter>
-        <Link to={Routes.Auth.Home}>
-          <Button
-            color="primary"
-            onClick={() => {
-              onClose();
-              onSubmit();
-            }}
-          >
-            Сontinue shopping
-          </Button>
-        </Link>
-        <Link to={Routes.Auth.ShoppingCart}>
-          <Button color="primary" onClick={onClose}>
-            Go to Cart
-          </Button>
-        </Link>
+        <Button
+          color="primary"
+          onClick={() => {
+            onClose();
+          }}
+        >
+          Сontinue shopping
+        </Button>
+        <Button color="primary" onClick={redirect}>
+          Go to Cart
+        </Button>
       </ModalFooter>
     </Modal>
   );

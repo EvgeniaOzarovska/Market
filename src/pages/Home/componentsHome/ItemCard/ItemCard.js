@@ -12,6 +12,18 @@ export const ItemCard = props => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const { id, name, image, description, price } = props.data;
+  const addItem = () => {
+    dispatch(
+      setAddItem({
+        id,
+        name,
+        count: 1,
+        image,
+        price,
+      }),
+    );
+    setModalIsOpen(true);
+  };
 
   return (
     <React.Fragment>
@@ -20,28 +32,14 @@ export const ItemCard = props => {
         <img alt={name} src={image} className={styles.card} />
         <p className={styles.description}>{description}</p>
         <p className={styles.price}>{price}</p>
-        <Button
-          type="button"
-          onClick={() => {
-            dispatch(
-              setAddItem({
-                id,
-                name,
-                count: 1,
-                image,
-                price,
-              }),
-            );
-            setModalIsOpen(true);
-          }}
-        >
+        <Button type="button" onClick={addItem}>
           Buy
         </Button>
       </div>
       <AfterProductToCartModal
         isOpen={modalIsOpen}
         onClose={() => setModalIsOpen(false)}
-        onSubmit={() => history.push(Routes.Auth.ShoppingCart)}
+        redirect={() => history.push(Routes.Auth.ShoppingCart)}
       />
     </React.Fragment>
   );
