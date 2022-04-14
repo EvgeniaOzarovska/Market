@@ -1,14 +1,14 @@
-import styles from './ItemCard.module.scss';
-import { Button } from '../../../../components/Button';
-import React, { useState } from 'react';
-import { ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
-import { AfterProductToCartModal } from '../Modal';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { AfterProductToCartModal } from '../Modal';
+import { Button } from '../../../../components/Button';
+import { setAddItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import { Routes } from '../../../../router';
+import styles from './ItemCard.module.scss';
 
 export const ItemCard = props => {
   const history = useHistory();
-  const { addItem } = React.useContext(ShoppingCartContext);
+  const { dispatch } = useContext(ShoppingCartContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const { id, name, image, description, price } = props.data;
@@ -23,13 +23,15 @@ export const ItemCard = props => {
         <Button
           type="button"
           onClick={() => {
-            addItem({
-              id,
-              name,
-              count: 1,
-              image,
-              price,
-            });
+            dispatch(
+              setAddItem({
+                id,
+                name,
+                count: 1,
+                image,
+                price,
+              }),
+            );
             setModalIsOpen(true);
           }}
         >

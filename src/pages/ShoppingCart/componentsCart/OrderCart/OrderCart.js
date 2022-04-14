@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Counter } from '../Counter';
 import { Icon } from '../../../../components/Icon';
-import { ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
+import { setDeleteItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import close from '../../../../components/Icon/img/close_black_24dp.svg';
 import styles from './OrderCart.module.scss';
 
 export const OrderCart = props => {
-  const { deleteItem } = useContext(ShoppingCartContext);
+  const { dispatch } = useContext(ShoppingCartContext);
 
   const { id, image, name, count, price } = props.card;
 
@@ -21,7 +21,7 @@ export const OrderCart = props => {
         src={close}
         alt="close"
         onClick={() => {
-          deleteItem(id);
+          dispatch(setDeleteItem({ id }));
         }}
       />
     </div>

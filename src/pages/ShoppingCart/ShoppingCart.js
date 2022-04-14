@@ -10,7 +10,8 @@ import React, { useContext } from 'react';
 import { ShoppingCartContext } from '../../providers/ShopingCartProvider';
 
 export const ShoppingCart = () => {
-  const { data } = useContext(ShoppingCartContext);
+  const { state } = useContext(ShoppingCartContext);
+  const { data } = state;
   const calculateAmountPrice = data => {
     return data.reduce((prev, curr) => {
       return prev + curr.price * curr.count;

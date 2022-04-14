@@ -2,12 +2,16 @@ import React from 'react';
 import styles from './Counter.module.scss';
 import plus from '../../../../components/Icon/img/add_black_24dp.svg';
 import remove from '../../../../components/Icon/img/remove_black_24dp.svg';
-import { ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
+import {
+  setDecrementQuantityItem,
+  setIncrementQuantityItem,
+  ShoppingCartContext,
+} from '../../../../providers/ShopingCartProvider';
 import { Icon } from '../../../../components/Icon';
 import { useContext } from 'react';
 
 export const Counter = props => {
-  const { incrementQuantityItem, decrementQuantityItem } = useContext(ShoppingCartContext);
+  const { dispatch } = useContext(ShoppingCartContext);
 
   const { id, count } = props;
   return (
@@ -16,14 +20,14 @@ export const Counter = props => {
         colorSchema="iconCart"
         src={remove}
         alt={remove}
-        onClick={() => decrementQuantityItem(id)}
+        onClick={() => dispatch(setDecrementQuantityItem({ id }))}
       />
       <p>{count}</p>
       <Icon
         colorSchema="iconCart"
         src={plus}
         alt={plus}
-        onClick={() => incrementQuantityItem(id)}
+        onClick={() => dispatch(setIncrementQuantityItem({ id }))}
       />
     </div>
   );
