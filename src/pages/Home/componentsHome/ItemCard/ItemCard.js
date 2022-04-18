@@ -6,6 +6,7 @@ import { setAddItem, ShoppingCartContext } from '../../../../providers/ShopingCa
 import { Routes } from '../../../../router';
 import styles from './ItemCard.module.scss';
 
+
 export const ItemCard = props => {
   const history = useHistory();
   const { dispatch } = useContext(ShoppingCartContext);
@@ -32,7 +33,7 @@ export const ItemCard = props => {
         <img alt={name} src={image} className={styles.card} />
         <p className={styles.description}>{description}</p>
         <p className={styles.price}>{price}</p>
-        <Button type="button" onClick={addItem}>
+        <Button onClick={addItem}>
           Buy
         </Button>
       </div>

@@ -23,7 +23,7 @@ export const ShoppingCart = () => {
       <Page className={styles.mainBlock}>
         {data.length > 0 ? (
           data.map(cartItem => {
-            return <OrderCart card={cartItem} />;
+            return <OrderCart key={cartItem.id} card={cartItem} />;
           })
         ) : (
           <Info className={styles.message}>{ErrorMessages.emptyShoppingCart}</Info>
@@ -32,13 +32,13 @@ export const ShoppingCart = () => {
           <div className={styles.btnBlock}>
             Total amount: {calculateAmountPrice(data)} UAH
             <Link to={Routes.Auth.Home}>
-              <Button typeSchema="cartButton">Сontinue shopping</Button>
+              <Button>Сontinue shopping</Button>
             </Link>
-            <Button typeSchema="cartButton">Сheckout</Button>
+            <Button>Сheckout</Button>
           </div>
         ) : (
           <Link to={Routes.Auth.Home} className={styles.emptyStyle}>
-            <Button typeSchema="cartButton">Сontinue shopping</Button>
+            <Button>Сontinue shopping</Button>
           </Link>
         )}
       </Page>
