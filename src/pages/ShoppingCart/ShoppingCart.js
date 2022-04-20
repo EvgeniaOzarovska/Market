@@ -1,9 +1,9 @@
 import styles from './ShoppingCart.module.scss';
 import { OrderCart } from './componentsCart/OrderCart';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/CommonComponents';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../router';
-import { Page } from '../../components/Page';
+import { Page } from '../../components/CommonComponents';
 import { Info } from '../../components/Info';
 import { ErrorMessages } from '../../constants/messages';
 import React, { useContext } from 'react';
@@ -32,13 +32,13 @@ export const ShoppingCart = () => {
           <div className={styles.btnBlock}>
             Total amount: {calculateAmountPrice(data)} UAH
             <Link to={Routes.Auth.Home}>
-              <Button>Сontinue shopping</Button>
+              <Button cartstyle>Сontinue shopping</Button>
             </Link>
-            <Button>Сheckout</Button>
+            <Button cartstyle>Сheckout</Button>
           </div>
         ) : (
           <Link to={Routes.Auth.Home} className={styles.emptyStyle}>
-            <Button>Сontinue shopping</Button>
+            <Button cartstyle>Сontinue shopping</Button>
           </Link>
         )}
       </Page>

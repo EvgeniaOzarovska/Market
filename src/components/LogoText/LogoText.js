@@ -1,6 +1,12 @@
-import styles from './LogoText.module.scss';
-import merge from 'classnames';
+import styled from '@emotion/styled';
 
-export const LogoText = props => {
-  return <div className={merge(styles.h1, props.className)}>Market</div>;
+const CustomLogoText = styled.div`
+  font-size: 36px;
+  color: darkslateblue;
+  padding-top: 10px;
+  text-shadow: 1px 1px 2px whitesmoke;
+`;
+
+export const LogoText = () => {
+  return <CustomLogoText>Market</CustomLogoText>;
 };

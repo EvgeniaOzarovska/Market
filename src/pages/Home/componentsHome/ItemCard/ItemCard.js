@@ -1,11 +1,36 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AfterProductToCartModal } from '../Modal';
-import { Button } from '../../../../components/Button';
+import { Button } from '../../../../components/CommonComponents';
 import { setAddItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import { Routes } from '../../../../router';
-import styles from './ItemCard.module.scss';
+import styled from '@emotion/styled';
 
+const CardBlock = styled.div`
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 250px;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+`;
+
+const Card = styled.img`
+  width: 200px;
+  height: 200px;
+`;
+
+const InfoProduct = styled.p`
+  padding: 10px;
+  text-align: justify;
+  font-weight: ${props => (props.price ? 'bold' : 'normal')};
+`;
+
+const Name = styled.div`
+  padding-bottom: 15px;
+  font-weight: bold;
+`;
 
 export const ItemCard = props => {
   const history = useHistory();
@@ -28,15 +53,13 @@ export const ItemCard = props => {
 
   return (
     <React.Fragment>
-      <div className={styles.card_block}>
-        <div className={styles.name}>{name}</div>
-        <img alt={name} src={image} className={styles.card} />
-        <p className={styles.description}>{description}</p>
-        <p className={styles.price}>{price}</p>
-        <Button onClick={addItem}>
-          Buy
-        </Button>
-      </div>
+      <CardBlock>
+        <Name>{name}</Name>
+        <Card alt={name} src={image} />
+        <InfoProduct>{description}</InfoProduct>
+        <InfoProduct price>{price}</InfoProduct>
+        <Button onClick={addItem}>Buy</Button>
+      </CardBlock>
       <AfterProductToCartModal
         isOpen={modalIsOpen}
         onClose={() => setModalIsOpen(false)}

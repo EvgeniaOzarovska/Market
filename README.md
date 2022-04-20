@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+You need Node version 16.5.0 to run this app.
+
 ## Available Scripts
 
 In the project directory, you can run:

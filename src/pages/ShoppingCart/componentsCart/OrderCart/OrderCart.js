@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Counter } from '../Counter';
-import { Icon } from '../../../../components/Icon';
+import { Icon } from '../../../../components/CommonComponents';
 import { setDeleteItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
-import close from '../../../../components/Icon/img/close_black_24dp.svg';
+import close from '../../../../components/Icons/img/close_black_24dp.svg';
 import styles from './OrderCart.module.scss';
 
 export const OrderCart = props => {
@@ -16,8 +16,7 @@ export const OrderCart = props => {
       <div className={styles.nameProduct}>{name}</div>
       <Counter count={count} id={id} />
       <p className={styles.priceProduct}>{price * count} UAH</p>
-      <Icon
-        colorSchema="iconCart"
+      <Icon cart
         src={close}
         alt="close"
         onClick={() => {

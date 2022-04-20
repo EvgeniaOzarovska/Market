@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../../../components/Button';
+import { Button } from '../../../../components/CommonComponents';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 export const AfterProductToCartModal = ({ isOpen, onClose, redirect }) => {
@@ -8,7 +8,7 @@ export const AfterProductToCartModal = ({ isOpen, onClose, redirect }) => {
       <ModalHeader>Message</ModalHeader>
       <ModalBody>You have added an item to your shopping cart</ModalBody>
       <ModalFooter>
-        <Button
+        <Button cartstyle
           color="primary"
           onClick={() => {
             onClose();
@@ -16,7 +16,7 @@ export const AfterProductToCartModal = ({ isOpen, onClose, redirect }) => {
         >
           Сontinue shopping
         </Button>
-        <Button color="primary" onClick={redirect}>
+        <Button cartstyle color="primary" onClick={redirect}>
           Go to Cart
         </Button>
       </ModalFooter>

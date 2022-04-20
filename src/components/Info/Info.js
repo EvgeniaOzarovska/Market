@@ -1,10 +1,12 @@
-import { Icon } from '../Icon';
-import problem from '../Icon/img/report_problem.svg';
+import { Icon } from '../CommonComponents';
+import problem from '../Icons/img/report_problem.svg';
+
+
 
 export const Info = props => {
   return (
-    <div className={props.className}>
-      <Icon colorSchema="iconProblem" src={problem} alt="problem" />
+    <div>
+      <Icon problem src={problem} alt="problem" />
       {props.children}
     </div>
   );

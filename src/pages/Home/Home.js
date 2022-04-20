@@ -1,12 +1,34 @@
 import { HardCoddedData } from '../../data/data';
 import React, { useState } from 'react';
 import { Sidebar } from './componentsHome/Sidebar';
-import styles from './Home.module.scss';
 import { Search } from './componentsHome/Search';
-import { Page } from '../../components/Page';
+import { Page } from '../../components/CommonComponents';
 import { ErrorMessages } from '../../constants/messages';
 import { Info } from '../../components/Info';
 import { ItemCard } from './componentsHome/ItemCard';
+import styled from '@emotion/styled';
+
+const Container = styled.main`
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+`;
+
+const ProductBlock = styled.div`
+  margin-top: 16px;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px 2px;
+  overflow-y: auto;
+`;
+
+const Message = styled.div`
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 30px;
+`;
 
 export const Home = () => {
   const [list, setList] = useState(HardCoddedData.smartphone);
@@ -20,20 +42,22 @@ export const Home = () => {
   const searchResult = newList => setList(newList);
 
   return (
-    <main className={styles.container}>
+    <Container>
       <Sidebar setValue={setData} />
       <Page>
         <Search onSearch={searchResult} currentCategory={category} />
         {list.length > 0 ? (
-          <div className={styles.product_block}>
+          <ProductBlock>
             {list.map(item => (
               <ItemCard key={item.id} data={item} />
             ))}
-          </div>
+          </ProductBlock>
         ) : (
-          <Info className={styles.message}>{ErrorMessages.recordsNotFound}</Info>
+          <Message>
+            <Info>{ErrorMessages.recordsNotFound}</Info>
+          </Message>
         )}
       </Page>
-    </main>
+    </Container>
   );
 };
