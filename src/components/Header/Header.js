@@ -1,9 +1,10 @@
-import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
-import { Link } from 'react-router-dom';
 import { Routes } from '../../router';
-import { Icon } from '../CommonComponents';
-import { LogoText } from '../LogoText';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { LargeIcon } from '../CommonComponents';
+import { LogoText } from '../LogoText';
+import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
+
 
 const CustomHeader = styled.header`
   display: flex;
@@ -14,16 +15,16 @@ const CustomHeader = styled.header`
   border-bottom: 1px solid grey;
 `;
 
-const CustomHeaderBlock = styled.div`
+const HeaderBlock = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const CustomSection = styled.div`
+const Section = styled.div`
   display: flex;
 `;
 
-const CustomLink = styled.a`
+const MyLink = styled.a`
   color: darkblue;
   margin: 15px;
   &:hover {
@@ -38,19 +39,19 @@ export const Header = () => {
       <Link to={Routes.Auth.Home}>
         <LogoText />
       </Link>
-      <CustomHeaderBlock>
-        <CustomSection>
+      <HeaderBlock>
+        <Section>
           <Link to={Routes.Auth.Login}>
-            <CustomLink>Sign In</CustomLink>
+            <MyLink>Sign In</MyLink>
           </Link>
           <Link to={Routes.Auth.Reg}>
-            <CustomLink>Sign Up</CustomLink>
+            <MyLink>Sign Up</MyLink>
           </Link>
-        </CustomSection>
+        </Section>
         <Link to={Routes.Auth.ShoppingCart}>
-          <Icon alt="shopping cart" src={ShoppingCartIcon} />
+          <LargeIcon alt="shopping cart" src={ShoppingCartIcon} />
         </Link>
-      </CustomHeaderBlock>
+      </HeaderBlock>
     </CustomHeader>
   );
 };

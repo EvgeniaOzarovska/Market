@@ -1,12 +1,12 @@
-import { history, Routes } from '../../../router';
 import styled from '@emotion/styled';
+import { history, Routes } from '../../../router';
 
-const CustomPageNotFoundBlock = styled.div`
+const PageNotFoundBlock = styled.div`
   height: 100%;
   width: 100%;
 `;
 
-const CustomPageNotFoundText = styled.p`
+const PageNotFoundText = styled.p`
   font-size: 42px;
   text-align: center;
   margin-top: 200px;
@@ -16,7 +16,7 @@ const CustomPageNotFoundText = styled.p`
 `;
 
 export const PageNotFound = () => (
-  <CustomPageNotFoundBlock onClick={() => history.push(Routes.Auth.Home)}>
-    <CustomPageNotFoundText>PAGE NOT FOUND</CustomPageNotFoundText>
-  </CustomPageNotFoundBlock>
+  <PageNotFoundBlock onClick={() => history.push(Routes.Auth.Home)}>
+    <PageNotFoundText>PAGE NOT FOUND</PageNotFoundText>
+  </PageNotFoundBlock>
 );

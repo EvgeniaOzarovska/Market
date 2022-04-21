@@ -1,12 +1,11 @@
-import { HardCoddedData } from '../../data/data';
 import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import { HardCoddedData } from '../../data/data';
 import { Sidebar } from './componentsHome/Sidebar';
 import { Search } from './componentsHome/Search';
 import { Page } from '../../components/CommonComponents';
 import { ErrorMessages } from '../../constants/messages';
-import { Info } from '../../components/Info';
 import { ItemCard } from './componentsHome/ItemCard';
-import styled from '@emotion/styled';
 
 const Container = styled.main`
   display: flex;
@@ -53,9 +52,7 @@ export const Home = () => {
             ))}
           </ProductBlock>
         ) : (
-          <Message>
-            <Info>{ErrorMessages.recordsNotFound}</Info>
-          </Message>
+          <Message>{ErrorMessages.recordsNotFound}</Message>
         )}
       </Page>
     </Container>

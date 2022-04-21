@@ -1,9 +1,10 @@
-import { Button } from '../../../../components/CommonComponents';
-import { useState } from 'react';
-import { Info } from '../../../../components/Info';
-import { ErrorMessages } from '../../../../constants/messages';
-import { HardCoddedData } from '../../../../data/data';
 import styled from '@emotion/styled';
+import { useState } from 'react';
+import { HardCoddedData } from '../../../../data/data';
+import { Button, Icon } from '../../../../components/CommonComponents';
+import { ErrorMessages } from '../../../../constants/messages';
+import problem from '../../../../components/Icons/img/report_problem.svg';
+import pic from '../Search/search.svg';
 
 const Block = styled.div`
   display: flex;
@@ -18,11 +19,11 @@ const ErrorBlock = styled.div`
   text-align: center;
 `;
 
-const CustomInput = styled.input`
+const Input = styled.input`
   width: 100%;
   text-indent: 50px;
   border: 2px solid darkgrey;
-  background-image: url('../../../../components/Icons/img/search.svg');
+  background-image: url(${pic});
   background-repeat: no-repeat;
   background-size: contain;
 `;
@@ -52,7 +53,7 @@ export const Search = props => {
   return (
     <div>
       <Block>
-        <CustomInput
+        <Input
           value={value}
           onChange={searchFunction}
           onKeyDown={event => event.key === 'Enter' && search()}
@@ -61,7 +62,14 @@ export const Search = props => {
           Search
         </Button>
       </Block>
-      <ErrorBlock>{value.length > limit && <Info>{ErrorMessages.errorSearch}</Info>}</ErrorBlock>
+      <ErrorBlock>
+        {value.length > limit && (
+          <div>
+            <Icon problem src={problem} alt={'problem'} />
+            {ErrorMessages.errorSearch}
+          </div>
+        )}
+      </ErrorBlock>
     </div>
   );
 };

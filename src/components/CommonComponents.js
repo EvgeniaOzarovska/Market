@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const CustomButton = styled.button`
+export const Button = styled.button`
   width: 200px;
   height: 50px;
   border: 1px solid grey;
@@ -20,14 +20,9 @@ const CustomButton = styled.button`
   }
 `;
 
-export const Button = ({ children, ...props }) => {
-  return <CustomButton {...props}>{children}</CustomButton>;
-};
-
 const CustomIcon = styled.img`
-  height: ${props => (props.cart ? '20px' : props.problem ? '30px' : '40px')};
-  float: ${props => (props.cart ? 'none' : props.problem ? 'none' : 'right')};
-  margin: ${props => (props.cart ? '5px' : '15px')};
+  height: 30px;
+  margin: 15px;
   border: ${props => (props.problem ? 'none' : '1px solid black')};
 
   &:hover {
@@ -37,16 +32,27 @@ const CustomIcon = styled.img`
   }
 `;
 
+const LittleIcon = styled(CustomIcon)`
+  height: 20px;
+`;
+
+const BigIcon = styled(CustomIcon)`
+  height: 40px;
+  float: right;
+`;
+
 export const Icon = ({ children, ...props }) => {
   return <CustomIcon {...props} alt={props.name} src={props.src} />;
 };
+export const SmallIcon = ({ children, ...props }) => {
+  return <LittleIcon {...props} alt={props.name} src={props.src} />;
+};
+export const LargeIcon = ({ children, ...props }) => {
+  return <BigIcon {...props} alt={props.name} src={props.src} />;
+};
 
-const CustomContainer = styled.div`
+export const Page = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
 `;
-
-export const Page = props => {
-  return <CustomContainer>{props.children}</CustomContainer>;
-};

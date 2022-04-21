@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { AfterProductToCartModal } from '../Modal';
-import { Button } from '../../../../components/CommonComponents';
-import { setAddItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import { Routes } from '../../../../router';
 import styled from '@emotion/styled';
+import { useHistory } from 'react-router-dom';
+import { setAddItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
+import { AfterProductToCartModal } from '../Modal';
+import { Button } from '../../../../components/CommonComponents';
 
 const CardBlock = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const CustomLogoText = styled.div`
+const Text = styled.div`
   font-size: 36px;
   color: darkslateblue;
   padding-top: 10px;
@@ -8,5 +8,5 @@ const CustomLogoText = styled.div`
 `;
 
 export const LogoText = () => {
-  return <CustomLogoText>Market</CustomLogoText>;
+  return <Text>Market</Text>;
 };

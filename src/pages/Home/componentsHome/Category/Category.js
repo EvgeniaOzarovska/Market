@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const CustomLink = styled.a`
+export const Category = styled.a`
   width: 200px;
   display: block;
   color: black;
@@ -14,7 +14,3 @@ const CustomLink = styled.a`
     transition: 0.3s;
   }
 `;
-
-export const Category = props => {
-  return <CustomLink {...props}>{props.children}</CustomLink>;
-};
