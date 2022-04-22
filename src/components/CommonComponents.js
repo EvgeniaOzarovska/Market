@@ -20,7 +20,7 @@ export const Button = styled.button`
   }
 `;
 
-const CustomIcon = styled.img`
+export const Icon = styled.img`
   height: 30px;
   margin: 15px;
   border: ${props => (props.problem ? 'none' : '1px solid black')};
@@ -32,24 +32,14 @@ const CustomIcon = styled.img`
   }
 `;
 
-const LittleIcon = styled(CustomIcon)`
+export const SmallIcon = styled(Icon)`
   height: 20px;
 `;
 
-const BigIcon = styled(CustomIcon)`
+export const BigIcon = styled(Icon)`
   height: 40px;
   float: right;
 `;
-
-export const Icon = ({ children, ...props }) => {
-  return <CustomIcon {...props} alt={props.name} src={props.src} />;
-};
-export const SmallIcon = ({ children, ...props }) => {
-  return <LittleIcon {...props} alt={props.name} src={props.src} />;
-};
-export const LargeIcon = ({ children, ...props }) => {
-  return <BigIcon {...props} alt={props.name} src={props.src} />;
-};
 
 export const Page = styled.div`
   display: flex;

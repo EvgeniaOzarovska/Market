@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { history, Routes } from '../../../router';
+import { Routes } from '../../../router';
+import { Link } from 'react-router-dom';
 
 const PageNotFoundBlock = styled.div`
   height: 100%;
@@ -16,7 +17,9 @@ const PageNotFoundText = styled.p`
 `;
 
 export const PageNotFound = () => (
-  <PageNotFoundBlock onClick={() => history.push(Routes.Auth.Home)}>
+  <PageNotFoundBlock>
+    <Link to = {Routes.Auth.Home}>
     <PageNotFoundText>PAGE NOT FOUND</PageNotFoundText>
+    </Link>
   </PageNotFoundBlock>
 );

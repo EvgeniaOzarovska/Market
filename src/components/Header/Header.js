@@ -1,7 +1,7 @@
 import { Routes } from '../../router';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { LargeIcon } from '../CommonComponents';
+import { BigIcon } from '../CommonComponents';
 import { LogoText } from '../LogoText';
 import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
 
@@ -49,7 +49,7 @@ export const Header = () => {
           </Link>
         </Section>
         <Link to={Routes.Auth.ShoppingCart}>
-          <LargeIcon alt="shopping cart" src={ShoppingCartIcon} />
+          <BigIcon alt="shopping cart" src={ShoppingCartIcon} />
         </Link>
       </HeaderBlock>
     </CustomHeader>

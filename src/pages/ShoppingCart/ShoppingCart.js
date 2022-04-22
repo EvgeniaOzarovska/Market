@@ -10,7 +10,6 @@ import { ErrorMessages } from '../../constants/messages';
 import problem from '../../components/Icons/img/report_problem.svg';
 
 const Container = styled.main`
-  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -18,7 +17,6 @@ const Container = styled.main`
 `;
 
 const MainBlock = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -32,7 +30,7 @@ const ButtonBlock = styled.div`
 `;
 
 const InfoBlock = styled.div`
-  margin: ${props => props.message ? '30px auto': '0 auto'};
+  margin: 0 auto;
 `;
 
 export const ShoppingCart = () => {
@@ -53,7 +51,7 @@ export const ShoppingCart = () => {
               return <OrderCart key={cartItem.id} card={cartItem} />;
             })
           ) : (
-            <InfoBlock message>
+            <InfoBlock>
                 <Icon problem src={problem} alt={'problem'} /> {ErrorMessages.emptyShoppingCart}
             </InfoBlock>
           )}
