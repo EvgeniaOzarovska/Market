@@ -4,7 +4,9 @@ import styled from '@emotion/styled';
 import { BigIcon } from '../CommonComponents';
 import { LogoText } from '../LogoText';
 import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
-
+import { Button } from '../CommonComponents';
+import { useContext } from 'react';
+import { MyThemeContext, setDarkTheme, setLightTheme } from '../../providers/AppThemeProvider';
 
 const CustomHeader = styled.header`
   display: flex;
@@ -34,6 +36,8 @@ const MyLink = styled.a`
 `;
 
 export const Header = () => {
+  const { dispatch } = useContext(MyThemeContext);
+
   return (
     <CustomHeader>
       <Link to={Routes.Auth.Home}>
@@ -41,6 +45,19 @@ export const Header = () => {
       </Link>
       <HeaderBlock>
         <Section>
+          <Button
+            next
+            onClick={() => {
+              const currTheme = localStorage.getItem('theme');
+              if (currTheme === 'light') {
+                dispatch(setDarkTheme());
+              } else {
+                dispatch(setLightTheme());
+              }
+            }}
+          >
+            Change theme
+          </Button>
           <Link to={Routes.Auth.Login}>
             <MyLink>Sign In</MyLink>
           </Link>

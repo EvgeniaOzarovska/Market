@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.button`
-  width: 200px;
-  height: 50px;
+  width: ${props => (props.next ? '120px' : '200px')};
+  height: ${props => (props.next ? '25px' : '50px')};
   border: 1px solid grey;
   background-color: transparent;
   color: black;

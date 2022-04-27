@@ -1,0 +1,17 @@
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+  html,
+  body,
+  #root {
+    min-width: 320px !important;
+    width: 100%;
+    height: 100%;
+  }
+
+  #root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }`;
+
