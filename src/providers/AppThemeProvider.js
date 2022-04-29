@@ -2,17 +2,18 @@ import React from 'react';
 import { useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { useReducer } from 'react';
+import styled from '@emotion/styled';
 
 const themeLight = {
   id: 'light',
-  colorText: 'black',
-  colorBackground: 'red',
+  color: 'black',
+  colorBackground: 'whitesmoke',
 };
 
 const themeDark = {
   id: 'dark',
-  colorText: 'white',
-  colorBackground: 'black',
+  color: 'whitesmoke',
+  colorBackground: 'steelblue',
 };
 
 export const MyThemeContext = React.createContext();
@@ -35,13 +36,9 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     case LIGHT_THEME: {
-      // eslint-disable-next-line no-console
-      console.log('lt: ', state);
       return { theme: themeLight };
     }
     case DARK_THEME: {
-      // eslint-disable-next-line no-console
-      console.log('dt: ', state);
       return { theme: themeDark };
     }
     default:
@@ -66,9 +63,16 @@ export const MyThemeProvider = ({ children }) => {
     localStorage.setItem('theme', state.theme.id);
   }, [state.theme]);
 
+  const StyledTheme = styled.div`
+    color: ${state.theme.color};
+    background-color: ${state.theme.colorBackground};
+  `;
+
   return (
     <MyThemeContext.Provider value={{ state, dispatch }}>
-      <ThemeProvider theme={state.theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={state.theme}>
+        <StyledTheme>{children}</StyledTheme>
+      </ThemeProvider>
     </MyThemeContext.Provider>
   );
 };

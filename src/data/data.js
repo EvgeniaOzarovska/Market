@@ -26,7 +26,7 @@ export const HardCoddedData = {
     {
       id: 1,
       name: 'Xiaomi Redmi Note 10',
-      image: 'https://i01.appmifile.com/webfile/globalimg/gaoruijia/RN-10-Black-1600.png',
+      image: 'https://i.allo.ua/media/catalog/product/cache/1/image/620x600/602f0fa2c1f0d1ba5e241f914e856ff9/0/_/0_59_14_2_1.jpg',
       description:
         'An instrument that converts voice and other sound signals into a form that can be transmitted to remote locations and that receives and reconverts waves into sound signals.',
       price: 10500,

@@ -8,6 +8,7 @@ const CustomFooter = styled.footer`
 const P = styled.p`
   font-size: 18px;
   font-style: italic;
+  color: black;
 `;
 
 export const Footer = () => {

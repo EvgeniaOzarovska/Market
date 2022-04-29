@@ -14,6 +14,7 @@ const CardBlock = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px;
+  background-color: transparent;
 `;
 
 const Card = styled.img`

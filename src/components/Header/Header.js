@@ -38,6 +38,15 @@ const MyLink = styled.a`
 export const Header = () => {
   const { dispatch } = useContext(MyThemeContext);
 
+  const changeTheme = () => {
+    const currTheme = localStorage.getItem('theme');
+    if (currTheme === 'light') {
+      dispatch(setDarkTheme());
+    } else {
+      dispatch(setLightTheme());
+    }
+  };
+
   return (
     <CustomHeader>
       <Link to={Routes.Auth.Home}>
@@ -47,14 +56,7 @@ export const Header = () => {
         <Section>
           <Button
             next
-            onClick={() => {
-              const currTheme = localStorage.getItem('theme');
-              if (currTheme === 'light') {
-                dispatch(setDarkTheme());
-              } else {
-                dispatch(setLightTheme());
-              }
-            }}
+            onClick={changeTheme}
           >
             Change theme
           </Button>

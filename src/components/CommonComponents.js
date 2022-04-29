@@ -4,7 +4,7 @@ export const Button = styled.button`
   width: ${props => (props.next ? '120px' : '200px')};
   height: ${props => (props.next ? '25px' : '50px')};
   border: 1px solid grey;
-  background-color: transparent;
+  background-color: aliceblue;
   color: black;
   text-align: center;
   margin: ${props => (props.cartstyle ? '10px' : '0')};
