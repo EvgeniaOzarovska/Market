@@ -10,13 +10,5 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', sans-serif ;
-  }
-
-  #root {
-    position: relative;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 100%;
   }`;
 

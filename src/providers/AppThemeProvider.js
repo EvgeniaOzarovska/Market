@@ -7,13 +7,13 @@ import styled from '@emotion/styled';
 const themeLight = {
   id: 'light',
   color: 'black',
-  colorBackground: 'whitesmoke',
+  backgroundColor: 'whitesmoke',
 };
 
 const themeDark = {
   id: 'dark',
   color: 'whitesmoke',
-  colorBackground: 'steelblue',
+  backgroundColor: 'steelblue',
 };
 
 export const MyThemeContext = React.createContext();
@@ -64,8 +64,12 @@ export const MyThemeProvider = ({ children }) => {
   }, [state.theme]);
 
   const StyledTheme = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
     color: ${state.theme.color};
-    background-color: ${state.theme.colorBackground};
+    background-color: ${state.theme.backgroundColor};
+    height: 100%;
   `;
 
   return (
