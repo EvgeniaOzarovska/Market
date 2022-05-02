@@ -13,7 +13,7 @@ const themeLight = {
 const themeDark = {
   id: 'dark',
   color: 'whitesmoke',
-  backgroundColor: 'steelblue',
+  backgroundColor: 'cadetblue',
 };
 
 export const MyThemeContext = React.createContext();

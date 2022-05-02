@@ -6,12 +6,7 @@ import { Search } from './componentsHome/Search';
 import { Page } from '../../components/CommonComponents';
 import { ErrorMessages } from '../../constants/messages';
 import { ItemCard } from './componentsHome/ItemCard';
-
-const Container = styled.main`
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-`;
+import { PageContainer } from '../../components/pageContainer';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -30,8 +25,9 @@ const Message = styled.div`
 `;
 
 export const Home = () => {
-  const [list, setList] = useState(HardCoddedData.smartphone);
   const [category, setCategory] = useState('smartphone');
+  const [list, setList] = useState(HardCoddedData.smartphone);
+
 
   const setData = item => {
     setList(HardCoddedData[item.key]);
@@ -41,7 +37,7 @@ export const Home = () => {
   const searchResult = newList => setList(newList);
 
   return (
-    <Container>
+    <PageContainer>
       <Sidebar setValue={setData} />
       <Page>
         <Search onSearch={searchResult} currentCategory={category} />
@@ -55,6 +51,6 @@ export const Home = () => {
           <Message>{ErrorMessages.recordsNotFound}</Message>
         )}
       </Page>
-    </Container>
+    </PageContainer>
   );
 };

@@ -7,14 +7,8 @@ import { OrderCart } from './componentsCart/OrderCart';
 import { Button, Icon } from '../../components/CommonComponents';
 import { Page } from '../../components/CommonComponents';
 import { ErrorMessages } from '../../constants/messages';
+import { PageContainer } from '../../components/pageContainer';
 import problem from '../../components/Icons/img/report_problem.svg';
-
-const Container = styled.main`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin: 10px 200px;
-`;
 
 const MainBlock = styled.div`
   display: flex;
@@ -43,7 +37,7 @@ export const ShoppingCart = () => {
   };
 
   return (
-    <Container>
+    <PageContainer>
       <MainBlock>
         <Page>
           {data.length > 0 ? (
@@ -52,26 +46,26 @@ export const ShoppingCart = () => {
             })
           ) : (
             <InfoBlock>
-                <Icon problem src={problem} alt={'problem'} /> {ErrorMessages.emptyShoppingCart}
+              <Icon problem src={problem} alt={'problem'} /> {ErrorMessages.emptyShoppingCart}
             </InfoBlock>
           )}
           {data.length > 0 ? (
             <ButtonBlock>
               Total amount: {calculateAmountPrice(data)} UAH
-              <Link to={Routes.Auth.Home}>
+              <Link to={Routes.Auth.Home.replace(':category', 'smartphone')}>
                 <Button cartstyle>Сontinue shopping</Button>
               </Link>
               <Button cartstyle>Сheckout</Button>
             </ButtonBlock>
           ) : (
             <InfoBlock>
-              <Link to={Routes.Auth.Home}>
+              <Link to={Routes.Auth.Home.replace(':category', 'smartphone')}>
                 <Button cartstyle>Сontinue shopping</Button>
               </Link>
             </InfoBlock>
           )}
         </Page>
       </MainBlock>
-    </Container>
+    </PageContainer>
   );
 };
