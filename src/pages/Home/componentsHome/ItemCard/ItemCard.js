@@ -52,6 +52,13 @@ export const ItemCard = props => {
     setModalIsOpen(true);
   };
 
+  const ModalOpen = () => {
+    setModalIsOpen(false);
+  };
+  const RedirectFunction = () => {
+    history.push(Routes.Auth.ShoppingCart);
+  };
+
   return (
     <React.Fragment>
       <CardBlock>
@@ -63,8 +70,8 @@ export const ItemCard = props => {
       </CardBlock>
       <AfterProductToCartModal
         isOpen={modalIsOpen}
-        onClose={() => setModalIsOpen(false)}
-        redirect={() => history.push(Routes.Auth.ShoppingCart)}
+        onClose={ModalOpen}
+        redirect={RedirectFunction}
       />
     </React.Fragment>
   );

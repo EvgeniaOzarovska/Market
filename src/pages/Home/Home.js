@@ -6,7 +6,9 @@ import { Search } from './componentsHome/Search';
 import { Page } from '../../components/CommonComponents';
 import { ErrorMessages } from '../../constants/messages';
 import { ItemCard } from './componentsHome/ItemCard';
-import { PageContainer } from '../../components/pageContainer';
+import { PageContainer } from '../../components/CommonComponents';
+import { Routes, history } from '../../router';
+import { useRouteMatch } from 'react-router-dom';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -25,13 +27,13 @@ const Message = styled.div`
 `;
 
 export const Home = () => {
-  const [category, setCategory] = useState('smartphone');
-  const [list, setList] = useState(HardCoddedData.smartphone);
-
+  const routeMatch = useRouteMatch();
+  const category = routeMatch.params.category;
+  const [list, setList] = useState(HardCoddedData[category]);
 
   const setData = item => {
     setList(HardCoddedData[item.key]);
-    setCategory(item.key);
+    history.push(Routes.Auth.Home.replace(':category', item.key));
   };
 
   const searchResult = newList => setList(newList);

@@ -7,13 +7,14 @@ import { OrderCart } from './componentsCart/OrderCart';
 import { Button, Icon } from '../../components/CommonComponents';
 import { Page } from '../../components/CommonComponents';
 import { ErrorMessages } from '../../constants/messages';
-import { PageContainer } from '../../components/pageContainer';
+import { PageContainer } from '../../components/CommonComponents';
 import problem from '../../components/Icons/img/report_problem.svg';
 
 const MainBlock = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin: 10px 200px;
 `;
 
 const ButtonBlock = styled.div`

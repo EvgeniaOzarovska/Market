@@ -1,8 +1,8 @@
 export const Routes = {
   Auth: {
-    Home: '/',
+    Home: '/category/:category',
     Login: '/login',
     Reg: '/register',
-    ShoppingCart: '/shopping cart',
+    ShoppingCart: '/shopping_cart',
   },
 };

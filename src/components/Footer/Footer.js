@@ -1,21 +1,20 @@
-import { useContext } from 'react';
 import styled from '@emotion/styled';
-import { MyThemeContext } from '../../providers/AppThemeProvider';
 
+const CustomFooter = styled.footer`
+  width: 100%;
+  background-color: ${props => {
+    return props.theme.backgroundColorComponent;
+  }};
+  border-top: 1px solid grey;
+`;
+const P = styled.p`
+  font-size: 18px;
+  font-style: italic;
+  color: black;
+  margin: 5px 15px;
+  width: 70%;
+`;
 export const Footer = () => {
-  const { state } = useContext(MyThemeContext);
-
-  const CustomFooter = styled.footer`
-    width: 100%;
-    background-color: ${state.theme.id === 'light' ? 'lightsteelblue' : 'teal'};
-    border-top: 1px solid grey;
-  `;
-  const P = styled.p`
-    font-size: 18px;
-    font-style: italic;
-    color: black;
-  `;
-
   return (
     <CustomFooter>
       <P>OUR ADRESS: Kharkiv, Sumska Street, 45</P>

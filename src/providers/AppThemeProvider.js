@@ -8,38 +8,38 @@ const themeLight = {
   id: 'light',
   color: 'black',
   backgroundColor: 'whitesmoke',
+  backgroundColorComponent: 'lightsteelblue',
 };
 
 const themeDark = {
   id: 'dark',
   color: 'whitesmoke',
   backgroundColor: 'cadetblue',
+  backgroundColorComponent: 'teal',
+  backgroundBtn: 'mediumaquamarine',
 };
 
 export const MyThemeContext = React.createContext();
 
 const actionTypes = {
-  LIGHT_THEME: 'LIGHT_THEME',
-  DARK_THEME: 'DARK_THEME',
+  THEME: 'CHANGE_THEME',
 };
 
-export const setLightTheme = () => ({
-  type: actionTypes.LIGHT_THEME,
-});
-
-export const setDarkTheme = () => ({
-  type: actionTypes.DARK_THEME,
+export const setTheme = () => ({
+  type: actionTypes.THEME,
 });
 
 const reducer = (state, action) => {
-  const { LIGHT_THEME, DARK_THEME } = actionTypes;
+  const { THEME } = actionTypes;
 
   switch (action.type) {
-    case LIGHT_THEME: {
-      return { theme: themeLight };
-    }
-    case DARK_THEME: {
-      return { theme: themeDark };
+    case THEME: {
+      const currTheme = localStorage.getItem('theme');
+      if (currTheme === 'light') {
+        return { theme: themeDark };
+      } else {
+        return { theme: themeLight };
+      }
     }
     default:
       return state;
@@ -55,6 +55,19 @@ const init = () => {
   }
 };
 
+const StyledTheme = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: ${props => {
+    return props.theme.color;
+  }};
+  background-color: ${props => {
+    return props.theme.backgroundColor;
+  }};
+  height: 100%;
+`;
+
 export const MyThemeProvider = ({ children }) => {
   const initialValue = init();
   const [state, dispatch] = useReducer(reducer, initialValue);
@@ -62,15 +75,6 @@ export const MyThemeProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('theme', state.theme.id);
   }, [state.theme]);
-
-  const StyledTheme = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    color: ${state.theme.color};
-    background-color: ${state.theme.backgroundColor};
-    height: 100%;
-  `;
 
   return (
     <MyThemeContext.Provider value={{ state, dispatch }}>
