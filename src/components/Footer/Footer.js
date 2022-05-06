@@ -2,9 +2,7 @@ import styled from '@emotion/styled';
 
 const CustomFooter = styled.footer`
   width: 100%;
-  background-color: ${props => {
-    return props.theme.backgroundColorComponent;
-  }};
+  background-color: ${props => props.theme.backgroundColorComponent};
   border-top: 1px solid grey;
 `;
 const P = styled.p`

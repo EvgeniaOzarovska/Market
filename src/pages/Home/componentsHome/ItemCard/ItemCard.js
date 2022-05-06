@@ -52,10 +52,10 @@ export const ItemCard = props => {
     setModalIsOpen(true);
   };
 
-  const ModalOpen = () => {
+  const modalOpen = () => {
     setModalIsOpen(false);
   };
-  const RedirectFunction = () => {
+  const redirectFunction = () => {
     history.push(Routes.Auth.ShoppingCart);
   };
 
@@ -70,8 +70,8 @@ export const ItemCard = props => {
       </CardBlock>
       <AfterProductToCartModal
         isOpen={modalIsOpen}
-        onClose={ModalOpen}
-        redirect={RedirectFunction}
+        onClose={modalOpen}
+        redirect={redirectFunction}
       />
     </React.Fragment>
   );

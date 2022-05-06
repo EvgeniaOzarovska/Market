@@ -7,8 +7,9 @@ import { ShoppingCart } from '../pages/ShoppingCart';
 export const Router = () => (
   <Switch>
     <Route exact path={Routes.Auth.Home} component={Home} />
-    <Redirect to={'/category/smartphone'} from={'/category'} />
+    <Redirect to={Routes.Auth.DefaultHome} from={'/category'} />
     <Route exact path={Routes.Auth.ShoppingCart} component={ShoppingCart} />
     <Route component={PageNotFound} />
+    <Redirect to={Routes.Auth.DefaultHome} from={'/'} />
   </Switch>
 );

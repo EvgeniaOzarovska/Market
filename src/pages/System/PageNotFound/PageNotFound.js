@@ -15,15 +15,13 @@ const Page = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
-  background-color: ${props => {
-    return props.theme.backgroundColor;
-  }};
+  background-color: ${props => props.theme.backgroundColor};
 `;
 
 export const PageNotFound = () => {
   return (
     <Page>
-      <Link to={Routes.Auth.Home.replace(':category', 'smartphone')}>
+      <Link to={Routes.Auth.DefaultHome}>
         <PageNotFoundText>PAGE NOT FOUND</PageNotFoundText>
       </Link>
     </Page>

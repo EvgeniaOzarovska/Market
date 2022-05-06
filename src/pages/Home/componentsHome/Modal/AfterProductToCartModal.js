@@ -4,27 +4,17 @@ import { Button } from '../../../../components/CommonComponents';
 import styled from '@emotion/styled';
 
 const Header = styled(ModalHeader)`
-  color: ${props => {
-    return props.theme.color;
-  }};
-  background-color: ${props => {
-    return props.theme.backgroundColorComponent;
-  }};
+  color: ${props => props.theme.color};
+  background-color: ${props => props.theme.backgroundColorComponent};
 `;
 
 const Footer = styled(ModalFooter)`
-  background-color: ${props => {
-    return props.theme.backgroundColorComponent;
-  }};
+  background-color: ${props =>  props.theme.backgroundColorComponent};
 `;
 
 const Body = styled(ModalBody)`
-  color: ${props => {
-    return props.theme.color;
-  }};
-  background-color: ${props => {
-    return props.theme.backgroundColor;
-  }};
+  color: ${props => props.theme.color};
+  background-color: ${props => props.theme.backgroundColor};
 `;
 
 export const AfterProductToCartModal = ({ isOpen, onClose, redirect }) => {

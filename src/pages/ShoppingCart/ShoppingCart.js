@@ -53,14 +53,14 @@ export const ShoppingCart = () => {
           {data.length > 0 ? (
             <ButtonBlock>
               Total amount: {calculateAmountPrice(data)} UAH
-              <Link to={Routes.Auth.Home.replace(':category', 'smartphone')}>
+              <Link to={Routes.Auth.DefaultHome}>
                 <Button cartstyle>Сontinue shopping</Button>
               </Link>
               <Button cartstyle>Сheckout</Button>
             </ButtonBlock>
           ) : (
             <InfoBlock>
-              <Link to={Routes.Auth.Home.replace(':category', 'smartphone')}>
+              <Link to={Routes.Auth.DefaultHome}>
                 <Button cartstyle>Сontinue shopping</Button>
               </Link>
             </InfoBlock>

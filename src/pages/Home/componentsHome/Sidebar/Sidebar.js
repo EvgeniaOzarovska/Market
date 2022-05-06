@@ -17,9 +17,7 @@ export const Category = styled.a`
 const CustomSidebar = styled.aside`
   border: 1px solid grey;
   border-bottom: none;
-  background-color: ${props => {
-    return props.theme.backgroundColorComponent;
-  }};
+  background-color: ${props => props.theme.backgroundColorComponent};
 `;
 
 export const Sidebar = props => {

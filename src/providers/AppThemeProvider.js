@@ -25,21 +25,35 @@ const actionTypes = {
   THEME: 'CHANGE_THEME',
 };
 
-export const setTheme = () => ({
+export const setTheme = payload => ({
   type: actionTypes.THEME,
+  payload,
 });
+
+export const themeTypes = {
+  LIGHT: 'light',
+  DARK: 'dark',
+};
+
+const handleTheme = theme => {
+  const { LIGHT, DARK } = themeTypes;
+
+  switch (theme) {
+    case LIGHT:
+      return { theme: themeLight };
+    case DARK:
+      return { theme: themeDark };
+    default:
+      return { theme: themeLight };
+  }
+};
 
 const reducer = (state, action) => {
   const { THEME } = actionTypes;
 
   switch (action.type) {
     case THEME: {
-      const currTheme = localStorage.getItem('theme');
-      if (currTheme === 'light') {
-        return { theme: themeDark };
-      } else {
-        return { theme: themeLight };
-      }
+      return handleTheme(action.payload);
     }
     default:
       return state;
@@ -59,12 +73,8 @@ const StyledTheme = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  color: ${props => {
-    return props.theme.color;
-  }};
-  background-color: ${props => {
-    return props.theme.backgroundColor;
-  }};
+  color: ${props => props.theme.color};
+  background-color: ${props => props.theme.backgroundColor};
   height: 100%;
 `;
 

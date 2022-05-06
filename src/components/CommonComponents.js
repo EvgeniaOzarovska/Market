@@ -4,9 +4,7 @@ export const Button = styled.button`
   width: ${props => (props.next ? '120px' : '200px')};
   height: ${props => (props.next ? '25px' : '50px')};
   border: 1px solid grey;
-  background-color: ${props => {
-    return props.theme.backgroundBtn;
-  }};
+  background-color: ${props => props.theme.backgroundBtn};
   color: black;
   text-align: center;
   margin: ${props => (props.cartstyle ? '10px' : '0')};
@@ -52,7 +50,5 @@ export const Page = styled.div`
 export const PageContainer = styled.main`
   display: flex;
   flex: 1;
-  background-color: ${props => {
-    return props.theme.backgroundColor;
-  }};
+  background-color: ${props => props.theme.backgroundColor};
 `;

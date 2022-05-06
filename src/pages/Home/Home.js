@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { HardCoddedData } from '../../data/data';
 import { Sidebar } from './componentsHome/Sidebar';
@@ -9,6 +9,7 @@ import { ItemCard } from './componentsHome/ItemCard';
 import { PageContainer } from '../../components/CommonComponents';
 import { Routes, history } from '../../router';
 import { useRouteMatch } from 'react-router-dom';
+import { PageNotFound } from '../System/PageNotFound';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -30,6 +31,14 @@ export const Home = () => {
   const routeMatch = useRouteMatch();
   const category = routeMatch.params.category;
   const [list, setList] = useState(HardCoddedData[category]);
+
+  useEffect(() => {
+    setList(HardCoddedData[category]);
+  }, [category]);
+
+  if (!list) {
+    return <PageNotFound />;
+  }
 
   const setData = item => {
     setList(HardCoddedData[item.key]);

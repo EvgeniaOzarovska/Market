@@ -6,16 +6,14 @@ import { BigIcon } from '../CommonComponents';
 import { LogoText } from '../LogoText';
 import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
 import { Button } from '../CommonComponents';
-import { MyThemeContext, setTheme } from '../../providers/AppThemeProvider';
+import { MyThemeContext, setTheme, themeTypes } from '../../providers/AppThemeProvider';
 
 const CustomHeader = styled.header`
   display: flex;
   justify-content: space-between;
   height: 90px;
   padding: 5px 15px;
-  background-color: ${props => {
-    return props.theme.backgroundColorComponent;
-  }};
+  background-color: ${props => props.theme.backgroundColorComponent};
   border-bottom: 1px solid grey;
 `;
 
@@ -39,13 +37,20 @@ const MyLink = styled.a`
 
 export const Header = () => {
   const { dispatch } = useContext(MyThemeContext);
+  const { LIGHT, DARK  } = themeTypes;
+
   const changeTheme = () => {
-    dispatch(setTheme());
+    const currTheme = localStorage.getItem('theme');
+    if (currTheme === LIGHT) {
+      dispatch(setTheme(DARK));
+    } else {
+      dispatch(setTheme(LIGHT));
+    }
   };
 
   return (
     <CustomHeader>
-      <Link to={Routes.Auth.Home.replace(':category', 'smartphone')}>
+      <Link to={Routes.Auth.DefaultHome}>
         <LogoText />
       </Link>
       <HeaderBlock>
