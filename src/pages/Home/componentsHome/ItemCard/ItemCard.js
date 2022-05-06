@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Routes } from '../../../../router';
 import styled from '@emotion/styled';
 import { useHistory } from 'react-router-dom';
@@ -75,4 +76,11 @@ export const ItemCard = props => {
       />
     </React.Fragment>
   );
+};
+ItemCard.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  price: PropTypes.number,
 };

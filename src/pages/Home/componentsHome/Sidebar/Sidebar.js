@@ -1,5 +1,6 @@
-import { HardCoddedData } from '../../../../data/data';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+import { HardCoddedData } from '../../../../data/data';
 
 export const Category = styled.a`
   display: block;
@@ -32,4 +33,7 @@ export const Sidebar = props => {
       })}
     </CustomSidebar>
   );
+};
+Sidebar.propTypes = {
+  setValue: PropTypes.func,
 };

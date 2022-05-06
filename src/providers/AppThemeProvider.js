@@ -1,8 +1,9 @@
 import React from 'react';
+import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { useReducer } from 'react';
-import styled from '@emotion/styled';
 
 const themeLight = {
   id: 'light',
@@ -81,7 +82,6 @@ const StyledTheme = styled.div`
 export const MyThemeProvider = ({ children }) => {
   const initialValue = init();
   const [state, dispatch] = useReducer(reducer, initialValue);
-
   useEffect(() => {
     localStorage.setItem('theme', state.theme.id);
   }, [state.theme]);
@@ -93,4 +93,8 @@ export const MyThemeProvider = ({ children }) => {
       </ThemeProvider>
     </MyThemeContext.Provider>
   );
+};
+
+MyThemeProvider.propTypes = {
+  children: PropTypes.array,
 };

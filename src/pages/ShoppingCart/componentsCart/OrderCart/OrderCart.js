@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import { Counter } from '../Counter';
 import { SmallIcon } from '../../../../components/CommonComponents';
 import { setDeleteItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
@@ -45,4 +46,11 @@ export const OrderCart = props => {
       />
     </Block>
   );
+};
+OrderCart.propTytpes = {
+  id: PropTypes.number,
+  count: PropTypes.number,
+  price: PropTypes.number,
+  image: PropTypes.string,
+  name: PropTypes.string,
 };

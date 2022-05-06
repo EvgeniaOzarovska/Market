@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { Button } from '../../../../components/CommonComponents';
 import styled from '@emotion/styled';
@@ -33,3 +34,10 @@ export const AfterProductToCartModal = ({ isOpen, onClose, redirect }) => {
     </Modal>
   );
 };
+
+AfterProductToCartModal.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  redirect: PropTypes.func,
+};
+

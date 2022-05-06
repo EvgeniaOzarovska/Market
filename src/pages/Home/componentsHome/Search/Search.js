@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { HardCoddedData } from '../../../../data/data';
@@ -5,6 +6,7 @@ import { Button, Icon } from '../../../../components/CommonComponents';
 import { ErrorMessages } from '../../../../constants/messages';
 import problem from '../../../../components/Icons/img/report_problem.svg';
 import pic from '../Search/search.svg';
+
 
 const Block = styled.div`
   display: flex;
@@ -72,4 +74,9 @@ export const Search = props => {
       </ErrorBlock>
     </div>
   );
+};
+
+Search.propTypes = {
+  onSearch: PropTypes.func,
+  currentCategory: PropTypes.string,
 };

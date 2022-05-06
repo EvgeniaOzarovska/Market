@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import {
   setDecrementQuantityItem,
@@ -32,4 +33,8 @@ export const Counter = props => {
       <SmallIcon src={plus} alt={plus} onClick={() => dispatch(setIncrementQuantityItem({ id }))} />
     </AddProduct>
   );
+};
+Counter.propTypes = {
+  id: PropTypes.number,
+  count: PropTypes.number,
 };

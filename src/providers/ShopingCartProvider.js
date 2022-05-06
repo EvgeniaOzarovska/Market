@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
+import PropTypes from 'prop-types';
 
 export const ShoppingCartContext = React.createContext();
 
@@ -103,3 +104,8 @@ export const ShoppingCartProvider = ({ children }) => {
     </ShoppingCartContext.Provider>
   );
 };
+
+ShoppingCartProvider.propType = {
+  children: PropTypes.array,
+};
+
