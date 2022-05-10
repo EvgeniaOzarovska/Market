@@ -5,19 +5,20 @@ import { useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { useReducer } from 'react';
 
-const themeLight = {
-  id: 'light',
-  color: 'black',
-  backgroundColor: 'whitesmoke',
-  backgroundColorComponent: 'lightsteelblue',
-};
-
-const themeDark = {
-  id: 'dark',
-  color: 'whitesmoke',
-  backgroundColor: 'cadetblue',
-  backgroundColorComponent: 'teal',
-  backgroundBtn: 'mediumaquamarine',
+const Theme = {
+  light: {
+    id: 'light',
+    color: 'black',
+    backgroundColor: 'whitesmoke',
+    backgroundColorComponent: 'lightsteelblue',
+  },
+  dark: {
+    id: 'dark',
+    color: 'whitesmoke',
+    backgroundColor: 'cadetblue',
+    backgroundColorComponent: 'teal',
+    backgroundBtn: 'mediumaquamarine',
+  },
 };
 
 export const MyThemeContext = React.createContext();
@@ -36,25 +37,12 @@ export const themeTypes = {
   DARK: 'dark',
 };
 
-const handleTheme = theme => {
-  const { LIGHT, DARK } = themeTypes;
-
-  switch (theme) {
-    case LIGHT:
-      return { theme: themeLight };
-    case DARK:
-      return { theme: themeDark };
-    default:
-      return { theme: themeLight };
-  }
-};
-
 const reducer = (state, action) => {
   const { THEME } = actionTypes;
 
   switch (action.type) {
     case THEME: {
-      return handleTheme(action.payload);
+      return { theme: Theme[action.payload] };
     }
     default:
       return state;
@@ -64,9 +52,9 @@ const reducer = (state, action) => {
 const init = () => {
   const initialTheme = localStorage.getItem('theme');
   if (initialTheme === 'light' || null) {
-    return { theme: themeLight };
+    return { theme: Theme.light };
   } else {
-    return { theme: themeDark };
+    return { theme: Theme.dark };
   }
 };
 
