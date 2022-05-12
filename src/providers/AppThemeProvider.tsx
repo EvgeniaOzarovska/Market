@@ -5,6 +5,23 @@ import { useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { useReducer } from 'react';
 
+export type MyThemeContextType = {
+  theme: ThemeTypes;
+};
+
+export type ThemeTypes = {
+  id: string;
+  color: string;
+  backgroundColor: string;
+  backgroundColorComponent: string;
+  backgroundBtn: string;
+};
+
+type ActionType = {
+  type: string;
+  payload: string;
+};
+
 const Theme = {
   light: {
     id: 'light',
@@ -21,13 +38,19 @@ const Theme = {
   },
 };
 
-export const MyThemeContext = React.createContext();
+export type ThemeType = {
+  theme: {
+    backgroundColorComponent: string;
+  };
+};
+
+export const MyThemeContext = React.createContext<MyThemeContextType | {}>({});
 
 const actionTypes = {
   THEME: 'CHANGE_THEME',
 };
 
-export const setTheme = payload => ({
+export const setTheme = (payload: string) => ({
   type: actionTypes.THEME,
   payload,
 });
@@ -37,11 +60,12 @@ export const themeTypes = {
   DARK: 'dark',
 };
 
-const reducer = (state, action) => {
+const reducer = (state: MyThemeContextType, action: ActionType) => {
   const { THEME } = actionTypes;
 
   switch (action.type) {
     case THEME: {
+      // @ts-ignore
       return { theme: Theme[action.payload] };
     }
     default:
@@ -58,7 +82,7 @@ const init = () => {
   }
 };
 
-const StyledTheme = styled.div`
+const StyledTheme = styled.div<MyThemeContextType>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -67,7 +91,7 @@ const StyledTheme = styled.div`
   height: 100%;
 `;
 
-export const MyThemeProvider = ({ children }) => {
+export const MyThemeProvider = ({ children }: any) => {
   const initialValue = init();
   const [state, dispatch] = useReducer(reducer, initialValue);
   useEffect(() => {
@@ -77,7 +101,7 @@ export const MyThemeProvider = ({ children }) => {
   return (
     <MyThemeContext.Provider value={{ state, dispatch }}>
       <ThemeProvider theme={state.theme}>
-        <StyledTheme>{children}</StyledTheme>
+        <StyledTheme theme={state.theme}>{children}</StyledTheme>
       </ThemeProvider>
     </MyThemeContext.Provider>
   );

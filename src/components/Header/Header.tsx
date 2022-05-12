@@ -1,14 +1,15 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Routes } from '../../router';
 import { BigIcon } from '../CommonComponents';
 import { LogoText } from '../LogoText';
+// @ts-ignore
 import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
 import { Button } from '../CommonComponents';
-import { MyThemeContext, setTheme, themeTypes } from '../../providers/AppThemeProvider';
+import { MyThemeContext, setTheme, ThemeType, themeTypes } from '../../providers/AppThemeProvider';
 
-const CustomHeader = styled.header`
+const CustomHeader = styled.header<ThemeType>`
   display: flex;
   justify-content: space-between;
   height: 90px;
@@ -35,9 +36,9 @@ const MyLink = styled.a`
   }
 `;
 
-export const Header = () => {
-  const { dispatch } = useContext(MyThemeContext);
-  const { LIGHT, DARK  } = themeTypes;
+export const Header = (props: any) => {
+  const { dispatch }: any = useContext(MyThemeContext);
+  const { LIGHT, DARK } = themeTypes;
 
   const changeTheme = () => {
     const currTheme = localStorage.getItem('theme');
@@ -49,13 +50,13 @@ export const Header = () => {
   };
 
   return (
-    <CustomHeader>
+    <CustomHeader theme={props.theme}>
       <Link to={Routes.Auth.DefaultHome}>
         <LogoText />
       </Link>
       <HeaderBlock>
         <Section>
-          <Button next onClick={changeTheme}>
+          <Button next onClick={changeTheme} cartstyle={false} theme={props.theme}>
             Change theme
           </Button>
           <Link to={Routes.Auth.Login}>
@@ -66,7 +67,7 @@ export const Header = () => {
           </Link>
         </Section>
         <Link to={Routes.Auth.ShoppingCart}>
-          <BigIcon alt="shopping cart" src={ShoppingCartIcon} />
+          <BigIcon alt="shopping cart" src={ShoppingCartIcon} problem={false} />
         </Link>
       </HeaderBlock>
     </CustomHeader>

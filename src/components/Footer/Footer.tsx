@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { ThemeType } from '../../providers/AppThemeProvider';
 
-const CustomFooter = styled.footer`
+const CustomFooter = styled.footer<ThemeType>`
   width: 100%;
   background-color: ${props => props.theme.backgroundColorComponent};
   border-top: 1px solid grey;
@@ -12,9 +13,9 @@ const P = styled.p`
   margin: 5px 15px;
   width: 70%;
 `;
-export const Footer = () => {
+export const Footer = (props: any) => {
   return (
-    <CustomFooter>
+    <CustomFooter theme={props.theme}>
       <P>OUR ADRESS: Kharkiv, Sumska Street, 45</P>
       <P>
         We and our partners may store and access data on a device, such as cookies, and process

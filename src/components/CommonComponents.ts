@@ -1,6 +1,20 @@
 import styled from '@emotion/styled';
+import { ThemeTypes } from '../providers/AppThemeProvider';
 
-export const Button = styled.button`
+type ButtonType = {
+  next: boolean;
+  theme: ThemeTypes;
+  cartstyle: boolean;
+};
+type PageContainerType = {
+  theme: ThemeTypes;
+};
+
+type ImgType = {
+  problem: boolean;
+}
+
+export const Button = styled.button<ButtonType>`
   width: ${props => (props.next ? '120px' : '200px')};
   height: ${props => (props.next ? '25px' : '50px')};
   border: 1px solid grey;
@@ -20,7 +34,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img<ImgType>`
   height: 30px;
   margin: 15px;
   border: ${props => (props.problem ? 'none' : '1px solid black')};
@@ -47,7 +61,7 @@ export const Page = styled.div`
   flex: 1;
 `;
 
-export const PageContainer = styled.main`
+export const PageContainer = styled.main<PageContainerType>`
   display: flex;
   flex: 1;
   background-color: ${props => props.theme.backgroundColor};
