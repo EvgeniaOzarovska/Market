@@ -4,12 +4,11 @@ import styled from '@emotion/styled';
 import { Routes } from '../../router';
 import { BigIcon } from '../CommonComponents';
 import { LogoText } from '../LogoText';
-// @ts-ignore
 import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
 import { Button } from '../CommonComponents';
-import { MyThemeContext, setTheme, ThemeType, themeTypes } from '../../providers/AppThemeProvider';
+import { IThemeType, MyThemeContext } from '../../providers/AppThemeProvider';
 
-const CustomHeader = styled.header<ThemeType>`
+const CustomHeader = styled.header<IThemeType>`
   display: flex;
   justify-content: space-between;
   height: 90px;
@@ -36,27 +35,26 @@ const MyLink = styled.a`
   }
 `;
 
-export const Header = (props: any) => {
-  const { dispatch }: any = useContext(MyThemeContext);
-  const { LIGHT, DARK } = themeTypes;
+export const Header = () => {
+  const { theme, changeTheme } = useContext(MyThemeContext);
 
-  const changeTheme = () => {
+  const changeThemes = () => {
     const currTheme = localStorage.getItem('theme');
-    if (currTheme === LIGHT) {
-      dispatch(setTheme(DARK));
+    if (currTheme === 'light') {
+      changeTheme('dark');
     } else {
-      dispatch(setTheme(LIGHT));
+      changeTheme('light');
     }
   };
 
   return (
-    <CustomHeader theme={props.theme}>
+    <CustomHeader theme={theme}>
       <Link to={Routes.Auth.DefaultHome}>
         <LogoText />
       </Link>
       <HeaderBlock>
         <Section>
-          <Button next onClick={changeTheme} cartstyle={false} theme={props.theme}>
+          <Button next onClick={changeThemes} cartstyle={false} theme={theme}>
             Change theme
           </Button>
           <Link to={Routes.Auth.Login}>

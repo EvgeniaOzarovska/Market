@@ -1,26 +1,28 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import React, { useCallback, useReducer, useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { useReducer } from 'react';
+import styled from '@emotion/styled';
 
-export type MyThemeContextType = {
-  theme: ThemeTypes;
-};
+export interface IMyThemeContextType {
+  theme: IState;
+  changeTheme: (payload: 'light' | 'dark') => void;
+}
 
-export type ThemeTypes = {
+export interface IThemeType {
+  theme: IState;
+}
+
+export interface IState {
   id: string;
   color: string;
   backgroundColor: string;
   backgroundColorComponent: string;
   backgroundBtn: string;
-};
+}
 
-type ActionType = {
+interface IAction {
   type: string;
-  payload: string;
-};
+  payload: 'light' | 'dark';
+}
 
 const Theme = {
   light: {
@@ -28,6 +30,7 @@ const Theme = {
     color: 'black',
     backgroundColor: 'whitesmoke',
     backgroundColorComponent: 'lightsteelblue',
+    backgroundBtn: 'lightsteelblue',
   },
   dark: {
     id: 'dark',
@@ -38,13 +41,10 @@ const Theme = {
   },
 };
 
-export type ThemeType = {
-  theme: {
-    backgroundColorComponent: string;
-  };
-};
-
-export const MyThemeContext = React.createContext<MyThemeContextType | {}>({});
+export const MyThemeContext = React.createContext<IMyThemeContextType>({
+  theme: Theme.light,
+  changeTheme: () => {},
+});
 
 const actionTypes = {
   THEME: 'CHANGE_THEME',
@@ -55,17 +55,11 @@ export const setTheme = (payload: string) => ({
   payload,
 });
 
-export const themeTypes = {
-  LIGHT: 'light',
-  DARK: 'dark',
-};
-
-const reducer = (state: MyThemeContextType, action: ActionType) => {
+const themeReducer = (state: IThemeType, action: IAction) => {
   const { THEME } = actionTypes;
 
   switch (action.type) {
     case THEME: {
-      // @ts-ignore
       return { theme: Theme[action.payload] };
     }
     default:
@@ -73,7 +67,7 @@ const reducer = (state: MyThemeContextType, action: ActionType) => {
   }
 };
 
-const init = () => {
+export const init = () => {
   const initialTheme = localStorage.getItem('theme');
   if (initialTheme === 'light' || null) {
     return { theme: Theme.light };
@@ -82,7 +76,7 @@ const init = () => {
   }
 };
 
-const StyledTheme = styled.div<MyThemeContextType>`
+const StyledTheme = styled.div<IThemeType>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -91,22 +85,34 @@ const StyledTheme = styled.div<MyThemeContextType>`
   height: 100%;
 `;
 
-export const MyThemeProvider = ({ children }: any) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+export const MyThemeProvider = ({ children }: Props) => {
   const initialValue = init();
-  const [state, dispatch] = useReducer(reducer, initialValue);
+  const [state, themeDispatch] = useReducer(themeReducer, initialValue);
   useEffect(() => {
     localStorage.setItem('theme', state.theme.id);
   }, [state.theme]);
 
+  const changeTheme = (payload: 'light' | 'dark') => {
+    themeDispatch({
+      type: actionTypes.THEME,
+      payload,
+    });
+  };
+
+  const contextValue = {
+    theme: state.theme,
+    changeTheme: useCallback((payload: 'light' | 'dark') => changeTheme(payload), []),
+  };
+
   return (
-    <MyThemeContext.Provider value={{ state, dispatch }}>
+    <MyThemeContext.Provider value={contextValue}>
       <ThemeProvider theme={state.theme}>
         <StyledTheme theme={state.theme}>{children}</StyledTheme>
       </ThemeProvider>
     </MyThemeContext.Provider>
   );
-};
-
-MyThemeProvider.propTypes = {
-  children: PropTypes.array,
 };

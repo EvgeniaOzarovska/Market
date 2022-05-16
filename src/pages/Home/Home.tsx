@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { HardCoddedData } from '../../data/data';
 import { Sidebar } from './componentsHome/Sidebar';
@@ -10,6 +10,10 @@ import { PageContainer } from '../../components/CommonComponents';
 import { Routes, history } from '../../router';
 import { useRouteMatch } from 'react-router-dom';
 import { PageNotFound } from '../System/PageNotFound';
+import { ItemType } from './componentsHome/Sidebar/Sidebar';
+import { ListItemType } from './componentsHome/Search/Search';
+import { CardType } from './componentsHome/ItemCard/ItemCard';
+import { MyThemeContext } from '../../providers/AppThemeProvider';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -27,10 +31,20 @@ const Message = styled.div`
   padding-top: 30px;
 `;
 
+export type CategoryItemType = {
+  name: string;
+  key: 'smartphone' | 'fitness_equipment' | 'furniture' | 'sanitary_ware' | 'watch';
+};
+
+type MatchParams = {
+  category: 'smartphone' | 'fitness_equipment' | 'furniture' | 'sanitary_ware' | 'watch';
+};
+
 export const Home = () => {
-  const routeMatch = useRouteMatch();
+  const { theme } = useContext(MyThemeContext);
+  const routeMatch = useRouteMatch<MatchParams>();
   const category = routeMatch.params.category;
-  const [list, setList] = useState(HardCoddedData[category]);
+  const [list, setList] = useState<ListItemType[]>(HardCoddedData[category]);
 
   useEffect(() => {
     setList(HardCoddedData[category]);
@@ -40,21 +54,22 @@ export const Home = () => {
     return <PageNotFound />;
   }
 
-  const setData = item => {
-    setList(HardCoddedData[item.key]);
+  const setData = (item: ItemType) => {
+    const newItem: CategoryItemType = item as CategoryItemType;
+    setList(HardCoddedData[newItem.key]);
     history.push(Routes.Auth.Home.replace(':category', item.key));
   };
 
-  const searchResult = newList => setList(newList);
+  const searchResult = (newList: ListItemType[]) => setList(newList);
 
   return (
-    <PageContainer>
+    <PageContainer theme={theme}>
       <Sidebar setValue={setData} />
       <Page>
-        <Search onSearch={searchResult} currentCategory={category} />
+        <Search onSearch={searchResult} currentCategory={category} limit={25} />
         {list.length > 0 ? (
           <ProductBlock>
-            {list.map(item => (
+            {list.map((item: CardType) => (
               <ItemCard key={item.id} data={item} />
             ))}
           </ProductBlock>

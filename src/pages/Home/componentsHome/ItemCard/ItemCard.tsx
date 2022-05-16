@@ -1,11 +1,27 @@
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Routes } from '../../../../router';
 import styled from '@emotion/styled';
 import { useHistory } from 'react-router-dom';
 import { setAddItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import { AfterProductToCartModal } from '../Modal';
 import { Button } from '../../../../components/CommonComponents';
+import { MyThemeContext } from '../../../../providers/AppThemeProvider';
+
+type InfoProductType = {
+  price: boolean;
+};
+
+export type CardType = {
+  id: number;
+  description: string;
+  name: string;
+  image: string;
+  price: number;
+};
+
+type ItemCardType = {
+  data: CardType;
+};
 
 const CardBlock = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -23,7 +39,7 @@ const Card = styled.img`
   height: 200px;
 `;
 
-const InfoProduct = styled.p`
+const InfoProduct = styled.p<InfoProductType>`
   padding: 10px;
   text-align: justify;
   font-weight: ${props => (props.price ? 'bold' : 'normal')};
@@ -34,9 +50,10 @@ const Name = styled.div`
   font-weight: bold;
 `;
 
-export const ItemCard = props => {
+export const ItemCard = (props: ItemCardType) => {
   const history = useHistory();
   const { dispatch } = useContext(ShoppingCartContext);
+  const { theme } = useContext(MyThemeContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const { id, name, image, description, price } = props.data;
@@ -65,9 +82,11 @@ export const ItemCard = props => {
       <CardBlock>
         <Name>{name}</Name>
         <Card alt={name} src={image} />
-        <InfoProduct>{description}</InfoProduct>
+        <InfoProduct price={false}>{description}</InfoProduct>
         <InfoProduct price>{price}</InfoProduct>
-        <Button onClick={addItem}>Buy</Button>
+        <Button next={false} cartstyle={false} theme={theme} onClick={addItem}>
+          Buy
+        </Button>
       </CardBlock>
       <AfterProductToCartModal
         isOpen={modalIsOpen}
@@ -76,11 +95,4 @@ export const ItemCard = props => {
       />
     </React.Fragment>
   );
-};
-ItemCard.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  price: PropTypes.number,
 };

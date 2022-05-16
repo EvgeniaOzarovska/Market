@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
-import { ThemeType } from '../../providers/AppThemeProvider';
+import { IThemeType, MyThemeContext } from '../../providers/AppThemeProvider';
+import React, { useContext } from 'react';
 
-const CustomFooter = styled.footer<ThemeType>`
+const CustomFooter = styled.footer<IThemeType>`
   width: 100%;
   background-color: ${props => props.theme.backgroundColorComponent};
   border-top: 1px solid grey;
 `;
+
 const P = styled.p`
   font-size: 18px;
   font-style: italic;
@@ -13,9 +15,12 @@ const P = styled.p`
   margin: 5px 15px;
   width: 70%;
 `;
-export const Footer = (props: any) => {
+
+export const Footer = () => {
+  const { theme } = useContext(MyThemeContext);
+
   return (
-    <CustomFooter theme={props.theme}>
+    <CustomFooter theme={theme}>
       <P>OUR ADRESS: Kharkiv, Sumska Street, 45</P>
       <P>
         We and our partners may store and access data on a device, such as cookies, and process

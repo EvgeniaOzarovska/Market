@@ -1,18 +1,18 @@
 import styled from '@emotion/styled';
-import { ThemeTypes } from '../providers/AppThemeProvider';
+import { IState } from '../providers/AppThemeProvider';
 
 type ButtonType = {
   next: boolean;
-  theme: ThemeTypes;
+  theme: IState;
   cartstyle: boolean;
 };
 type PageContainerType = {
-  theme: ThemeTypes;
+  theme: IState;
 };
 
 type ImgType = {
   problem: boolean;
-}
+};
 
 export const Button = styled.button<ButtonType>`
   width: ${props => (props.next ? '120px' : '200px')};

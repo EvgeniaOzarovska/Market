@@ -1,12 +1,25 @@
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { HardCoddedData } from '../../../../data/data';
 import { Button, Icon } from '../../../../components/CommonComponents';
 import { ErrorMessages } from '../../../../constants/messages';
 import problem from '../../../../components/Icons/img/report_problem.svg';
 import pic from '../Search/search.svg';
+import { MyThemeContext } from '../../../../providers/AppThemeProvider';
 
+export type ListItemType = {
+  id: number;
+  description: string;
+  name: string;
+  image: string;
+  price: number;
+};
+
+type SearchType = {
+  limit: number;
+  currentCategory: 'smartphone' | 'fitness_equipment' | 'furniture' | 'sanitary_ware' | 'watch';
+  onSearch: (list: ListItemType[]) => void;
+};
 
 const Block = styled.div`
   display: flex;
@@ -30,11 +43,12 @@ const Input = styled.input`
   background-size: contain;
 `;
 
-export const Search = props => {
+export const Search = (props: SearchType) => {
   const { limit = 25, onSearch, currentCategory } = props;
   const [value, setValue] = useState('');
+  const { theme } = useContext(MyThemeContext);
 
-  const searchFunction = event => {
+  const searchFunction = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
@@ -48,7 +62,7 @@ export const Search = props => {
           item.name.toLowerCase().includes(trimmedText) ||
           item.description.toLowerCase().includes(trimmedText),
       );
-      onSearch(newList);
+      return onSearch(newList);
     }
   };
 
@@ -60,7 +74,13 @@ export const Search = props => {
           onChange={searchFunction}
           onKeyDown={event => event.key === 'Enter' && search()}
         />
-        <Button disabled={value.length > limit} onClick={search}>
+        <Button
+          next={false}
+          cartstyle={false}
+          theme={theme}
+          disabled={value.length > limit}
+          onClick={search}
+        >
           Search
         </Button>
       </Block>
@@ -74,9 +94,4 @@ export const Search = props => {
       </ErrorBlock>
     </div>
   );
-};
-
-Search.propTypes = {
-  onSearch: PropTypes.func,
-  currentCategory: PropTypes.string,
 };
