@@ -2,26 +2,25 @@ import React, { useContext, useState } from 'react';
 import { Routes } from '../../../../router';
 import styled from '@emotion/styled';
 import { useHistory } from 'react-router-dom';
-import { setAddItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
+import { ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import { AfterProductToCartModal } from '../Modal';
 import { Button } from '../../../../components/CommonComponents';
-import { MyThemeContext } from '../../../../providers/AppThemeProvider';
 
-type InfoProductType = {
+interface InfoProductType {
   price: boolean;
-};
+}
 
-export type CardType = {
+export interface CardType {
   id: number;
   description: string;
   name: string;
   image: string;
   price: number;
-};
+}
 
-type ItemCardType = {
+interface ItemCardType {
   data: CardType;
-};
+}
 
 const CardBlock = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -52,21 +51,18 @@ const Name = styled.div`
 
 export const ItemCard = (props: ItemCardType) => {
   const history = useHistory();
-  const { dispatch } = useContext(ShoppingCartContext);
-  const { theme } = useContext(MyThemeContext);
+  const { addItem } = useContext(ShoppingCartContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const { id, name, image, description, price } = props.data;
-  const addItem = () => {
-    dispatch(
-      setAddItem({
-        id,
-        name,
-        count: 1,
-        image,
-        price,
-      }),
-    );
+  const addNewItem = () => {
+    addItem({
+      id,
+      name,
+      count: 1,
+      image,
+      price,
+    });
     setModalIsOpen(true);
   };
 
@@ -84,7 +80,7 @@ export const ItemCard = (props: ItemCardType) => {
         <Card alt={name} src={image} />
         <InfoProduct price={false}>{description}</InfoProduct>
         <InfoProduct price>{price}</InfoProduct>
-        <Button next={false} cartstyle={false} theme={theme} onClick={addItem}>
+        <Button next={false} cartstyle={false} onClick={addNewItem}>
           Buy
         </Button>
       </CardBlock>

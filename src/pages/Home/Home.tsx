@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { HardCoddedData } from '../../data/data';
 import { Sidebar } from './componentsHome/Sidebar';
@@ -11,9 +11,8 @@ import { Routes, history } from '../../router';
 import { useRouteMatch } from 'react-router-dom';
 import { PageNotFound } from '../System/PageNotFound';
 import { ItemType } from './componentsHome/Sidebar/Sidebar';
-import { ListItemType } from './componentsHome/Search/Search';
+import { currentCategoryEnum } from './componentsHome/Search/Search';
 import { CardType } from './componentsHome/ItemCard/ItemCard';
-import { MyThemeContext } from '../../providers/AppThemeProvider';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -31,20 +30,19 @@ const Message = styled.div`
   padding-top: 30px;
 `;
 
-export type CategoryItemType = {
+export interface CategoryItemType {
   name: string;
-  key: 'smartphone' | 'fitness_equipment' | 'furniture' | 'sanitary_ware' | 'watch';
-};
+  key: currentCategoryEnum;
+}
 
-type MatchParams = {
-  category: 'smartphone' | 'fitness_equipment' | 'furniture' | 'sanitary_ware' | 'watch';
-};
+interface MatchParams {
+  category: currentCategoryEnum;
+}
 
 export const Home = () => {
-  const { theme } = useContext(MyThemeContext);
   const routeMatch = useRouteMatch<MatchParams>();
   const category = routeMatch.params.category;
-  const [list, setList] = useState<ListItemType[]>(HardCoddedData[category]);
+  const [list, setList] = useState<CardType[]>(HardCoddedData[category]);
 
   useEffect(() => {
     setList(HardCoddedData[category]);
@@ -60,10 +58,10 @@ export const Home = () => {
     history.push(Routes.Auth.Home.replace(':category', item.key));
   };
 
-  const searchResult = (newList: ListItemType[]) => setList(newList);
+  const searchResult = (newList: CardType[]) => setList(newList);
 
   return (
-    <PageContainer theme={theme}>
+    <PageContainer>
       <Sidebar setValue={setData} />
       <Page>
         <Search onSearch={searchResult} currentCategory={category} limit={25} />

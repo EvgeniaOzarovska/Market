@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import { Routes } from '../../router';
 import { Link } from 'react-router-dom';
-import { ShoppingCartContext } from '../../providers/ShopingCartProvider';
+import { IShoppingCartItemType, ShoppingCartContext } from '../../providers/ShopingCartProvider';
 import { OrderCart } from './componentsCart/OrderCart';
 import { Button, Icon } from '../../components/CommonComponents';
 import { Page } from '../../components/CommonComponents';
@@ -29,9 +29,9 @@ const InfoBlock = styled.div`
 `;
 
 export const ShoppingCart = () => {
-  const { state } = useContext(ShoppingCartContext);
-  const { data } = state;
-  const calculateAmountPrice = data => {
+  const { data } = useContext(ShoppingCartContext);
+
+  const calculateAmountPrice = (data: IShoppingCartItemType[]) => {
     return data.reduce((prev, curr) => {
       return prev + curr.price * curr.count;
     }, 0);
@@ -42,7 +42,7 @@ export const ShoppingCart = () => {
       <MainBlock>
         <Page>
           {data.length > 0 ? (
-            data.map(cartItem => {
+            data.map((cartItem: IShoppingCartItemType) => {
               return <OrderCart key={cartItem.id} card={cartItem} />;
             })
           ) : (
@@ -54,14 +54,20 @@ export const ShoppingCart = () => {
             <ButtonBlock>
               Total amount: {calculateAmountPrice(data)} UAH
               <Link to={Routes.Auth.DefaultHome}>
-                <Button cartstyle>Сontinue shopping</Button>
+                <Button cartstyle next={false}>
+                  Сontinue shopping
+                </Button>
               </Link>
-              <Button cartstyle>Сheckout</Button>
+              <Button cartstyle next={false}>
+                Сheckout
+              </Button>
             </ButtonBlock>
           ) : (
             <InfoBlock>
               <Link to={Routes.Auth.DefaultHome}>
-                <Button cartstyle>Сontinue shopping</Button>
+                <Button cartstyle next={false}>
+                  Сontinue shopping
+                </Button>
               </Link>
             </InfoBlock>
           )}

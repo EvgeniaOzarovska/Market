@@ -1,16 +1,15 @@
 import styled from '@emotion/styled';
 import { HardCoddedData } from '../../../../data/data';
-import { IThemeType, MyThemeContext } from '../../../../providers/AppThemeProvider';
-import { useContext } from 'react';
+import { ICustomBG } from '../../../../components/Footer/Footer';
 
-export type ItemType = {
+export interface ItemType {
   name: string;
   key: string;
 }
 
-type SidebarType ={
+interface SidebarType {
   setValue: (item: ItemType) => void;
-};
+}
 
 export const Category = styled.a`
   display: block;
@@ -25,16 +24,15 @@ export const Category = styled.a`
     transition: 0.3s;
   }
 `;
-const CustomSidebar = styled.aside<IThemeType>`
+const CustomSidebar = styled.aside<ICustomBG>`
   border: 1px solid grey;
   border-bottom: none;
   background-color: ${props => props.theme.backgroundColorComponent};
 `;
 
 export const Sidebar = (props: SidebarType) => {
-  const { theme } = useContext(MyThemeContext);
   return (
-    <CustomSidebar theme={theme}>
+    <CustomSidebar>
       {HardCoddedData.categories.map((item: ItemType) => {
         return (
           <Category key={item.key} onClick={() => props.setValue(item)}>

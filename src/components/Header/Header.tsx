@@ -6,9 +6,10 @@ import { BigIcon } from '../CommonComponents';
 import { LogoText } from '../LogoText';
 import ShoppingCartIcon from '../Icons/img/shopping_cart.svg';
 import { Button } from '../CommonComponents';
-import { IThemeType, MyThemeContext } from '../../providers/AppThemeProvider';
+import { MyThemeContext, ThemeTypeEnum } from '../../providers/AppThemeProvider';
+import { ICustomBG } from '../Footer/Footer';
 
-const CustomHeader = styled.header<IThemeType>`
+const CustomHeader = styled.header<ICustomBG>`
   display: flex;
   justify-content: space-between;
   height: 90px;
@@ -36,25 +37,25 @@ const MyLink = styled.a`
 `;
 
 export const Header = () => {
-  const { theme, changeTheme } = useContext(MyThemeContext);
+  const { changeTheme } = useContext(MyThemeContext);
 
   const changeThemes = () => {
     const currTheme = localStorage.getItem('theme');
-    if (currTheme === 'light') {
-      changeTheme('dark');
+    if (currTheme === ThemeTypeEnum.light) {
+      changeTheme(ThemeTypeEnum.dark);
     } else {
-      changeTheme('light');
+      changeTheme(ThemeTypeEnum.light);
     }
   };
 
   return (
-    <CustomHeader theme={theme}>
+    <CustomHeader>
       <Link to={Routes.Auth.DefaultHome}>
         <LogoText />
       </Link>
       <HeaderBlock>
         <Section>
-          <Button next onClick={changeThemes} cartstyle={false} theme={theme}>
+          <Button next onClick={changeThemes} cartstyle={false}>
             Change theme
           </Button>
           <Link to={Routes.Auth.Login}>

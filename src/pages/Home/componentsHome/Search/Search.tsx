@@ -1,25 +1,24 @@
 import styled from '@emotion/styled';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { HardCoddedData } from '../../../../data/data';
 import { Button, Icon } from '../../../../components/CommonComponents';
 import { ErrorMessages } from '../../../../constants/messages';
 import problem from '../../../../components/Icons/img/report_problem.svg';
 import pic from '../Search/search.svg';
-import { MyThemeContext } from '../../../../providers/AppThemeProvider';
+import { CardType } from '../ItemCard/ItemCard';
 
-export type ListItemType = {
-  id: number;
-  description: string;
-  name: string;
-  image: string;
-  price: number;
-};
-
-type SearchType = {
+interface SearchType {
   limit: number;
-  currentCategory: 'smartphone' | 'fitness_equipment' | 'furniture' | 'sanitary_ware' | 'watch';
-  onSearch: (list: ListItemType[]) => void;
-};
+  currentCategory: currentCategoryEnum;
+  onSearch: (list: CardType[]) => void;
+}
+export enum currentCategoryEnum {
+  smartphone = 'smartphone',
+  fitness_equipment = 'fitness_equipment',
+  furniture = 'furniture',
+  sanitary_ware = 'sanitary_ware',
+  watch = 'watch',
+}
 
 const Block = styled.div`
   display: flex;
@@ -46,7 +45,6 @@ const Input = styled.input`
 export const Search = (props: SearchType) => {
   const { limit = 25, onSearch, currentCategory } = props;
   const [value, setValue] = useState('');
-  const { theme } = useContext(MyThemeContext);
 
   const searchFunction = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -74,13 +72,7 @@ export const Search = (props: SearchType) => {
           onChange={searchFunction}
           onKeyDown={event => event.key === 'Enter' && search()}
         />
-        <Button
-          next={false}
-          cartstyle={false}
-          theme={theme}
-          disabled={value.length > limit}
-          onClick={search}
-        >
+        <Button next={false} cartstyle={false} disabled={value.length > limit} onClick={search}>
           Search
         </Button>
       </Block>

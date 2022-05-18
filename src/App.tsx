@@ -17,7 +17,7 @@ function App() {
           <GlobalStyle />
           <Header/>
           <Router />
-          <Footer/>
+          <Footer />
         </MyThemeProvider>
       </ReactRouter>
     </ShoppingCartProvider>

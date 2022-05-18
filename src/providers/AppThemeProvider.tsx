@@ -3,15 +3,15 @@ import { ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export interface IMyThemeContextType {
-  theme: IState;
-  changeTheme: (payload: 'light' | 'dark') => void;
+  theme: IThemeState;
+  changeTheme: (payload: ThemeTypeEnum) => void;
 }
 
 export interface IThemeType {
-  theme: IState;
+  theme: IThemeState;
 }
 
-export interface IState {
+export interface IThemeState {
   id: string;
   color: string;
   backgroundColor: string;
@@ -19,9 +19,14 @@ export interface IState {
   backgroundBtn: string;
 }
 
-interface IAction {
+export interface IAction {
   type: string;
-  payload: 'light' | 'dark';
+  payload: ThemeTypeEnum;
+}
+
+export enum ThemeTypeEnum {
+  light = 'light',
+  dark = 'dark'
 }
 
 const Theme = {
@@ -50,11 +55,6 @@ const actionTypes = {
   THEME: 'CHANGE_THEME',
 };
 
-export const setTheme = (payload: string) => ({
-  type: actionTypes.THEME,
-  payload,
-});
-
 const themeReducer = (state: IThemeType, action: IAction) => {
   const { THEME } = actionTypes;
 
@@ -67,9 +67,9 @@ const themeReducer = (state: IThemeType, action: IAction) => {
   }
 };
 
-export const init = () => {
+const init = () => {
   const initialTheme = localStorage.getItem('theme');
-  if (initialTheme === 'light' || null) {
+  if (initialTheme === ThemeTypeEnum.light || null) {
     return { theme: Theme.light };
   } else {
     return { theme: Theme.dark };
@@ -85,9 +85,9 @@ const StyledTheme = styled.div<IThemeType>`
   height: 100%;
 `;
 
-type Props = {
+export interface Props {
   children: React.ReactNode;
-};
+}
 
 export const MyThemeProvider = ({ children }: Props) => {
   const initialValue = init();
@@ -96,7 +96,7 @@ export const MyThemeProvider = ({ children }: Props) => {
     localStorage.setItem('theme', state.theme.id);
   }, [state.theme]);
 
-  const changeTheme = (payload: 'light' | 'dark') => {
+  const changeTheme = (payload: ThemeTypeEnum) => {
     themeDispatch({
       type: actionTypes.THEME,
       payload,
@@ -105,7 +105,7 @@ export const MyThemeProvider = ({ children }: Props) => {
 
   const contextValue = {
     theme: state.theme,
-    changeTheme: useCallback((payload: 'light' | 'dark') => changeTheme(payload), []),
+    changeTheme: useCallback((payload: ThemeTypeEnum) => changeTheme(payload), []),
   };
 
   return (

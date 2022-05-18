@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
-import { IThemeType, MyThemeContext } from '../../providers/AppThemeProvider';
-import React, { useContext } from 'react';
+import React from 'react';
 
-const CustomFooter = styled.footer<IThemeType>`
+export interface ICustomBG {
+  theme?: {
+    backgroundColorComponent: string;
+  };
+}
+
+const CustomFooter = styled.footer<ICustomBG>`
   width: 100%;
   background-color: ${props => props.theme.backgroundColorComponent};
   border-top: 1px solid grey;
@@ -17,10 +22,8 @@ const P = styled.p`
 `;
 
 export const Footer = () => {
-  const { theme } = useContext(MyThemeContext);
-
   return (
-    <CustomFooter theme={theme}>
+    <CustomFooter>
       <P>OUR ADRESS: Kharkiv, Sumska Street, 45</P>
       <P>
         We and our partners may store and access data on a device, such as cookies, and process

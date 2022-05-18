@@ -1,18 +1,23 @@
 import styled from '@emotion/styled';
-import { IState } from '../providers/AppThemeProvider';
 
-type ButtonType = {
+interface IThemeBtnType {
+  backgroundBtn: string;
+}
+interface IThemePageContainerType {
+  theme?: {
+    backgroundColor: string;
+  };
+}
+
+interface ButtonType {
   next: boolean;
-  theme: IState;
+  theme?: IThemeBtnType;
   cartstyle: boolean;
-};
-type PageContainerType = {
-  theme: IState;
-};
+}
 
-type ImgType = {
+interface ImgType {
   problem: boolean;
-};
+}
 
 export const Button = styled.button<ButtonType>`
   width: ${props => (props.next ? '120px' : '200px')};
@@ -61,7 +66,7 @@ export const Page = styled.div`
   flex: 1;
 `;
 
-export const PageContainer = styled.main<PageContainerType>`
+export const PageContainer = styled.main<IThemePageContainerType>`
   display: flex;
   flex: 1;
   background-color: ${props => props.theme.backgroundColor};

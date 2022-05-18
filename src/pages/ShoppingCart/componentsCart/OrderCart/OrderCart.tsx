@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 import { Counter } from '../Counter';
 import { SmallIcon } from '../../../../components/CommonComponents';
-import { setDeleteItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
+import {
+  IShoppingCartItemType,
+  ShoppingCartContext,
+} from '../../../../providers/ShopingCartProvider';
 import close from '../../../../components/Icons/img/close_black_24dp.svg';
+
+interface IOrderCartType {
+  card: IShoppingCartItemType;
+}
 
 const Block = styled.div`
   display: flex;
@@ -26,31 +32,26 @@ const NameProduct = styled.div`
   width: 200px;
 `;
 
-export const OrderCart = props => {
-  const { dispatch } = useContext(ShoppingCartContext);
+export const OrderCart = (props: IOrderCartType) => {
+  const { deleteItem } = useContext(ShoppingCartContext);
 
-  const { id, image, name, count, price } = props.card;
+  const { card } = props;
+  const { id, image, name, count, price } = card;
 
   return (
     <Block key={id}>
       <Picture src={image} alt="name" />
       <NameProduct>{name}</NameProduct>
-      <Counter count={count} id={id} />
+      <Counter count={count} card={card} />
       <PriceProduct>{price * count} UAH</PriceProduct>
       <SmallIcon
+        problem={false}
         src={close}
         alt="close"
         onClick={() => {
-          dispatch(setDeleteItem({ id }));
+          deleteItem(card);
         }}
       />
     </Block>
   );
-};
-OrderCart.propTytpes = {
-  id: PropTypes.number,
-  count: PropTypes.number,
-  price: PropTypes.number,
-  image: PropTypes.string,
-  name: PropTypes.string,
 };
