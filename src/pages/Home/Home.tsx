@@ -10,9 +10,9 @@ import { PageContainer } from '../../components/CommonComponents';
 import { Routes, history } from '../../router';
 import { useRouteMatch } from 'react-router-dom';
 import { PageNotFound } from '../System/PageNotFound';
-import { ItemType } from './componentsHome/Sidebar/Sidebar';
+import { IItem } from './componentsHome/Sidebar/Sidebar';
 import { currentCategoryEnum } from './componentsHome/Search/Search';
-import { CardType } from './componentsHome/ItemCard/ItemCard';
+import { ICard } from './componentsHome/ItemCard/ItemCard';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -30,19 +30,19 @@ const Message = styled.div`
   padding-top: 30px;
 `;
 
-export interface CategoryItemType {
+export interface ICategoryItem {
   name: string;
   key: currentCategoryEnum;
 }
 
-interface MatchParams {
+interface IMatchParams {
   category: currentCategoryEnum;
 }
 
 export const Home = () => {
-  const routeMatch = useRouteMatch<MatchParams>();
+  const routeMatch = useRouteMatch<IMatchParams>();
   const category = routeMatch.params.category;
-  const [list, setList] = useState<CardType[]>(HardCoddedData[category]);
+  const [list, setList] = useState<ICard[]>(HardCoddedData[category]);
 
   useEffect(() => {
     setList(HardCoddedData[category]);
@@ -52,13 +52,13 @@ export const Home = () => {
     return <PageNotFound />;
   }
 
-  const setData = (item: ItemType) => {
-    const newItem: CategoryItemType = item as CategoryItemType;
+  const setData = (item: IItem) => {
+    const newItem: ICategoryItem = item as ICategoryItem;
     setList(HardCoddedData[newItem.key]);
     history.push(Routes.Auth.Home.replace(':category', item.key));
   };
 
-  const searchResult = (newList: CardType[]) => setList(newList);
+  const searchResult = (newList: ICard[]) => setList(newList);
 
   return (
     <PageContainer>
@@ -67,7 +67,7 @@ export const Home = () => {
         <Search onSearch={searchResult} currentCategory={category} limit={25} />
         {list.length > 0 ? (
           <ProductBlock>
-            {list.map((item: CardType) => (
+            {list.map((item: ICard) => (
               <ItemCard key={item.id} data={item} />
             ))}
           </ProductBlock>

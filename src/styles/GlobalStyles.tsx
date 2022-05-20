@@ -11,4 +11,3 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Comic Sans MS', sans-serif ;
   }`;
-

@@ -1,13 +1,13 @@
-import React, { useCallback, useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export interface IMyThemeContextType {
+export interface IMyThemeContext {
   theme: IThemeState;
   changeTheme: (payload: ThemeTypeEnum) => void;
 }
 
-export interface IThemeType {
+export interface ITheme {
   theme: IThemeState;
 }
 
@@ -26,7 +26,7 @@ export interface IAction {
 
 export enum ThemeTypeEnum {
   light = 'light',
-  dark = 'dark'
+  dark = 'dark',
 }
 
 const Theme = {
@@ -46,7 +46,7 @@ const Theme = {
   },
 };
 
-export const MyThemeContext = React.createContext<IMyThemeContextType>({
+export const MyThemeContext = React.createContext<IMyThemeContext>({
   theme: Theme.light,
   changeTheme: () => {},
 });
@@ -55,7 +55,7 @@ const actionTypes = {
   THEME: 'CHANGE_THEME',
 };
 
-const themeReducer = (state: IThemeType, action: IAction) => {
+const themeReducer = (state: ITheme, action: IAction) => {
   const { THEME } = actionTypes;
 
   switch (action.type) {
@@ -76,7 +76,7 @@ const init = () => {
   }
 };
 
-const StyledTheme = styled.div<IThemeType>`
+const StyledTheme = styled.div<Partial<ITheme>>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -85,11 +85,11 @@ const StyledTheme = styled.div<IThemeType>`
   height: 100%;
 `;
 
-export interface Props {
+export const MyThemeProvider = ({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-export const MyThemeProvider = ({ children }: Props) => {
+}): React.ReactElement => {
   const initialValue = init();
   const [state, themeDispatch] = useReducer(themeReducer, initialValue);
   useEffect(() => {
@@ -105,13 +105,13 @@ export const MyThemeProvider = ({ children }: Props) => {
 
   const contextValue = {
     theme: state.theme,
-    changeTheme: useCallback((payload: ThemeTypeEnum) => changeTheme(payload), []),
+    changeTheme: (payload: ThemeTypeEnum) => changeTheme(payload),
   };
 
   return (
     <MyThemeContext.Provider value={contextValue}>
       <ThemeProvider theme={state.theme}>
-        <StyledTheme theme={state.theme}>{children}</StyledTheme>
+        <StyledTheme>{children}</StyledTheme>
       </ThemeProvider>
     </MyThemeContext.Provider>
   );

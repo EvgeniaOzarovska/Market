@@ -6,11 +6,11 @@ import { ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import { AfterProductToCartModal } from '../Modal';
 import { Button } from '../../../../components/CommonComponents';
 
-interface InfoProductType {
-  price: boolean;
+interface IInfoProduct {
+  price?: boolean;
 }
 
-export interface CardType {
+export interface ICard {
   id: number;
   description: string;
   name: string;
@@ -18,8 +18,8 @@ export interface CardType {
   price: number;
 }
 
-interface ItemCardType {
-  data: CardType;
+export interface IItemCard {
+  data: ICard;
 }
 
 const CardBlock = styled.div`
@@ -38,7 +38,7 @@ const Card = styled.img`
   height: 200px;
 `;
 
-const InfoProduct = styled.p<InfoProductType>`
+const InfoProduct = styled.p<IInfoProduct>`
   padding: 10px;
   text-align: justify;
   font-weight: ${props => (props.price ? 'bold' : 'normal')};
@@ -49,7 +49,7 @@ const Name = styled.div`
   font-weight: bold;
 `;
 
-export const ItemCard = (props: ItemCardType) => {
+export const ItemCard = (props: IItemCard) => {
   const history = useHistory();
   const { addItem } = useContext(ShoppingCartContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -78,11 +78,9 @@ export const ItemCard = (props: ItemCardType) => {
       <CardBlock>
         <Name>{name}</Name>
         <Card alt={name} src={image} />
-        <InfoProduct price={false}>{description}</InfoProduct>
+        <InfoProduct>{description}</InfoProduct>
         <InfoProduct price>{price}</InfoProduct>
-        <Button next={false} cartstyle={false} onClick={addNewItem}>
-          Buy
-        </Button>
+        <Button onClick={addNewItem}>Buy</Button>
       </CardBlock>
       <AfterProductToCartModal
         isOpen={modalIsOpen}

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import { Routes } from '../../router';
 import { Link } from 'react-router-dom';
-import { IShoppingCartItemType, ShoppingCartContext } from '../../providers/ShopingCartProvider';
+import { IShoppingCartItem, ShoppingCartContext } from '../../providers/ShopingCartProvider';
 import { OrderCart } from './componentsCart/OrderCart';
 import { Button, Icon } from '../../components/CommonComponents';
 import { Page } from '../../components/CommonComponents';
@@ -31,7 +31,7 @@ const InfoBlock = styled.div`
 export const ShoppingCart = () => {
   const { data } = useContext(ShoppingCartContext);
 
-  const calculateAmountPrice = (data: IShoppingCartItemType[]) => {
+  const calculateAmountPrice = (data: IShoppingCartItem[]) => {
     return data.reduce((prev, curr) => {
       return prev + curr.price * curr.count;
     }, 0);
@@ -42,7 +42,7 @@ export const ShoppingCart = () => {
       <MainBlock>
         <Page>
           {data.length > 0 ? (
-            data.map((cartItem: IShoppingCartItemType) => {
+            data.map((cartItem: IShoppingCartItem) => {
               return <OrderCart key={cartItem.id} card={cartItem} />;
             })
           ) : (
@@ -54,20 +54,14 @@ export const ShoppingCart = () => {
             <ButtonBlock>
               Total amount: {calculateAmountPrice(data)} UAH
               <Link to={Routes.Auth.DefaultHome}>
-                <Button cartstyle next={false}>
-                  Сontinue shopping
-                </Button>
+                <Button cartstyle>Сontinue shopping</Button>
               </Link>
-              <Button cartstyle next={false}>
-                Сheckout
-              </Button>
+              <Button cartstyle>Сheckout</Button>
             </ButtonBlock>
           ) : (
             <InfoBlock>
               <Link to={Routes.Auth.DefaultHome}>
-                <Button cartstyle next={false}>
-                  Сontinue shopping
-                </Button>
+                <Button cartstyle>Сontinue shopping</Button>
               </Link>
             </InfoBlock>
           )}

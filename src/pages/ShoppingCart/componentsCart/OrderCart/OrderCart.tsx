@@ -2,14 +2,11 @@ import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import { Counter } from '../Counter';
 import { SmallIcon } from '../../../../components/CommonComponents';
-import {
-  IShoppingCartItemType,
-  ShoppingCartContext,
-} from '../../../../providers/ShopingCartProvider';
+import { IShoppingCartItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import close from '../../../../components/Icons/img/close_black_24dp.svg';
 
-interface IOrderCartType {
-  card: IShoppingCartItemType;
+interface IOrderCart {
+  card: IShoppingCartItem;
 }
 
 const Block = styled.div`
@@ -32,11 +29,16 @@ const NameProduct = styled.div`
   width: 200px;
 `;
 
-export const OrderCart = (props: IOrderCartType) => {
+export const OrderCart = (props: IOrderCart) => {
   const { deleteItem } = useContext(ShoppingCartContext);
+  const {
+    card: { id, image, name, count, price },
+    card,
+  } = props;
 
-  const { card } = props;
-  const { id, image, name, count, price } = card;
+  const deleteFunction = () => {
+    deleteItem(card);
+  };
 
   return (
     <Block key={id}>
@@ -44,14 +46,7 @@ export const OrderCart = (props: IOrderCartType) => {
       <NameProduct>{name}</NameProduct>
       <Counter count={count} card={card} />
       <PriceProduct>{price * count} UAH</PriceProduct>
-      <SmallIcon
-        problem={false}
-        src={close}
-        alt="close"
-        onClick={() => {
-          deleteItem(card);
-        }}
-      />
+      <SmallIcon src={close} alt="close" onClick={deleteFunction} />
     </Block>
   );
 };

@@ -2,10 +2,10 @@ import styled from '@emotion/styled';
 import { Routes } from '../../../router';
 import { Link } from 'react-router-dom';
 
-interface IPage{
-  theme?:{
-    backgroundColor: string
-  }
+interface IPage {
+  theme?: {
+    backgroundColor: string;
+  };
 }
 
 const PageNotFoundText = styled.p`

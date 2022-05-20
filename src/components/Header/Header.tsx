@@ -55,7 +55,7 @@ export const Header = () => {
       </Link>
       <HeaderBlock>
         <Section>
-          <Button next onClick={changeThemes} cartstyle={false}>
+          <Button next onClick={changeThemes}>
             Change theme
           </Button>
           <Link to={Routes.Auth.Login}>
@@ -66,7 +66,7 @@ export const Header = () => {
           </Link>
         </Section>
         <Link to={Routes.Auth.ShoppingCart}>
-          <BigIcon alt="shopping cart" src={ShoppingCartIcon} problem={false} />
+          <BigIcon alt="shopping cart" src={ShoppingCartIcon} />
         </Link>
       </HeaderBlock>
     </CustomHeader>

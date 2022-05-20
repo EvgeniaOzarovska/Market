@@ -3,13 +3,13 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { Button } from '../../../../components/CommonComponents';
 import styled from '@emotion/styled';
 
-interface ModalType {
+interface IModal {
   isOpen: boolean;
   onClose: () => void;
   redirect: () => void;
 }
 
-interface IModal {
+interface IModalTheme {
   theme?: {
     color: string;
     backgroundColor: string;
@@ -17,30 +17,31 @@ interface IModal {
   };
 }
 
-const Header = styled(ModalHeader)<IModal>`
+const Header = styled(ModalHeader)<IModalTheme>`
   color: ${props => props.theme.color};
   background-color: ${props => props.theme.backgroundColorComponent};
 `;
 
-const Footer = styled(ModalFooter)<IModal>`
+const Footer = styled(ModalFooter)<IModalTheme>`
   background-color: ${props => props.theme.backgroundColorComponent};
 `;
 
-const Body = styled(ModalBody)<IModal>`
+const Body = styled(ModalBody)<IModalTheme>`
   color: ${props => props.theme.color};
   background-color: ${props => props.theme.backgroundColor};
 `;
 
-export const AfterProductToCartModal = (props: ModalType) => {
+export const AfterProductToCartModal = (props: IModal) => {
+  const { isOpen, onClose, redirect } = props;
   return (
-    <Modal isOpen={props.isOpen} centered backdrop="static">
+    <Modal isOpen={isOpen} centered backdrop="static">
       <Header>Message</Header>
       <Body>You have added an item to your shopping cart</Body>
       <Footer>
-        <Button cartstyle next={false} onClick={props.onClose}>
+        <Button cartstyle onClick={onClose}>
           Сontinue shopping
         </Button>
-        <Button cartstyle next={false} onClick={props.redirect}>
+        <Button cartstyle onClick={redirect}>
           Go to Cart
         </Button>
       </Footer>

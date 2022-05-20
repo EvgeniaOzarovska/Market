@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useReducer } from 'react';
-import { Props } from './AppThemeProvider';
+import React, { useEffect, useReducer } from 'react';
 
-export interface IShoppingCartItemType {
+export interface IShoppingCartItem {
   id: number;
   name: string;
   count: number;
@@ -11,15 +10,15 @@ export interface IShoppingCartItemType {
 
 interface IShoppingCartAction {
   type: string;
-  payload: IShoppingCartItemType;
+  payload: IShoppingCartItem;
 }
 
 export interface IShoppingCartContextType {
-  data: IShoppingCartItemType[];
-  addItem: (payload: IShoppingCartItemType) => void;
-  incrementQuantityItem: (payload: IShoppingCartItemType) => void;
-  decrementQuantityItem: (payload: IShoppingCartItemType) => void;
-  deleteItem: (payload: IShoppingCartItemType) => void;
+  data: IShoppingCartItem[];
+  addItem: (payload: IShoppingCartItem) => void;
+  incrementQuantityItem: (payload: IShoppingCartItem) => void;
+  decrementQuantityItem: (payload: IShoppingCartItem) => void;
+  deleteItem: (payload: IShoppingCartItem) => void;
 }
 
 const actionTypes = {
@@ -30,7 +29,7 @@ const actionTypes = {
 };
 
 interface IShoppingCartState {
-  data: IShoppingCartItemType[];
+  data: IShoppingCartItem[];
 }
 
 export const ShoppingCartContext = React.createContext<IShoppingCartContextType>({
@@ -44,11 +43,13 @@ export const ShoppingCartContext = React.createContext<IShoppingCartContextType>
 const shoppingCartReducer = (state: IShoppingCartState, action: IShoppingCartAction) => {
   const { ADD_ITEM, INCREMENT_QUANTITY_ITEM, DECREMENT_QUANTITY_ITEM, DELETE_ITEM } = actionTypes;
   const { data } = state;
-  const { payload } = action;
+  const { payload, type } = action;
 
-  switch (action.type) {
+  switch (type) {
     case ADD_ITEM: {
-      const cartItemIndex = data.findIndex((cartItem: IShoppingCartItemType) => cartItem.id === payload.id);
+      const cartItemIndex = data.findIndex(
+        (cartItem: IShoppingCartItem) => cartItem.id === payload.id,
+      );
       if (cartItemIndex >= 0) {
         return {
           data: data.map(dataItem => {
@@ -65,7 +66,7 @@ const shoppingCartReducer = (state: IShoppingCartState, action: IShoppingCartAct
     }
     case INCREMENT_QUANTITY_ITEM: {
       return {
-        data: data.map((item: IShoppingCartItemType) => {
+        data: data.map((item: IShoppingCartItem) => {
           if (item.id === payload.id) {
             return { ...item, count: item.count + 1 };
           }
@@ -75,7 +76,7 @@ const shoppingCartReducer = (state: IShoppingCartState, action: IShoppingCartAct
     }
     case DECREMENT_QUANTITY_ITEM: {
       return {
-        data: data.map((item: IShoppingCartItemType) => {
+        data: data.map((item: IShoppingCartItem) => {
           if (item.id === payload.id && item.count > 1) {
             return { ...item, count: item.count - 1 };
           }
@@ -84,7 +85,7 @@ const shoppingCartReducer = (state: IShoppingCartState, action: IShoppingCartAct
       };
     }
     case DELETE_ITEM: {
-      const updatedCart = data.filter((cartItem: IShoppingCartItemType) => cartItem.id !== payload.id);
+      const updatedCart = data.filter((cartItem: IShoppingCartItem) => cartItem.id !== payload.id);
       return { data: updatedCart };
     }
     default:
@@ -93,15 +94,19 @@ const shoppingCartReducer = (state: IShoppingCartState, action: IShoppingCartAct
 };
 
 const init = () => {
-  const cartString = localStorage.getItem('cart');
-  if (cartString === null) {
+  const cartInfo = localStorage.getItem('cart');
+  if (cartInfo === null) {
     return { data: [] };
   } else {
-    return { data: JSON.parse(cartString) };
+    return { data: JSON.parse(cartInfo) };
   }
 };
 
-export const ShoppingCartProvider = ({ children }: Props) => {
+export const ShoppingCartProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}): React.ReactElement => {
   const initialState = init();
   const [state, shoppingCartDispatch] = useReducer(shoppingCartReducer, initialState);
 
@@ -109,25 +114,25 @@ export const ShoppingCartProvider = ({ children }: Props) => {
     localStorage.setItem('cart', JSON.stringify(state.data));
   }, [state.data]);
 
-  const addItem = (payload: IShoppingCartItemType) => {
+  const addItem = (payload: IShoppingCartItem) => {
     shoppingCartDispatch({
       type: actionTypes.ADD_ITEM,
       payload,
     });
   };
-  const incrementQuantityItem = (payload: IShoppingCartItemType) => {
+  const incrementQuantityItem = (payload: IShoppingCartItem) => {
     shoppingCartDispatch({
       type: actionTypes.INCREMENT_QUANTITY_ITEM,
       payload,
     });
   };
-  const decrementQuantityItem = (payload: IShoppingCartItemType) => {
+  const decrementQuantityItem = (payload: IShoppingCartItem) => {
     shoppingCartDispatch({
       type: actionTypes.DECREMENT_QUANTITY_ITEM,
       payload,
     });
   };
-  const deleteItem = (payload: IShoppingCartItemType) => {
+  const deleteItem = (payload: IShoppingCartItem) => {
     shoppingCartDispatch({
       type: actionTypes.DELETE_ITEM,
       payload,
@@ -136,18 +141,18 @@ export const ShoppingCartProvider = ({ children }: Props) => {
 
   const contextValue = {
     data: state.data,
-    addItem: useCallback((payload: IShoppingCartItemType) => {
+    addItem: (payload: IShoppingCartItem) => {
       addItem(payload);
-    }, []),
-    incrementQuantityItem: useCallback((payload: IShoppingCartItemType) => {
+    },
+    incrementQuantityItem: (payload: IShoppingCartItem) => {
       incrementQuantityItem(payload);
-    }, []),
-    decrementQuantityItem: useCallback((payload: IShoppingCartItemType) => {
+    },
+    decrementQuantityItem: (payload: IShoppingCartItem) => {
       decrementQuantityItem(payload);
-    }, []),
-    deleteItem: useCallback((payload: IShoppingCartItemType) => {
+    },
+    deleteItem: (payload: IShoppingCartItem) => {
       deleteItem(payload);
-    }, []),
+    },
   };
 
   return (

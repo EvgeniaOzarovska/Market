@@ -15,7 +15,7 @@ function App() {
       <ReactRouter history={history}>
         <MyThemeProvider>
           <GlobalStyle />
-          <Header/>
+          <Header />
           <Router />
           <Footer />
         </MyThemeProvider>

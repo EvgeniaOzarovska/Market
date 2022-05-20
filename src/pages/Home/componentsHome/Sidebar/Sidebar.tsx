@@ -2,13 +2,13 @@ import styled from '@emotion/styled';
 import { HardCoddedData } from '../../../../data/data';
 import { ICustomBG } from '../../../../components/Footer/Footer';
 
-export interface ItemType {
+export interface IItem {
   name: string;
   key: string;
 }
 
-interface SidebarType {
-  setValue: (item: ItemType) => void;
+interface ISidebar {
+  setValue: (item: IItem) => void;
 }
 
 export const Category = styled.a`
@@ -30,12 +30,13 @@ const CustomSidebar = styled.aside<ICustomBG>`
   background-color: ${props => props.theme.backgroundColorComponent};
 `;
 
-export const Sidebar = (props: SidebarType) => {
+export const Sidebar = (props: ISidebar) => {
+  const { setValue } = props;
   return (
     <CustomSidebar>
-      {HardCoddedData.categories.map((item: ItemType) => {
+      {HardCoddedData.categories.map((item: IItem) => {
         return (
-          <Category key={item.key} onClick={() => props.setValue(item)}>
+          <Category key={item.key} onClick={() => setValue(item)}>
             {item.name}
           </Category>
         );

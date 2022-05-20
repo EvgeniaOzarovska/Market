@@ -5,12 +5,12 @@ import { Button, Icon } from '../../../../components/CommonComponents';
 import { ErrorMessages } from '../../../../constants/messages';
 import problem from '../../../../components/Icons/img/report_problem.svg';
 import pic from '../Search/search.svg';
-import { CardType } from '../ItemCard/ItemCard';
+import { ICard } from '../ItemCard/ItemCard';
 
-interface SearchType {
+interface ISearch {
   limit: number;
   currentCategory: currentCategoryEnum;
-  onSearch: (list: CardType[]) => void;
+  onSearch: (list: ICard[]) => void;
 }
 export enum currentCategoryEnum {
   smartphone = 'smartphone',
@@ -42,7 +42,7 @@ const Input = styled.input`
   background-size: contain;
 `;
 
-export const Search = (props: SearchType) => {
+export const Search = (props: ISearch) => {
   const { limit = 25, onSearch, currentCategory } = props;
   const [value, setValue] = useState('');
 
@@ -72,7 +72,7 @@ export const Search = (props: SearchType) => {
           onChange={searchFunction}
           onKeyDown={event => event.key === 'Enter' && search()}
         />
-        <Button next={false} cartstyle={false} disabled={value.length > limit} onClick={search}>
+        <Button disabled={value.length > limit} onClick={search}>
           Search
         </Button>
       </Block>
