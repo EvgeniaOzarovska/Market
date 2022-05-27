@@ -34,7 +34,7 @@ const Body = styled(ModalBody)<IModalTheme>`
 export const AfterProductToCartModal = (props: IModal) => {
   const { isOpen, onClose, redirect } = props;
   return (
-    <Modal isOpen={isOpen} centered backdrop="static">
+    <Modal isOpen={isOpen} centered backdrop="static" data-testid="card-block-modal">
       <Header>Message</Header>
       <Body>You have added an item to your shopping cart</Body>
       <Footer>

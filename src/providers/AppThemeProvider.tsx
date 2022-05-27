@@ -69,10 +69,10 @@ const themeReducer = (state: ITheme, action: IAction) => {
 
 const init = () => {
   const initialTheme = localStorage.getItem('theme');
-  if (initialTheme === ThemeTypeEnum.light || null) {
-    return { theme: Theme.light };
-  } else {
+  if (initialTheme === ThemeTypeEnum.dark) {
     return { theme: Theme.dark };
+  } else {
+    return { theme: Theme.light };
   }
 };
 

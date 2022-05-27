@@ -8,5 +8,5 @@ const Text = styled.div`
 `;
 
 export const LogoText = () => {
-  return <Text>Market</Text>;
+  return <Text data-testid="logo-text">Market</Text>;
 };

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Routes } from '../../router';
@@ -27,7 +27,7 @@ const Section = styled.div`
   display: flex;
 `;
 
-const MyLink = styled.a`
+const MyLink = styled.span`
   color: darkblue;
   margin: 15px;
   &:hover {
@@ -49,24 +49,24 @@ export const Header = () => {
   };
 
   return (
-    <CustomHeader>
+    <CustomHeader data-testid="header">
       <Link to={Routes.Auth.DefaultHome}>
         <LogoText />
       </Link>
       <HeaderBlock>
         <Section>
-          <Button next onClick={changeThemes}>
+          <Button data-testid="theme-button" next onClick={changeThemes}>
             Change theme
           </Button>
-          <Link to={Routes.Auth.Login}>
+          <Link to={Routes.Auth.Login} data-testid="sign-in">
             <MyLink>Sign In</MyLink>
           </Link>
           <Link to={Routes.Auth.Reg}>
-            <MyLink>Sign Up</MyLink>
+            <MyLink data-testid="sign-up">Sign Up</MyLink>
           </Link>
         </Section>
         <Link to={Routes.Auth.ShoppingCart}>
-          <BigIcon alt="shopping cart" src={ShoppingCartIcon} />
+          <BigIcon data-testid="shop-icon" alt="shopping cart" src={ShoppingCartIcon} />
         </Link>
       </HeaderBlock>
     </CustomHeader>

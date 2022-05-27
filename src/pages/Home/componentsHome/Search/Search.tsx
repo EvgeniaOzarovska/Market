@@ -65,7 +65,7 @@ export const Search = (props: ISearch) => {
   };
 
   return (
-    <div>
+    <div data-testid="search-block">
       <Block>
         <Input
           value={value}

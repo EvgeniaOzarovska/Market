@@ -22,7 +22,7 @@ export interface IItemCard {
   data: ICard;
 }
 
-const CardBlock = styled.div`
+export const CardBlock = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 250px;
   padding: 15px 0;
@@ -33,18 +33,18 @@ const CardBlock = styled.div`
   background-color: transparent;
 `;
 
-const Card = styled.img`
+export const Card = styled.img`
   width: 200px;
   height: 200px;
 `;
 
-const InfoProduct = styled.p<IInfoProduct>`
+export const InfoProduct = styled.p<IInfoProduct>`
   padding: 10px;
   text-align: justify;
   font-weight: ${props => (props.price ? 'bold' : 'normal')};
 `;
 
-const Name = styled.div`
+export const Name = styled.div`
   padding-bottom: 15px;
   font-weight: bold;
 `;
@@ -75,12 +75,16 @@ export const ItemCard = (props: IItemCard) => {
 
   return (
     <React.Fragment>
-      <CardBlock>
-        <Name>{name}</Name>
-        <Card alt={name} src={image} />
-        <InfoProduct>{description}</InfoProduct>
-        <InfoProduct price>{price}</InfoProduct>
-        <Button onClick={addNewItem}>Buy</Button>
+      <CardBlock data-testid="card-block">
+        <Name data-testid="card-block-name">{name}</Name>
+        <Card data-testid="card-block-img" alt={name} src={image} />
+        <InfoProduct data-testid="card-block-description">{description}</InfoProduct>
+        <InfoProduct data-testid="card-block-price" price>
+          {price}
+        </InfoProduct>
+        <Button onClick={addNewItem} data-testid="buy-btn">
+          Buy
+        </Button>
       </CardBlock>
       <AfterProductToCartModal
         isOpen={modalIsOpen}
