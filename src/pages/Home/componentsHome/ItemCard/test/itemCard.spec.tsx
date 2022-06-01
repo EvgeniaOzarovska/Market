@@ -11,13 +11,14 @@ import { createMemoryHistory } from 'history';
 describe('<ItemCard/>', () => {
   const history = createMemoryHistory();
   const cardMock = {
-    id: 1,
-    name: 'test',
-    image: 'test',
-    description: 'test',
-    price: 1,
+    id: 10,
+    name: 'test name',
+    image: 'test-src',
+    description: 'test description',
+    price: 1000,
+    count: 1,
   };
-  it('Should render Card  block', () => {
+  it('Should renders Card  block', () => {
     render(<ItemCard data={cardMock} />);
     expect(screen.getByTestId('card-block')).toBeInTheDocument();
     expect(screen.getByTestId('card-block-name')).toBeInTheDocument();
@@ -25,16 +26,16 @@ describe('<ItemCard/>', () => {
     expect(screen.getByTestId('card-block-description')).toBeInTheDocument();
     expect(screen.getByTestId('card-block-price')).toBeInTheDocument();
     expect(screen.getByTestId('buy-btn')).toBeInTheDocument();
-    expect(screen.getByTestId('card-block-name')).not.toBeNull();
+    expect(screen.getByTestId('card-block-name')).not.toBeEmptyDOMElement();
     expect(screen.getByTestId('card-block-img')).not.toBeNull();
-    expect(screen.getByTestId('card-block-description')).not.toBeNull();
-    expect(screen.getByTestId('card-block-price')).not.toBeNull();
+    expect(screen.getByTestId('card-block-description')).not.toBeEmptyDOMElement();
+    expect(screen.getByTestId('card-block-price')).not.toBeEmptyDOMElement();
   });
 
   describe('Add new item in shopping cart', () => {
     const shoppingCartMock = [
       {
-        id: 1,
+        id: 10,
         name: 'test',
         image: 'test',
         description: 'test',
@@ -52,6 +53,7 @@ describe('<ItemCard/>', () => {
     };
     afterEach(() => {
       currentData = undefined;
+      localStorage.clear();
     });
     it('should add item in the cart', async () => {
       localStorage.setItem('cart', JSON.stringify(shoppingCartMock));

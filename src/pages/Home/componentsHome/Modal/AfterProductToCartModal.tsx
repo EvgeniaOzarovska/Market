@@ -38,10 +38,10 @@ export const AfterProductToCartModal = (props: IModal) => {
       <Header>Message</Header>
       <Body>You have added an item to your shopping cart</Body>
       <Footer>
-        <Button cartstyle onClick={onClose}>
+        <Button cartstyle onClick={onClose} data-testid="close-btn">
           Сontinue shopping
         </Button>
-        <Button cartstyle onClick={redirect}>
+        <Button cartstyle onClick={redirect} data-testid="redirect-btn">
           Go to Cart
         </Button>
       </Footer>

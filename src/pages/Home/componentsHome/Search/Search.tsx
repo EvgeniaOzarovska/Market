@@ -8,7 +8,7 @@ import pic from '../Search/search.svg';
 import { ICard } from '../ItemCard/ItemCard';
 
 interface ISearch {
-  limit: number;
+  limit?: number;
   currentCategory: currentCategoryEnum;
   onSearch: (list: ICard[]) => void;
 }
@@ -43,7 +43,7 @@ const Input = styled.input`
 `;
 
 export const Search = (props: ISearch) => {
-  const { limit = 25, onSearch, currentCategory } = props;
+  const { limit = 25,  onSearch, currentCategory } = props;
   const [value, setValue] = useState('');
 
   const searchFunction = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,17 +68,18 @@ export const Search = (props: ISearch) => {
     <div data-testid="search-block">
       <Block>
         <Input
+          data-testid="search-input"
           value={value}
           onChange={searchFunction}
           onKeyDown={event => event.key === 'Enter' && search()}
         />
-        <Button disabled={value.length > limit} onClick={search}>
+        <Button data-testid="search-btn" disabled={value.length > limit} onClick={search}>
           Search
         </Button>
       </Block>
       <ErrorBlock>
         {value.length > limit && (
-          <div>
+          <div data-testid='error-block'>
             <Icon problem src={problem} alt={'problem'} />
             {ErrorMessages.errorSearch}
           </div>

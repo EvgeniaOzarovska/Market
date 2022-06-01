@@ -61,18 +61,18 @@ export const Home = () => {
   const searchResult = (newList: ICard[]) => setList(newList);
 
   return (
-    <PageContainer>
-      <Sidebar setValue={setData} />
+    <PageContainer data-testid="home-page">
+      <Sidebar setValue={setData} data-testid="sidebar-category" />
       <Page>
         <Search onSearch={searchResult} currentCategory={category} limit={25} />
         {list.length > 0 ? (
-          <ProductBlock>
+          <ProductBlock data-testid="product-block">
             {list.map((item: ICard) => (
               <ItemCard key={item.id} data={item} />
             ))}
           </ProductBlock>
         ) : (
-          <Message>{ErrorMessages.recordsNotFound}</Message>
+          <Message data-testid="error-msg">{ErrorMessages.recordsNotFound}</Message>
         )}
       </Page>
     </PageContainer>

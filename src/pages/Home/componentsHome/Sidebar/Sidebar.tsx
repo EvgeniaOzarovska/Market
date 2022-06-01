@@ -33,10 +33,10 @@ const CustomSidebar = styled.aside<ICustomBG>`
 export const Sidebar = (props: ISidebar) => {
   const { setValue } = props;
   return (
-    <CustomSidebar>
+    <CustomSidebar data-testid='sidebar-block'>
       {HardCoddedData.categories.map((item: IItem) => {
         return (
-          <Category key={item.key} onClick={() => setValue(item)}>
+          <Category data-testid='sidebar-category' key={item.key} onClick={() => setValue(item)}>
             {item.name}
           </Category>
         );

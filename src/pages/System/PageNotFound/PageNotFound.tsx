@@ -26,9 +26,9 @@ const Page = styled.div<IPage>`
 
 export const PageNotFound = () => {
   return (
-    <Page>
+    <Page data-testid="page-not-found">
       <Link to={Routes.Auth.DefaultHome}>
-        <PageNotFoundText>PAGE NOT FOUND</PageNotFoundText>
+        <PageNotFoundText data-testid="page-not-found-text">PAGE NOT FOUND</PageNotFoundText>
       </Link>
     </Page>
   );

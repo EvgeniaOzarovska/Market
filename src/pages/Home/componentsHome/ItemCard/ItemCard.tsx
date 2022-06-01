@@ -22,7 +22,7 @@ export interface IItemCard {
   data: ICard;
 }
 
-export const CardBlock = styled.div`
+const CardBlock = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 250px;
   padding: 15px 0;
@@ -33,18 +33,18 @@ export const CardBlock = styled.div`
   background-color: transparent;
 `;
 
-export const Card = styled.img`
+const Card = styled.img`
   width: 200px;
   height: 200px;
 `;
 
-export const InfoProduct = styled.p<IInfoProduct>`
+const InfoProduct = styled.p<IInfoProduct>`
   padding: 10px;
   text-align: justify;
   font-weight: ${props => (props.price ? 'bold' : 'normal')};
 `;
 
-export const Name = styled.div`
+const Name = styled.div`
   padding-bottom: 15px;
   font-weight: bold;
 `;
