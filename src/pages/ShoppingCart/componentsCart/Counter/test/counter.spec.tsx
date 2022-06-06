@@ -2,6 +2,7 @@ import { Counter, ICounter } from '../Counter';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import {
+  IShoppingCartItem,
   ShoppingCartContext,
   ShoppingCartProvider,
 } from '../../../../../providers/ShopingCartProvider';
@@ -11,6 +12,16 @@ import { OrderCart } from '../../OrderCart';
 
 describe('Counter', () => {
   const history = createMemoryHistory();
+  const renderShoppingCart = (shoppingCartMock: IShoppingCartItem) => {
+    return render(
+      <Router history={history}>
+        <ShoppingCartProvider>
+          <OrderCart card={shoppingCartMock} />
+          <MySpyComponent />
+        </ShoppingCartProvider>
+      </Router>,
+    );
+  };
 
   const increaseShoppingCartMock = [
     {
@@ -75,14 +86,7 @@ describe('Counter', () => {
 
   it('should increase the number', async () => {
     localStorage.setItem('cart', JSON.stringify(increaseShoppingCartMock));
-    render(
-      <Router history={history}>
-        <ShoppingCartProvider>
-          <OrderCart card={increaseShoppingCartMock[0]} />
-          <MySpyComponent />
-        </ShoppingCartProvider>
-      </Router>,
-    );
+    renderShoppingCart(increaseShoppingCartMock[0]);
     expect(screen.getByTestId('increase')).toBeInTheDocument();
     fireEvent.click(screen.getByTestId('increase'));
     await waitFor(() => expect(currentData[0].count).toBe(increaseShoppingCartMock[0].count + 1));
@@ -92,14 +96,7 @@ describe('Counter', () => {
 
   it('should decrease the number', async () => {
     localStorage.setItem('cart', JSON.stringify(decreaseShoppingCartMock));
-    render(
-      <Router history={history}>
-        <ShoppingCartProvider>
-          <OrderCart card={decreaseShoppingCartMock[0]} />
-          <MySpyComponent />
-        </ShoppingCartProvider>
-      </Router>,
-    );
+    renderShoppingCart(decreaseShoppingCartMock[0]);
     expect(screen.getByTestId('decrease')).toBeInTheDocument();
     fireEvent.click(screen.getByTestId('decrease'));
     await waitFor(() => expect(currentData[0].count).toBe(decreaseShoppingCartMock[0].count - 1));
