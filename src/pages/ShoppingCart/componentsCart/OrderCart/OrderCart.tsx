@@ -5,7 +5,7 @@ import { SmallIcon } from '../../../../components/CommonComponents';
 import { IShoppingCartItem, ShoppingCartContext } from '../../../../providers/ShopingCartProvider';
 import close from '../../../../components/Icons/img/close_black_24dp.svg';
 
-interface IOrderCart {
+export interface IOrderCart {
   card: IShoppingCartItem;
 }
 
@@ -41,12 +41,12 @@ export const OrderCart = (props: IOrderCart) => {
   };
 
   return (
-    <Block key={id}>
-      <Picture src={image} alt="name" />
-      <NameProduct>{name}</NameProduct>
-      <Counter count={count} card={card} />
-      <PriceProduct>{price * count} UAH</PriceProduct>
-      <SmallIcon src={close} alt="close" onClick={deleteFunction} />
+    <Block key={id} data-testid="block" >
+      <Picture src={image} alt="name" data-testid="block-pic"/>
+      <NameProduct data-testid="block-name">{name}</NameProduct>
+      <Counter count={count} card={card} data-testid="block-counter"/>
+      <PriceProduct data-testid="block-price">{price * count} UAH</PriceProduct>
+      <SmallIcon src={close} alt="delete" onClick={deleteFunction} data-testid="block-delete"/>
     </Block>
   );
 };

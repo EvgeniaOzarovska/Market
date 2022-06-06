@@ -5,14 +5,18 @@ describe('Modal', () => {
   const handleClose = jest.fn();
   const redirect = jest.fn();
 
+  const renderCardModal = () => {
+    return render(<AfterProductToCartModal isOpen onClose={handleClose} redirect={redirect} />);
+  };
+
   it('should works close button', () => {
-    render(<AfterProductToCartModal isOpen onClose={handleClose} redirect={redirect} />);
+    renderCardModal();
     fireEvent.click(screen.getByTestId('close-btn'));
     expect(handleClose).toHaveBeenCalled();
   });
 
   it('should works redirect button', () => {
-    render(<AfterProductToCartModal isOpen onClose={handleClose} redirect={redirect} />);
+    renderCardModal();
     fireEvent.click(screen.getByTestId('redirect-btn'));
     expect(redirect).toHaveBeenCalled();
   });

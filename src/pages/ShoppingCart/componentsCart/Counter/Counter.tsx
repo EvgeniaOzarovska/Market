@@ -6,7 +6,7 @@ import { SmallIcon } from '../../../../components/CommonComponents';
 import plus from '../../../../components/Icons/img/add_black_24dp.svg';
 import remove from '../../../../components/Icons/img/remove_black_24dp.svg';
 
-interface ICounter {
+export interface ICounter {
   card: IShoppingCartItem;
   count: number;
 }
@@ -26,10 +26,10 @@ export const Counter = (props: ICounter) => {
 
   const { card, count } = props;
   return (
-    <AddProduct>
-      <SmallIcon src={remove} alt={remove} onClick={decrementFunction} />
+    <AddProduct data-testid="add-product">
+      <SmallIcon src={remove} alt={remove} onClick={decrementFunction} data-testid="decrease"/>
       <p>{count}</p>
-      <SmallIcon src={plus} alt={plus} onClick={incrementFunction} />
+      <SmallIcon src={plus} alt={plus} onClick={incrementFunction} data-testid="increase" />
     </AddProduct>
   );
 };

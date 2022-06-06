@@ -30,6 +30,11 @@ describe('<ItemCard/>', () => {
     expect(screen.getByTestId('card-block-img')).not.toBeNull();
     expect(screen.getByTestId('card-block-description')).not.toBeEmptyDOMElement();
     expect(screen.getByTestId('card-block-price')).not.toBeEmptyDOMElement();
+    expect(screen.getByTestId('card-block-img')).toHaveAttribute('src');
+    expect(screen.getByTestId('card-block-name')).toContainHTML(cardMock.name);
+    expect(screen.getByTestId('card-block-description')).toContainHTML(cardMock.description);
+    expect(screen.getByTestId('card-block-img')).toContainHTML(cardMock.image);
+    expect(screen.getByTestId('card-block-price')).toContainHTML(cardMock.price.toString());
   });
 
   describe('Add new item in shopping cart', () => {

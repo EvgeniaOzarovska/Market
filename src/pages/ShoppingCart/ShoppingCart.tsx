@@ -38,7 +38,7 @@ export const ShoppingCart = () => {
   };
 
   return (
-    <PageContainer>
+    <PageContainer data-testid="page-container">
       <MainBlock>
         <Page>
           {data.length > 0 ? (
@@ -51,7 +51,7 @@ export const ShoppingCart = () => {
             </InfoBlock>
           )}
           {data.length > 0 ? (
-            <ButtonBlock>
+            <ButtonBlock data-testid='total-amount'>
               Total amount: {calculateAmountPrice(data)} UAH
               <Link to={Routes.Auth.DefaultHome}>
                 <Button cartstyle>Сontinue shopping</Button>

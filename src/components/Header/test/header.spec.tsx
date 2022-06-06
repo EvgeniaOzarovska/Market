@@ -12,26 +12,27 @@ import {
 
 describe('Header', () => {
   const history = createMemoryHistory();
-  const renderHeaderFunction = () => {
+  const renderHeader = () => {
     return (
+      render(
       <Router history={history}>
         <Header />
       </Router>
-    );
+    ));
   };
 
   it('should renders header', () => {
-    render(renderHeaderFunction());
+    renderHeader();
     expect(screen.getByTestId('header')).toBeInTheDocument();
   });
 
   it('should renders logo text', () => {
-    render(renderHeaderFunction());
+    renderHeader();
     expect(screen.getByTestId('logo-text')).toBeInTheDocument();
   });
 
   it('should renders change theme button', () => {
-    render(renderHeaderFunction());
+    renderHeader();
     expect(screen.getByTestId('theme-button')).toBeInTheDocument();
   });
 
@@ -47,13 +48,14 @@ describe('Header', () => {
 
     const headerWithTheme = () => {
       return (
+        render(
         <Router history={history}>
           <MyThemeProvider>
             <Header />
             <MySpyComponent />
           </MyThemeProvider>
         </Router>
-      );
+      ));
     };
 
     afterEach(() => {
@@ -62,7 +64,7 @@ describe('Header', () => {
 
     it('should change application theme when initial value is valid', async () => {
       localStorage.setItem('theme', ThemeTypeEnum.light);
-      render(headerWithTheme());
+      headerWithTheme();
       expect(currentTheme?.id).toBe(ThemeTypeEnum.light);
       const themeBtn = screen.getByTestId('theme-button');
       fireEvent.click(themeBtn);
@@ -73,7 +75,7 @@ describe('Header', () => {
 
     it('should change application theme when initial value is invalid', async () => {
       localStorage.setItem('theme', 'random test value');
-      render(headerWithTheme());
+      headerWithTheme();
       expect(currentTheme?.id).toBe(ThemeTypeEnum.light);
       const themeBtn = screen.getByTestId('theme-button');
       fireEvent.click(themeBtn);
@@ -85,25 +87,25 @@ describe('Header', () => {
 
   describe('Links', () => {
     it('should renders link sign in', () => {
-      render(renderHeaderFunction());
+      renderHeader();
       expect(screen.getByTestId('sign-in')).toBeInTheDocument();
     });
 
     it('should renders link sign up', () => {
-      render(renderHeaderFunction());
+      renderHeader();
       expect(screen.getByTestId('sign-up')).toBeInTheDocument();
     });
 
     describe('Redirect', () => {
       it('should redirect from sign in to Page not found', () => {
-        render(renderHeaderFunction());
+        renderHeader();
         const signIn = screen.getByTestId('sign-in');
         fireEvent.click(signIn);
         expect(history.location.pathname).toBe(Routes.Auth.Login);
       });
 
       it('should redirect from sign up to Page not found', () => {
-        render(renderHeaderFunction());
+        renderHeader();
         const signIn = screen.getByTestId('sign-up');
         fireEvent.click(signIn);
         expect(history.location.pathname).toBe(Routes.Auth.Reg);
@@ -113,7 +115,7 @@ describe('Header', () => {
 
   describe('Shopping cart icon', () => {
     it('should renders shopping cart icon', () => {
-      render(renderHeaderFunction());
+      renderHeader();
       expect(screen.getByTestId('shop-icon')).toBeInTheDocument();
     });
   });
