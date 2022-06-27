@@ -1,11 +1,11 @@
-import { OrderCart, IOrderCart } from '../OrderCart';
+import { OrderCart, IOrderCart } from './OrderCart';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import {
   ShoppingCartContext,
   ShoppingCartProvider,
-} from '../../../../../providers/ShopingCartProvider';
+} from '../../../../providers/ShopingCartProvider';
 import { useContext, useEffect } from 'react';
 
 describe('OrderCart', () => {

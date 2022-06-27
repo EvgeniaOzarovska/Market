@@ -2,13 +2,13 @@ import { useContext, useEffect } from 'react';
 import { Router } from 'react-router-dom';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
-import { Routes } from '../../../router';
-import { Header } from '../Header';
+import { Routes } from '../../router';
+import { Header } from './Header';
 import {
   MyThemeContext,
   MyThemeProvider,
   ThemeTypeEnum,
-} from '../../../providers/AppThemeProvider';
+} from '../../providers/AppThemeProvider';
 
 describe('Header', () => {
   const history = createMemoryHistory();

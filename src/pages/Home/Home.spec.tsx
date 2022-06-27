@@ -1,9 +1,9 @@
-import { Home } from '../Home';
+import { Home } from './Home';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Router } from 'react-router-dom';
-import { MyThemeProvider } from '../../../providers/AppThemeProvider';
+import { MyThemeProvider } from '../../providers/AppThemeProvider';
 import { createMemoryHistory } from 'history';
-import { ErrorMessages } from '../../../constants/messages';
+import { ErrorMessages } from '../../constants/messages';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

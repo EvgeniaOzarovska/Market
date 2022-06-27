@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { AfterProductToCartModal } from '../AfterProductToCartModal';
+import { AfterProductToCartModal } from './AfterProductToCartModal';
 
 describe('Modal', () => {
   const handleClose = jest.fn();
@@ -13,6 +13,7 @@ describe('Modal', () => {
     renderCardModal();
     fireEvent.click(screen.getByTestId('close-btn'));
     expect(handleClose).toHaveBeenCalled();
+    expect(handleClose).toHaveBeenCalledTimes(1);
   });
 
   it('should works redirect button', () => {

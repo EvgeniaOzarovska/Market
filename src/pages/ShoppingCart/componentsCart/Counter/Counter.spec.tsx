@@ -1,14 +1,14 @@
-import { Counter, ICounter } from '../Counter';
+import { Counter, ICounter } from './Counter';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import {
   IShoppingCartItem,
   ShoppingCartContext,
   ShoppingCartProvider,
-} from '../../../../../providers/ShopingCartProvider';
+} from '../../../../providers/ShopingCartProvider';
 import { Router } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
-import { OrderCart } from '../../OrderCart';
+import { OrderCart } from '../OrderCart';
 
 describe('Counter', () => {
   const history = createMemoryHistory();

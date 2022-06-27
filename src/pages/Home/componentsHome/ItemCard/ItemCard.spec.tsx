@@ -1,12 +1,13 @@
-import { ItemCard } from '../ItemCard';
+import { ItemCard } from './ItemCard';
 import React, { useContext, useEffect } from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import {
   ShoppingCartContext,
   ShoppingCartProvider,
-} from '../../../../../providers/ShopingCartProvider';
+} from '../../../../providers/ShopingCartProvider';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
+import renderer from 'react-test-renderer';
 
 describe('<ItemCard/>', () => {
   const history = createMemoryHistory();
@@ -35,6 +36,11 @@ describe('<ItemCard/>', () => {
     expect(screen.getByTestId('card-block-description')).toContainHTML(cardMock.description);
     expect(screen.getByTestId('card-block-img')).toContainHTML(cardMock.image);
     expect(screen.getByTestId('card-block-price')).toContainHTML(cardMock.price.toString());
+  });
+
+  it('Should renders item card', () => {
+    const view = renderer.create(<ItemCard data={cardMock}/>).toJSON();
+    expect(view).toMatchSnapshot();
   });
 
   describe('Add new item in shopping cart', () => {

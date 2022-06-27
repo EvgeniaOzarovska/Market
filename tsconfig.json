@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["cypress"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,7 +18,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "node_modules/cypress/types/cypress-global-vars.d.ts"]
 }

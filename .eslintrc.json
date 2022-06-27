@@ -1,5 +1,5 @@
 {
-  "extends": ["react-app", "react-app/jest"],
+  "extends": ["react-app", "react-app/jest", "plugin:cypress/recommended"],
   "rules": {
     "react-hooks/exhaustive-deps": "off",
     "jsx-a11y/img-redundant-alt": "off",
@@ -8,5 +8,8 @@
     "quotes": ["error", "single"],
     "eol-last": ["error", "always"],
     "semi": [2, "always"]
+  },
+  "globals": {
+    "cy": true
   }
 }
