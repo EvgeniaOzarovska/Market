@@ -9,3 +9,4 @@ describe('Footer', () => {
     cy.get('footer').should('be.visible').contains(footText);
   });
 });
+
