@@ -1,10 +1,12 @@
-
 export {};
 describe('Header with redirect', () => {
   const logoText = 'Market';
 
-  it('should be visible', () => {
+  before(()=>{
     cy.visit('http://localhost:3000/category/smartphone');
+  });
+
+  it('should be visible', () => {
     cy.get('[data-testid="header"]').should('be.visible').contains(logoText);
   });
 
@@ -29,9 +31,6 @@ describe('Header with theme', () => {
     cy.visit('http://localhost:3000/category/smartphone');
     cy.get('[data-testid="theme-button"]').should('be.visible').contains('Change theme').click();
     cy.wrap(localStorage).invoke('getItem', 'theme').should('eq', 'dark');
-  });
-
-  it('should change theme on light', () => {
     cy.get('[data-testid="theme-button"]').should('be.visible').contains('Change theme').click();
     cy.wrap(localStorage).invoke('getItem', 'theme').should('eq', 'light');
   });

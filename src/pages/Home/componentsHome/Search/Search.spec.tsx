@@ -1,7 +1,6 @@
 import { currentCategoryEnum, Search } from './Search';
 import { fireEvent, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import { ItemCard } from '../ItemCard';
 import React from 'react';
 
 describe('Search', () => {
