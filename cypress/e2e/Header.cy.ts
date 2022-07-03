@@ -2,7 +2,7 @@ export {};
 describe('Header with redirect', () => {
   const logoText = 'Market';
 
-  before(()=>{
+  before(() => {
     cy.visit('http://localhost:3000/category/smartphone');
   });
 
@@ -30,14 +30,10 @@ describe('Header with theme', () => {
   it('should change theme on dark', () => {
     window.localStorage.setItem('theme', 'light');
     cy.get('[data-testid="theme-button"]').should('be.visible').contains('Change theme').click();
-    cy.wrap(localStorage).invoke('getItem', 'theme').should('eq', 'dark');
 
     it('should change theme on light', () => {
       window.localStorage.setItem('theme', 'dark');
-      cy.wrap(localStorage).invoke('getItem', 'dark');
       cy.get('[data-testid="theme-button"]').should('be.visible').contains('Change theme').click();
-      cy.wrap(localStorage).invoke('getItem', 'theme').should('eq', 'light');
     });
-
   });
 });

@@ -28,7 +28,7 @@ export const Counter = (props: ICounter) => {
   return (
     <AddProduct data-testid="add-product">
       <SmallIcon src={remove} alt={remove} onClick={decrementFunction} data-testid="decrease"/>
-      <p>{count}</p>
+      <p data-testid="count-result">{count}</p>
       <SmallIcon src={plus} alt={plus} onClick={incrementFunction} data-testid="increase" />
     </AddProduct>
   );

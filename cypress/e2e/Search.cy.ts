@@ -17,6 +17,5 @@ describe('Item Card', () => {
     );
     cy.get('[data-testid="search-block"]').should('be.visible').contains(ErrorMessages.errorSearch);
     cy.get('[data-testid="search-btn"]').should('be.disabled');
-
   });
 });

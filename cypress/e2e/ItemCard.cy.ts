@@ -1,4 +1,3 @@
-
 export {};
 describe('Item Card', () => {
   before(() => {
@@ -19,8 +18,7 @@ describe('Item Card', () => {
     cy.get('[data-testid="card-block-modal"]').should('not.be.empty');
     cy.get('[data-testid="close-btn"]').contains('Сontinue shopping').click();
     cy.get('[data-testid="card-block-modal"]').should('not.be.visible');
-    cy.get ('[data-testid="redirect-btn"]').contains('Go to Cart').click();
+    cy.get('[data-testid="redirect-btn"]').contains('Go to Cart').click();
     cy.location('pathname').should('eq', '/shopping_cart');
   });
 });
-
