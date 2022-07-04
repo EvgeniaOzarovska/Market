@@ -1,7 +1,7 @@
 import { HardCoddedData } from '../../src/data/data';
 
 export {};
-describe('Item Card', () => {
+describe('Sidebar', () => {
   const categories = HardCoddedData.categories.length;
 
   before(() => {

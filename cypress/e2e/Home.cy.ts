@@ -2,7 +2,7 @@ import { HardCoddedData } from '../../src/data/data';
 import { ErrorMessages } from '../../src/constants/messages';
 
 export {};
-describe('Item Card', () => {
+describe('Home', () => {
   before(() => {
     cy.visit('http://localhost:3000/category/smartphone');
   });

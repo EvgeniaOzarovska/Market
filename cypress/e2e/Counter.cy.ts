@@ -1,9 +1,23 @@
 export {};
-describe('Item Card', () => {
-  before(() => {
+describe('Counter', () => {
+  const shoppingCartMock = [
+    {
+      id: 10,
+      name: 'test',
+      image: 'test',
+      description: 'test',
+      price: 1,
+      count: 5,
+    },
+  ];
+
+  beforeEach(() => {
+    window.localStorage.setItem('cart', JSON.stringify(shoppingCartMock));
     cy.visit('http://localhost:3000/category/smartphone');
-    cy.get('[data-testid="buy-btn"]').contains('Buy').click();
-    cy.get('[data-testid="redirect-btn"]').contains('Go to Cart').click();
+    cy.get('[data-testid="shop-icon"]').click();
+  });
+  afterEach(() => {
+    window.localStorage.clear();
   });
 
   it('should render counter', () => {
@@ -15,11 +29,11 @@ describe('Item Card', () => {
 
   it('should work increase', () => {
     cy.get('[data-testid="increase"]').click();
-    cy.get('[data-testid="count-result"]').contains('2');
+    cy.get('[data-testid="count-result"]').contains((shoppingCartMock[0].count + 1).toString());
   });
 
   it('should work decrease', () => {
     cy.get('[data-testid="decrease"]').click();
-    cy.get('[data-testid="count-result"]').contains('1');
+    cy.get('[data-testid="count-result"]').contains((shoppingCartMock[0].count - 1).toString());
   });
 });

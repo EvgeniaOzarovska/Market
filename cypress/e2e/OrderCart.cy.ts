@@ -1,7 +1,7 @@
 import { ErrorMessages } from '../../src/constants/messages';
 
 export {};
-describe('Item Card', () => {
+describe('OrderCart', () => {
   before(() => {
     cy.visit('http://localhost:3000/category/smartphone');
     cy.get('[data-testid="buy-btn"]').contains('Buy').click();
