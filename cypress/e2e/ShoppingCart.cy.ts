@@ -32,8 +32,6 @@ describe('ShoppingCart', () => {
   });
 
   it('should calculate total amount', () => {
-    // eslint-disable-next-line no-console
-    console.log(localStorage);
     cy.get('[data-testid="total-amount"]').contains('15');
   });
 
