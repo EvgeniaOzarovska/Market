@@ -54,14 +54,14 @@ export const ShoppingCart = () => {
             <ButtonBlock data-testid='total-amount'>
               Total amount: {calculateAmountPrice(data)} UAH
               <Link to={Routes.Auth.DefaultHome}>
-                <Button cartstyle>Сontinue shopping</Button>
+                <Button data-testid='continue-btn' cartstyle>Сontinue shopping</Button>
               </Link>
-              <Button cartstyle>Сheckout</Button>
+              <Button data-testid='checkout-btn' cartstyle>Сheckout</Button>
             </ButtonBlock>
           ) : (
             <InfoBlock>
               <Link to={Routes.Auth.DefaultHome}>
-                <Button cartstyle>Сontinue shopping</Button>
+                <Button cartstyle> Сontinue shopping</Button>
               </Link>
             </InfoBlock>
           )}
