@@ -42,9 +42,4 @@ describe('Empty shopping cart', () => {
       .should('be.visible')
       .contains(ErrorMessages.emptyShoppingCart);
   });
-
-  it('should redirect', () => {
-    cy.get('[data-testid="continue-btn"]').click();
-    cy.location('pathname').should('eq', '/category/smartphone');
-  });
 });
