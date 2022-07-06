@@ -1,16 +1,6 @@
-export {};
-describe('Counter', () => {
-  const shoppingCartMock = [
-    {
-      id: 10,
-      name: 'test',
-      image: 'test',
-      description: 'test',
-      price: 1,
-      count: 5,
-    },
-  ];
+import { shoppingCartMock } from '../support/mocks.cy';
 
+describe('Counter', () => {
   beforeEach(() => {
     window.localStorage.setItem('cart', JSON.stringify(shoppingCartMock));
     cy.visit('http://localhost:3000/category/smartphone');
@@ -28,12 +18,12 @@ describe('Counter', () => {
   });
 
   it('should work increase', () => {
-    cy.get('[data-testid="increase"]').click();
+    cy.get('[data-testid="increase"]').click({ multiple: true });
     cy.get('[data-testid="count-result"]').contains((shoppingCartMock[0].count + 1).toString());
   });
 
   it('should work decrease', () => {
-    cy.get('[data-testid="decrease"]').click();
+    cy.get('[data-testid="decrease"]').click({ multiple: true });
     cy.get('[data-testid="count-result"]').contains((shoppingCartMock[0].count - 1).toString());
   });
 });

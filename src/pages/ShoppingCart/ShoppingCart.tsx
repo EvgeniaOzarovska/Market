@@ -46,7 +46,7 @@ export const ShoppingCart = () => {
               return <OrderCart key={cartItem.id} card={cartItem} />;
             })
           ) : (
-            <InfoBlock>
+            <InfoBlock data-testid="empty-cart">
               <Icon problem src={problem} alt={'problem'} /> {ErrorMessages.emptyShoppingCart}
             </InfoBlock>
           )}
@@ -61,7 +61,7 @@ export const ShoppingCart = () => {
           ) : (
             <InfoBlock>
               <Link to={Routes.Auth.DefaultHome}>
-                <Button cartstyle> Сontinue shopping</Button>
+                <Button data-testid='continue-btn' cartstyle> Сontinue shopping</Button>
               </Link>
             </InfoBlock>
           )}

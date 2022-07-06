@@ -1,25 +1,8 @@
+import { shoppingCartMock } from '../support/mocks.cy';
+import { ErrorMessages } from '../../src/constants/messages';
+
 export {};
 describe('ShoppingCart', () => {
-  const shoppingCartMock = [
-    {
-      id: 10,
-      name: 'test',
-      image: 'test',
-      description: 'test',
-      price: 5,
-      count: 1,
-    },
-    {
-      id: 11,
-      name: 'test name',
-      image: 'test-src',
-      description: 'test description',
-      price: 10,
-      count: 1,
-    }
-  ];
-
-
   beforeEach(() => {
     window.localStorage.setItem('cart', JSON.stringify(shoppingCartMock));
     cy.visit('http://localhost:3000/category/smartphone');
@@ -32,7 +15,32 @@ describe('ShoppingCart', () => {
   });
 
   it('should calculate total amount', () => {
-    cy.get('[data-testid="total-amount"]').contains('15');
+    cy.get('[data-testid="total-amount"]').contains(
+      shoppingCartMock[0].price * shoppingCartMock[0].count +
+        shoppingCartMock[1].price * shoppingCartMock[1].count,
+    );
+  });
+});
+
+describe('redirect', () => {
+  it('should redirect', () => {
+    cy.visit('http://localhost:3000/shopping_cart');
+    cy.get('[data-testid="continue-btn"]').click();
+    cy.location('pathname').should('eq', '/category/smartphone');
+  });
+});
+
+describe('Empty shopping cart', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/shopping_cart');
+  });
+
+  it('should render message', () => {
+    window.localStorage.setItem('cart', '0');
+    cy.get('[data-testid="continue-btn"]').should('be.visible').contains('Сontinue shopping');
+    cy.get('[data-testid="empty-cart"]')
+      .should('be.visible')
+      .contains(ErrorMessages.emptyShoppingCart);
   });
 
   it('should redirect', () => {
