@@ -46,7 +46,8 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run --headless",
     "cy:dev": "npm run start && npm run cy:run",
-    "cy:e2e": "node scripts/e2eTestRunner.js"
+    "cy:e2e": "node scripts/e2eTestRunner.js",
+    "server": "json-server --watch db.json"
   },
   "husky": {
     "hooks": {

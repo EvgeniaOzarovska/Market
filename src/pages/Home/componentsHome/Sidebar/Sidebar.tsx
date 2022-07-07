@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import { HardCoddedData } from '../../../../data/data';
 import { ICustomBG } from '../../../../components/Footer/Footer';
+import { useEffect, useState } from 'react';
+import { getCategories } from '../../../../requests/reguests';
 
 export interface IItem {
   name: string;
@@ -32,15 +33,27 @@ const CustomSidebar = styled.aside<ICustomBG>`
 
 export const Sidebar = (props: ISidebar) => {
   const { setValue } = props;
+  const [categoriesList, setCategoriesList] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const categories = await getCategories();
+      setCategoriesList(categories);
+    })();
+  }, []);
+
   return (
-    <CustomSidebar data-testid='sidebar-block'>
-      {HardCoddedData.categories.map((item: IItem) => {
-        return (
-          <Category data-testid='sidebar-category' key={item.key} onClick={() => setValue(item)}>
-            {item.name}
-          </Category>
-        );
-      })}
+    <CustomSidebar data-testid="sidebar-block">
+      {categoriesList.length > 0 ? (
+        categoriesList.map((item: IItem) => {
+          return (
+            <Category data-testid="sidebar-category" key={item.key} onClick={() => setValue(item)}>
+              {item.name}
+            </Category>
+          );
+        })
+      ) : (
+        <span>ERROR</span>
+      )}
     </CustomSidebar>
   );
 };
