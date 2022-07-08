@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import { HardCoddedData } from '../../data/data';
 import { Sidebar } from './componentsHome/Sidebar';
 import { Search } from './componentsHome/Search';
 import { Page } from '../../components/CommonComponents';
@@ -13,6 +12,7 @@ import { PageNotFound } from '../System/PageNotFound';
 import { IItem } from './componentsHome/Sidebar/Sidebar';
 import { currentCategoryEnum } from './componentsHome/Search/Search';
 import { ICard } from './componentsHome/ItemCard/ItemCard';
+import { getItemCards } from '../../requests/reguests';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -42,19 +42,24 @@ interface IMatchParams {
 export const Home = () => {
   const routeMatch = useRouteMatch<IMatchParams>();
   const category = routeMatch.params.category;
-  const [list, setList] = useState<ICard[]>(HardCoddedData[category]);
+  const [list, setList] = useState<ICard[]>([]);
+
+  const getCartList = async (category: string) => {
+    const cardList = await getItemCards(category);
+    setList(cardList);
+  };
 
   useEffect(() => {
-    setList(HardCoddedData[category]);
+    (async () => {
+      await getCartList(category);
+    })();
   }, [category]);
 
   if (!list) {
     return <PageNotFound />;
   }
 
-  const setData = (item: IItem) => {
-    const newItem: ICategoryItem = item as ICategoryItem;
-    setList(HardCoddedData[newItem.key]);
+  const setData = async (item: IItem) => {
     history.push(Routes.Auth.Home.replace(':category', item.key));
   };
 

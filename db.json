@@ -21,7 +21,6 @@
       "key": "watch"
     }
   ],
-
   "smartphone": [
     {
       "id": 1,
@@ -59,7 +58,6 @@
       "price": 6250
     }
   ],
-
   "furniture": [
     {
       "id": 6,
