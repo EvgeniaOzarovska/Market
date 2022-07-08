@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ICustomBG } from '../../../../components/Footer/Footer';
 import { useEffect, useState } from 'react';
-import { getCategories } from '../../../../requests/reguests';
+import { fetchCategories } from '../../../../requests/reguests';
 
 export interface IItem {
   name: string;
@@ -36,7 +36,7 @@ export const Sidebar = (props: ISidebar) => {
   const [categoriesList, setCategoriesList] = useState([]);
   useEffect(() => {
     (async () => {
-      const categories = await getCategories();
+      const categories = await fetchCategories();
       setCategoriesList(categories);
     })();
   }, []);

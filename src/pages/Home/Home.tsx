@@ -12,7 +12,7 @@ import { PageNotFound } from '../System/PageNotFound';
 import { IItem } from './componentsHome/Sidebar/Sidebar';
 import { currentCategoryEnum } from './componentsHome/Search/Search';
 import { ICard } from './componentsHome/ItemCard/ItemCard';
-import { getItemCards } from '../../requests/reguests';
+import { fetchItemCards } from '../../requests/reguests';
 
 const ProductBlock = styled.div`
   margin-top: 16px;
@@ -45,14 +45,18 @@ export const Home = () => {
   const [list, setList] = useState<ICard[]>([]);
 
   const getCartList = async (category: string) => {
-    const cardList = await getItemCards(category);
+    const cardList = await fetchItemCards(category);
     setList(cardList);
   };
 
+  const CardList = () => {
+ (async () => {
+    await getCartList(category);
+  })();
+  };
+
   useEffect(() => {
-    (async () => {
-      await getCartList(category);
-    })();
+    CardList();
   }, [category]);
 
   if (!list) {

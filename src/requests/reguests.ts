@@ -1,15 +1,9 @@
-export const getCategories = async () => {
-  const response = await fetch(' http://localhost:3000/categories', {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  return await response.json();
+import { fetchService } from './fetch.service';
+
+export const fetchItemCards = async (category: string) => {
+  return await fetchService(`http://localhost:3000/${category}`, 'get');
 };
 
-export const getItemCards = async (category: string) => {
-  const response = await fetch(`http://localhost:3000/${category}`, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  return await response.json();
+export const fetchCategories = async () => {
+  return await fetchService(' http://localhost:3000/categories', 'get');
 };

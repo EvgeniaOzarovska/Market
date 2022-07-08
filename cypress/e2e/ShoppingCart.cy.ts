@@ -3,6 +3,13 @@ import { ErrorMessages } from '../../src/constants/messages';
 
 export {};
 describe('ShoppingCart', () => {
+  const calculate = () => {
+    return (
+      shoppingCartMock[0].price * shoppingCartMock[0].count +
+      shoppingCartMock[1].price * shoppingCartMock[1].count
+    );
+  };
+
   beforeEach(() => {
     window.localStorage.setItem('cart', JSON.stringify(shoppingCartMock));
     cy.visit('http://localhost:3000/category/smartphone');
@@ -15,10 +22,7 @@ describe('ShoppingCart', () => {
   });
 
   it('should calculate total amount', () => {
-    cy.get('[data-testid="total-amount"]').contains(
-      shoppingCartMock[0].price * shoppingCartMock[0].count +
-        shoppingCartMock[1].price * shoppingCartMock[1].count,
-    );
+    cy.get('[data-testid="total-amount"]').contains(calculate());
   });
 });
 
