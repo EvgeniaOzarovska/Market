@@ -33,7 +33,7 @@ const CustomSidebar = styled.aside<ICustomBG>`
 
 export const Sidebar = (props: ISidebar) => {
   const { setValue } = props;
-  const [categoriesList, setCategoriesList] = useState([]);
+  const [categoriesList, setCategoriesList] = useState<IItem[]>([]);
   useEffect(() => {
     (async () => {
       const categories = await fetchCategories();

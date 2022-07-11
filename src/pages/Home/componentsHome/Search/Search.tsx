@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
-import { HardCoddedData } from '../../../../data/data';
 import { Button, Icon } from '../../../../components/CommonComponents';
 import { ErrorMessages } from '../../../../constants/messages';
 import problem from '../../../../components/Icons/img/report_problem.svg';
 import pic from '../Search/search.svg';
 import { ICard } from '../ItemCard/ItemCard';
+import { fetchItemCards } from '../../../../requests/reguests';
 
 interface ISearch {
   limit?: number;
@@ -43,19 +43,20 @@ const Input = styled.input`
 `;
 
 export const Search = (props: ISearch) => {
-  const { limit = 25,  onSearch, currentCategory } = props;
+  const { limit = 25, onSearch, currentCategory } = props;
   const [value, setValue] = useState('');
 
   const searchFunction = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
-  const search = () => {
+  const search = async () => {
     const trimmedText = value.trim().toLowerCase();
+    const itemList = await fetchItemCards(currentCategory);
     if (value === '') {
-      return onSearch(HardCoddedData[currentCategory]);
+      return onSearch(itemList);
     } else {
-      const newList = HardCoddedData[currentCategory].filter(
+      const newList = itemList.filter(
         item =>
           item.name.toLowerCase().includes(trimmedText) ||
           item.description.toLowerCase().includes(trimmedText),
@@ -79,7 +80,7 @@ export const Search = (props: ISearch) => {
       </Block>
       <ErrorBlock>
         {value.length > limit && (
-          <div data-testid='error-block'>
+          <div data-testid="error-block">
             <Icon problem src={problem} alt={'problem'} />
             {ErrorMessages.errorSearch}
           </div>
