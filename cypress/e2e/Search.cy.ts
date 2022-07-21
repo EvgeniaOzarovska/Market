@@ -1,6 +1,5 @@
 import { ErrorMessages } from '../../src/constants/messages';
 
-export {};
 describe('Search', () => {
   before(() => {
     cy.visit('http://localhost:3000/category/smartphone');

@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import React, { useState } from 'react';
 import { Button, Icon } from '../../../../components/CommonComponents';
 import { ErrorMessages } from '../../../../constants/messages';
-import problem from '../../../../components/Icons/img/report_problem.svg';
-import pic from '../Search/search.svg';
+import reportProblemImg from '../../../../components/Icons/img/report_problem.svg';
+import searchImg from '../Search/search.svg';
 import { ICard } from '../ItemCard/ItemCard';
 import { fetchItemCards } from '../../../../requests/reguests';
 
@@ -37,7 +37,7 @@ const Input = styled.input`
   width: 100%;
   text-indent: 50px;
   border: 2px solid darkgrey;
-  background-image: url(${pic});
+  background-image: url(${searchImg});
   background-repeat: no-repeat;
   background-size: contain;
 `;
@@ -53,7 +53,7 @@ export const Search = (props: ISearch) => {
   const search = async () => {
     const trimmedText = value.trim().toLowerCase();
     const itemList = await fetchItemCards(currentCategory);
-    if (value === '') {
+    if (!trimmedText) {
       return onSearch(itemList);
     } else {
       const newList = itemList.filter(
@@ -81,7 +81,7 @@ export const Search = (props: ISearch) => {
       <ErrorBlock>
         {value.length > limit && (
           <div data-testid="error-block">
-            <Icon problem src={problem} alt={'problem'} />
+            <Icon problem src={reportProblemImg} alt={'problem'} />
             {ErrorMessages.errorSearch}
           </div>
         )}

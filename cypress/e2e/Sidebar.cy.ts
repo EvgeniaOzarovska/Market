@@ -1,8 +1,8 @@
 import { HardCoddedData } from '../../src/data/data';
+import { fetchCategories } from '../../src/requests/reguests';
 
-export {};
 describe('Sidebar', () => {
-  const categories = HardCoddedData.categories.length;
+  const categories = fetchCategories();
 
   before(() => {
     cy.visit('http://localhost:3000/category/smartphone');

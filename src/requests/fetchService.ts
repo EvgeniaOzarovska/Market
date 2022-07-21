@@ -5,9 +5,6 @@ export const fetchService = async (url: string, reqMethod: string, body?: any) =
       'Content-Type': 'application/json'
     }
   };
-  if (reqMethod.toUpperCase() !== 'GET'){
-    init.body = body;
-  }
   try {
     const response = await fetch(url, init);
     return await response.json();
@@ -15,3 +12,4 @@ export const fetchService = async (url: string, reqMethod: string, body?: any) =
     console.error('Ошибка:', error);
   }
 };
+

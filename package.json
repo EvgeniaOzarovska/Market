@@ -46,7 +46,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run --headless",
     "cy:dev": "npm run start && npm run cy:run",
-    "server": "json-server --watch db.json"
+    "server": "json-server -p 3030 --watch db.json"
   },
   "husky": {
     "hooks": {

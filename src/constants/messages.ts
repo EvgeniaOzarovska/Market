@@ -4,3 +4,5 @@ export const ErrorMessages = {
   emptyShoppingCart: 'Shopping Cart is empty',
   modalMessage: 'You added some product in your shopping cart',
 };
+
+

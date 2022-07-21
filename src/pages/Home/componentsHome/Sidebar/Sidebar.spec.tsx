@@ -1,7 +1,9 @@
 import { Sidebar } from './Sidebar';
 import { fireEvent, render, screen } from '@testing-library/react';
+
 import { HardCoddedData } from '../../../../data/data';
 import renderer from 'react-test-renderer';
+import { fetchCategories } from '../../../../requests/reguests';
 
 describe('Sidebar', () => {
   const setValue = jest.fn();
@@ -9,8 +11,9 @@ describe('Sidebar', () => {
     return render(<Sidebar setValue={setValue} />);
   };
 
-  it('should renders Sidebar', () => {
+  it('should renders Sidebar', async() => {
     renderSidebar();
+    const categoriesSidebar = await fetchCategories();
     const categories = screen.getAllByTestId('sidebar-category');
     expect(screen.getByTestId('sidebar-block')).toBeInTheDocument();
     expect(categories.length).toBe(HardCoddedData.categories.length);

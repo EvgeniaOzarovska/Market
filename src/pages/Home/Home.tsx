@@ -44,19 +44,12 @@ export const Home = () => {
   const category = routeMatch.params.category;
   const [list, setList] = useState<ICard[]>([]);
 
-  const getCartList = async (category: string) => {
-    const cardList = await fetchItemCards(category);
-    setList(cardList);
-  };
-
-  const CardList = () => {
- (async () => {
-    await getCartList(category);
-  })();
-  };
-
   useEffect(() => {
-    CardList();
+    const getCartList = async (category: string) => {
+      const cardList = await fetchItemCards(category);
+      setList(cardList);
+    };
+    getCartList(category).catch(error => console.error(error));
   }, [category]);
 
   if (!list) {
