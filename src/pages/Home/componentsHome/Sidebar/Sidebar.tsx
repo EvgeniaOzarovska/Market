@@ -43,7 +43,7 @@ export const Sidebar = (props: ISidebar) => {
 
   return (
     <CustomSidebar data-testid="sidebar-block">
-      {categoriesList.length > 0 ? (
+      {categoriesList?.length > 0 ? (
         categoriesList.map((item: IItem) => {
           return (
             <Category data-testid="sidebar-category" key={item.key} onClick={() => setValue(item)}>
